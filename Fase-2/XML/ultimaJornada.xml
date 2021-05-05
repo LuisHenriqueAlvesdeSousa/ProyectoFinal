@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<jornada id="0001" fecha="05-05-2021">
+                  <partido id="0001" hora="17:30">
+                                    <equipo id="0001">
+                                                    <nombre>Astralis</nombre>
+                                                    <pais>Belgica</pais>
+                                                    <estado>eliminado</estado>
+                                    </equipo>
+                                    <equipo id="0002">
+                                                    <nombre>Giant</nombre>
+                                                    <pais>Rusia</pais>
+                                                    <estado>clasificado</estado>
+                                    </equipo>
+                  </partido>
+                  <partido id="0002" hora="18:30">
+                                    <equipo id="0003">
+                                                    <nombre>G2A</nombre>
+                                                    <pais>Espana</pais>
+                                                    <estado>eliminado</estado>
+                                    </equipo>
+                                    <equipo id="0004">
+                                                    <nombre>Cloud9</nombre>
+                                                    <pais>Polonia</pais>
+                                                    <estado>clasificado</estado>
+                                    </equipo>
+                  </partido>
+                  <partido id="0003" hora="19:30">
+                                    <equipo id="0005">
+                                                    <nombre>Aestethics</nombre>
+                                                    <pais>Italia</pais>
+                                                    <estado>clasificado</estado>
+                                    </equipo>
+                                    <equipo id="0006">
+                                                    <nombre>Naranjito</nombre>
+                                                    <pais>Venezuela</pais>
+                                                    <estado>eliminado</estado>
+                                    </equipo>
+                  </partido>
+                  <partido id="0004" hora="20:30">
+                                    <equipo id="0007">
+                                                    <nombre>Goku</nombre>
+                                                    <pais>Japon</pais>
+                                                    <estado>clasificado</estado>
+                                    </equipo>
+                                    <equipo id="0008">
+                                                    <nombre>Shin</nombre>
+                                                    <pais>China</pais>
+                                                    <estado>eliminado</estado>
+                                    </equipo>
+                  </partido>
+</jornada>
