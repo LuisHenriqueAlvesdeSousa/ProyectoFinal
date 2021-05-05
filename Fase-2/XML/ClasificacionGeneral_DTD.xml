@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<clasificacion>
+<!DOCTYPE clasificacion SYSTEM "ClasificacionGeneral_DTD.dtd">
+<clasificacion  xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation = "ClasificacionGeneral_XSD.xsd">
                           <jornada id="0002" fecha="2021-05-12">
                                             <equipo id="0001" estado="clasificado">
                                                             <nombre>Astralis</nombre>
