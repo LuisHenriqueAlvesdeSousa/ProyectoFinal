@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<clasificacion>
+<clasificacion  xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation = "ClasificacionGeneral.xsd">
                           <jornada id="0002" fecha="2021-05-12">
                                             <equipo id="0001" estado="clasificado">
                                                             <nombre>Astralis</nombre>
