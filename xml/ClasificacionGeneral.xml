@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE clasificacion SYSTEM "ClasificacionGeneral_DTD.dtd">
+<clasificacion  xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation = "ClasificacionGeneral_XSD.xsd">
+                          <jornada id="001" fecha="2021-08-05">
+                                            <equipo estado="clasificado">
+                                                            <nombre>Astralis</nombre>
+                                                            <pais>Polonia</pais>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador> 
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                            </equipo>
+                                            <equipo estado="clasificado">
+                                                            <nombre>Natus Vincere</nombre>
+                                                            <pais>Rusia</pais>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador> 
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                            </equipo>
+                                            <equipo estado="clasificado">
+                                                            <nombre>Virtus Pro</nombre>
+                                                            <pais>Rusia</pais>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador> 
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                            </equipo>
+                                            <equipo estado="clasificado">
+                                                            <nombre>Astralis</nombre>
+                                                            <pais>Polonia</pais>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador> 
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                                            <jugador>
+                                                                              <nickname></nickname>
+                                                                              <rol></rol>
+                                                            </jugador>
+                                            </equipo>
+                          </jornada>
+</clasificacion>
