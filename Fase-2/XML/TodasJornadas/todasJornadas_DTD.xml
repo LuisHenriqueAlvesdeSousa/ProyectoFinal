@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <torneo>
-                <jornada id="0001" fecha="05-05-2021">
+                <jornada id="0001" fecha="2021-04-27">
                                 <partido id="0001" hora="17:30">
                                                   <equipo id="0001">
                                                                   <nombre>Astralis</nombre>
