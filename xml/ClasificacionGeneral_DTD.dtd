@@ -1,0 +1,11 @@
+<!ELEMENT clasificacion (jornada+)>
+<!ELEMENT jornada (equipo+)>
+<!ATTLIST jornada id ID #REQUIRED>
+<!ATTLIST jornada fecha CDATA #REQUIRED>
+<!ELEMENT equipo (nombre, pais, jugador)>
+<!ATTLIST equipo estado NMTOKEN #FIXED "clasificado">
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT jugador (nickname, rol)>
+<!ELEMENT nickname (#PCDATA)>
+<!ELEMENT rol (#PCDATA)>
