@@ -7,6 +7,10 @@
 <!ATTLIST partido hora CDATA #REQUIRED>
 <!ELEMENT equipo (nombre, pais)>
 <!ATTLIST equipo id CDATA #REQUIRED>
+<<<<<<< HEAD
 <!ATTLIST equipo estado (clasificado|eliminado) "clasificado">
+=======
+<!ATTLIST equipo puntuacion CDATA #IMPLIED>
+>>>>>>> lineaRober
 <!ELEMENT nombre (#PCDATA)>
 <!ELEMENT pais (#PCDATA)>

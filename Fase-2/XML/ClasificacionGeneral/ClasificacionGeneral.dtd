@@ -4,7 +4,11 @@
 <!ATTLIST jornada fecha CDATA #REQUIRED>
 <!ELEMENT equipo (nombre, pais, jugador+)>
 <!ATTLIST equipo id CDATA #REQUIRED>
+<<<<<<< HEAD
 <!ATTLIST equipo estado NMTOKEN #FIXED "clasificado">
+=======
+<!ATTLIST equipo puntuacion CDATA #IMPLIED>
+>>>>>>> lineaRober
 <!ELEMENT nombre (#PCDATA)>
 <!ELEMENT pais (#PCDATA)>
 <!ELEMENT jugador (nickname, rol)>

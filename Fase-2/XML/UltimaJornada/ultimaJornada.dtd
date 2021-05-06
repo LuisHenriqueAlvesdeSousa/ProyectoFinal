@@ -1,5 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/lineaRober
+=======
+<!ELEMENT torneo (jornada+)>
+<!ATTLIST torneo estado (abierto|cerrado) "abierto">
+>>>>>>> lineaRober
 <!ELEMENT jornada (partido+)>
 <!ATTLIST jornada id CDATA #REQUIRED>
 <!ATTLIST jornada fecha CDATA #REQUIRED>
@@ -8,7 +13,7 @@
 <!ATTLIST partido hora CDATA #REQUIRED>
 <!ELEMENT equipo (nombre, pais)>
 <!ATTLIST equipo id CDATA #REQUIRED>
-<!ATTLIST equipo estado (clasificado|eliminado) "clasificado">
+<!ATTLIST equipo puntuacion CDATA #IMPLIED>
 <!ELEMENT nombre (#PCDATA)>
 =======
 <!ELEMENT jornada (partido+)>

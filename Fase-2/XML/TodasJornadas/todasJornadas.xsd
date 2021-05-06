@@ -22,7 +22,7 @@
                                           <xs:element name="equipo" type="tequipo" minOccurs="2" maxOccurs="2"/>
                               </xs:sequence>
                               <xs:attribute name="id" type="xs:positiveInteger"/>
-                              <xs:attribute name="fecha" type="xs:time"/>
+                              <xs:attribute name="hora" type="xs:time"/>
 </xs:complexType>
 
 
@@ -32,7 +32,7 @@
                                             <xs:element name="pais" type="xs:string" minOccurs="1" maxOccurs="1"/>
                               </xs:sequence>
                               <xs:attribute name="id" type="xs:positiveInteger"/>
-                              <xs:attribute name="estado" type="testado"/>
+                              <xs:attribute name="puntuacion" type="xs:positiveInteger"/>
 </xs:complexType>
 
 <xs:simpleType name="testado">
