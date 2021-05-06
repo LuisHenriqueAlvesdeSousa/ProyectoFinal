@@ -24,6 +24,7 @@
                                             <xs:element name="jugador" type="tjugador" minOccurs="1" maxOccurs="6"/>
                               </xs:sequence>
                               <xs:attribute name="estado" type="testado"/>
+                              <xs:attribute name="id" type="xs:positiveInteger"/>
 </xs:complexType>
 
 <xs:complexType name="tjugador">
@@ -31,6 +32,7 @@
                                                       <xs:element name="nickname" type="xs:string" minOccurs="1" maxOccurs="1"/>
                                                       <xs:element name="rol" type="xs:string" minOccurs="1" maxOccurs="1"/>
                               </xs:sequence>
+                              <xs:attribute name="id" type="xs:positiveInteger"/>
 </xs:complexType>
 
 <xs:simpleType name="testado">
