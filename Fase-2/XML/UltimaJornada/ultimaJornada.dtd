@@ -1,0 +1,11 @@
+<!ELEMENT jornada (partido+)>
+<!ATTLIST jornada id CDATA #REQUIRED>
+<!ATTLIST jornada fecha CDATA #REQUIRED>
+<!ELEMENT partido (equipo+)>
+<!ATTLIST partido id CDATA #REQUIRED>
+<!ATTLIST partido hora CDATA #REQUIRED>
+<!ELEMENT equipo (nombre, pais)>
+<!ATTLIST equipo id CDATA #REQUIRED>
+<!ATTLIST equipo estado (clasificado|eliminado) "clasificado">
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
