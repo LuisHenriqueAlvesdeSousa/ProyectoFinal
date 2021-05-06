@@ -23,11 +23,7 @@
                                             <xs:element name="pais" type="xs:string" minOccurs="1" maxOccurs="1"/>
                                             <xs:element name="jugador" type="tjugador" minOccurs="1" maxOccurs="6"/>
                               </xs:sequence>
-<<<<<<< HEAD
-                              <xs:attribute name="estado" type="testado"/>
-=======
                               <xs:attribute name="puntuacion" type="xs:positiveInteger"/>
->>>>>>> lineaRober
                               <xs:attribute name="id" type="xs:positiveInteger"/>
 </xs:complexType>
 
