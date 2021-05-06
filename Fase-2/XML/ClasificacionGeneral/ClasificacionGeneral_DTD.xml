@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE clasificacion SYSTEM "ClasificacionGeneral_DTD.dtd">
+<!DOCTYPE clasificacion SYSTEM "ClasificacionGeneral.dtd">
 <clasificacion>
                           <jornada id="0002" fecha="2021-05-12">
                                             <equipo id="0001" estado="clasificado">
