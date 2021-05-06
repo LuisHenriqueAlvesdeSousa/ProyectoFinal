@@ -2,7 +2,7 @@
 <clasificacion  xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
     xs:noNamespaceSchemaLocation = "ClasificacionGeneral.xsd">
                           <jornada id="0002" fecha="2021-05-12">
-                                            <equipo id="0001" estado="clasificado">
+                                            <equipo id="0001" puntuacion="52">
                                                             <nombre>Astralis</nombre>
                                                             <pais>Polonia</pais>
                                                             <jugador id="0001">
@@ -26,7 +26,7 @@
                                                                               <rol>In-Game Leader</rol>
                                                             </jugador>
                                             </equipo>
-                                            <equipo id="0006" estado="clasificado">
+                                            <equipo id="0006" puntuacion="11">
                                                             <nombre>Giants</nombre>
                                                             <pais>Espana</pais>
                                                             <jugador id="0026">
@@ -50,7 +50,7 @@
                                                                               <rol>Lurker</rol>
                                                             </jugador>
                                             </equipo>
-                                            <equipo id="0004" estado="clasificado">
+                                            <equipo id="0004" puntuacion="18">
                                                             <nombre>FaZe Clan</nombre>
                                                             <pais>Estados Unidos</pais>
                                                             <jugador id="0016">
@@ -74,7 +74,7 @@
                                                                               <rol>Lurker</rol>
                                                             </jugador>
                                             </equipo>
-                                            <equipo id="0002" estado="clasificado">
+                                            <equipo id="0002" puntuacion="22">
                                                             <nombre>Natus Vincere</nombre>
                                                             <pais>Rusia</pais>
                                                             <jugador id="0006">
