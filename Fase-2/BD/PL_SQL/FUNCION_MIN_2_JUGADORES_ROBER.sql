@@ -13,16 +13,15 @@ BEGIN
         WHERE IDEQUIPO=IDE;
         
         IF N_JUGADORES < 2 THEN
-            RETURN TRUE;
+            RETURN FALSE;
         END IF;
-        RETURN FASE;
     END LOOP;
+    RETURN TRUE;
 EXCEPTION
     WHEN OTHERS THEN 
         V_MENSAJE:= 'Se ha detectado el error ' || sqlcode || ': ' ||
         SQLERRM;
         RAISE_APPLICATION_ERROR(-20002, V_MENSAJE);
 END;
-        
         
         
