@@ -4,7 +4,6 @@ IS
     CURSOR MICURSOR IS SELECT DISTINCT(IDEQUIPO) FROM EQUIPOS;
     IDE EQUIPOS.IDEQUIPO%TYPE;
     N_JUGADORES NUMBER;
-    MIN_2_JUGADORES EXCEPTION;
     V_MENSAJE VARCHAR2(1000);
 BEGIN
     OPEN MICURSOR;
@@ -14,13 +13,11 @@ BEGIN
         WHERE IDEQUIPO=IDE;
         
         IF N_JUGADORES < 2 THEN
-            RAISE MIN_2_JUGADORES;
+            RETURN TRUE;
         END IF;
+        RETURN FASE;
     END LOOP;
 EXCEPTION
-    WHEN MIN_2_JUGADORES THEN
-        V_MENSAJE := 'Debe haber un mínimo de 2 jugadores en el equipo ' || ide;
-        RAISE_APPLICATION_ERROR(-20003, V_MENSAJE);
     WHEN OTHERS THEN 
         V_MENSAJE:= 'Se ha detectado el error ' || sqlcode || ': ' ||
         SQLERRM;
