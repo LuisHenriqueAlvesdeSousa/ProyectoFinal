@@ -1,4 +1,5 @@
-<!ELEMENT torneo (jornada+)>
+<!ELEMENT torneo (info+)>
+<!ELEMENT info (jornada+)>
 <!ELEMENT jornada (partido+)>
 <!ATTLIST jornada id CDATA #REQUIRED>
 <!ATTLIST jornada fecha CDATA #REQUIRED>

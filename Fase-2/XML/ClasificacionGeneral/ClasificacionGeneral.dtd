@@ -1,4 +1,5 @@
-<!ELEMENT clasificacion (jornada+)>
+<!ELEMENT clasificacion (info)>
+<!ELEMENT info (jornada+)>
 <!ELEMENT jornada (equipo+)>
 <!ATTLIST jornada id CDATA #REQUIRED>
 <!ATTLIST jornada fecha CDATA #REQUIRED>

@@ -1,3 +1,5 @@
+<!ELEMENT ultimaJornada (info)>
+<!ELEMENT info (torneo)>
 <!ELEMENT torneo (jornada+)>
 <!ATTLIST torneo estado (abierto|cerrado) "abierto">
 <!ELEMENT jornada (partido+)>

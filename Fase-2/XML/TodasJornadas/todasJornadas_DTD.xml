@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE torneo SYSTEM "todasJornadas.dtd">
 <torneo>
+        <info>
                 <jornada id="0001" fecha="2021-04-27">
                                 <partido id="0001" hora="17:30">
                                                   <equipo id="0001" puntuacion="34">
@@ -43,6 +44,8 @@
                                                   </equipo>
                                 </partido>
                 </jornada>
+        </info>
+        <info>
                 <jornada id="0002" fecha="2021-05-12">
                                 <partido id="0009" hora="17:30">
                                                   <equipo id="0007" puntuacion="18">
@@ -65,6 +68,8 @@
                                                   </equipo>
                                 </partido>
                 </jornada>
+        </info>
+        <info>        
                 <jornada id="0003" fecha="2021-05-19">
                                 <partido id="0011" hora="17:30">
                                                   <equipo id="0004" puntuacion="34">
@@ -77,4 +82,5 @@
                                                   </equipo>
                                 </partido>
                 </jornada>
+        </info>
 </torneo>

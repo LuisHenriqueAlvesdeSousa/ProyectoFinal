@@ -1,7 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-<xs:element name="jornada" type="tjornada"/>
-  
+<xs:element name="ultimaJornada" type="tultimaJornada"/>
+
+<xs:complexType name="tultimaJornada">
+                              <xs:sequence>
+                                          <xs:element name="info" type="tinfo"/>
+                              </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tinfo">
+                              <xs:sequence>
+                                          <xs:element name="torneo" type="ttorneo"/>
+                              </xs:sequence>
+</xs:complexType>
+
+<xs:complextype name="ttorneo">
+                              <xs:sequence>
+                                          <xs:element name="jornada" type="tjornada"/>
+                              </xs:sequence>
+<xs:complextype>
 
 <xs:complexType name="tjornada">
                               <xs:sequence>
