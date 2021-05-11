@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE torneo SYSTEM "ultimaJornada.dtd">
+<!DOCTYPE ultimaJornada SYSTEM "ultimaJornada.dtd">
 <ultimaJornada>
               <info>
-                    <torneo estado="cerrado">
+                    <torneo estado="CERRADO">
                                    <jornada id="0001" fecha="05-05-2021">
                                                      <partido id="0001" hora="17:30:00">
                                                                        <equipo id="0001" puntuacion="21">

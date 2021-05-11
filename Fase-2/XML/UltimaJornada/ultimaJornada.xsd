@@ -14,11 +14,12 @@
                               </xs:sequence>
 </xs:complexType>
 
-<xs:complextype name="ttorneo">
+<xs:complexType name="ttorneo">
                               <xs:sequence>
                                           <xs:element name="jornada" type="tjornada"/>
                               </xs:sequence>
-<xs:complextype>
+                              <xs:attribute name="estado" type="ttorneoestado"/>
+</xs:complexType>
 
 <xs:complexType name="tjornada">
                               <xs:sequence>
@@ -43,17 +44,13 @@
                                             <xs:element name="pais" type="xs:string" minOccurs="1" maxOccurs="1"/>
                               </xs:sequence>
                               <xs:attribute name="id" type="xs:positiveInteger"/>
-                              <xs:attribute name="estado" type="testado"/>
 </xs:complexType>
 
-<xs:simpleType name="testado">
-                            <xs:restriction base="xs:string">
-                                                      <xs:enumeration value="clasificado"/>
-                                                      <xs:enumeration value="eliminado"/>
+<xs:simpleType name="ttorneoestado">
+                              <xs:restriction base="xs:string">
+                                                      <xs:enumeration value="ABIERTO"/>
+                                                      <xs:enumeration value="CERRADO"/>
                             </xs:restriction>
 </xs:simpleType>
-
-
-
 
 </xs:schema>

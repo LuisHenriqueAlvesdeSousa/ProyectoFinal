@@ -3,11 +3,11 @@
 
 <xs:element name="clasificacion" type="tclasificacion"/>
 
-<xs:complextype name="tclasificacion">
+<xs:complexType name="tclasificacion">
                               <xs:sequence>
                                             <xs:element name="info" type="tinfo"/>
                               </xs:sequence>
-</xs:complextype>  
+</xs:complexType>
   
 <xs:complexType name="tinfo">
                               <xs:sequence>

@@ -1,7 +1,7 @@
 <!ELEMENT ultimaJornada (info)>
 <!ELEMENT info (torneo)>
 <!ELEMENT torneo (jornada+)>
-<!ATTLIST torneo estado (abierto|cerrado) "abierto">
+<!ATTLIST torneo estado (ABIERTO|CERRADO) "ABIERTO">
 <!ELEMENT jornada (partido+)>
 <!ATTLIST jornada id CDATA #REQUIRED>
 <!ATTLIST jornada fecha CDATA #REQUIRED>

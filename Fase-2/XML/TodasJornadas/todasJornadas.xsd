@@ -2,11 +2,11 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 <xs:element name="torneo" type="ttorneo"/>
   
-<xs:complextype name="ttorneo">
+<xs:complexType name="ttorneo">
                               <xs:sequence>
                                           <xs:element name="info" type="tinfo" minOccurs="1" maxOccurs="unbounded"/> 
                               </xs:sequence>
-</xs:complextype>
+</xs:complexType>
 
 <xs:complexType name="tinfo">
                               <xs:sequence>
