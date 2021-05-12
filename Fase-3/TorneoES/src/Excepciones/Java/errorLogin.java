@@ -3,20 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package torneoes;
+package Excepciones.Java;
 
 /**
  *
  * @author 1GDAW04
  */
-public class TorneoES {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-    }
+//Si da error la contraseña o el usuario en el login
+public class errorLogin {
     
 }
