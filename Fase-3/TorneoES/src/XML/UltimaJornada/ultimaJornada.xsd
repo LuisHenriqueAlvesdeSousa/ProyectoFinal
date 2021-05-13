@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:element name="ultimaJornada" type="tultimaJornada"/>
+
+<xs:complexType name="tultimaJornada">
+                              <xs:sequence>
+                                          <xs:element name="info" type="tinfo"/>
+                              </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tinfo">
+                              <xs:sequence>
+                                          <xs:element name="torneo" type="ttorneo"/>
+                              </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ttorneo">
+                              <xs:sequence>
+                                          <xs:element name="jornada" type="tjornada"/>
+                              </xs:sequence>
+                              <xs:attribute name="estado" type="ttorneoestado"/>
+</xs:complexType>
+
+<xs:complexType name="tjornada">
+                              <xs:sequence>
+                                          <xs:element name="partido" type="tpartido" minOccurs="1" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                              <xs:attribute name="id" type="xs:positiveInteger"/>
+                              <xs:attribute name="fecha" type="xs:date"/>
+</xs:complexType>
+
+<xs:complexType name="tpartido">
+                              <xs:sequence>
+                                          <xs:element name="equipo" type="tequipo" minOccurs="2" maxOccurs="2"/>
+                              </xs:sequence>
+                              <xs:attribute name="id" type="xs:positiveInteger"/>
+                              <xs:attribute name="hora" type="xs:time"/>
+</xs:complexType>
+
+
+<xs:complexType name="tequipo">
+                              <xs:sequence>
+                                            <xs:element name="nombre" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                            <xs:element name="pais" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                              </xs:sequence>
+                              <xs:attribute name="id" type="xs:positiveInteger"/>
+</xs:complexType>
+
+<xs:simpleType name="ttorneoestado">
+                              <xs:restriction base="xs:string">
+                                                      <xs:enumeration value="ABIERTO"/>
+                                                      <xs:enumeration value="CERRADO"/>
+                            </xs:restriction>
+</xs:simpleType>
+
+</xs:schema>
