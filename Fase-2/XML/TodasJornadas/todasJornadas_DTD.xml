@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE torneo SYSTEM "todasJornadas.dtd">
+<torneo>
+        <info>
+                <jornada id="0001" fecha="2021-04-27">
+                                <partido id="0001" hora="17:30">
+                                                  <equipo id="0001" puntuacion="34">
+                                                                  <nombre>Astralis</nombre>
+                                                                  <pais>Belgica</pais>
+                                                  </equipo>
+                                                  <equipo id="0002" puntuacion="4">
+                                                                  <nombre>Giant</nombre>
+                                                                  <pais>Rusia</pais>
+                                                  </equipo>
+                                </partido>
+                                <partido id="0002" hora="18:30">
+                                                  <equipo id="0003" puntuacion="14">
+                                                                  <nombre>G2A</nombre>
+                                                                  <pais>Espana</pais>
+                                                  </equipo>
+                                                  <equipo id="0004" puntuacion="18">
+                                                                  <nombre>Cloud9</nombre>
+                                                                  <pais>Polonia</pais>
+                                                  </equipo>
+                                </partido>
+                                <partido id="0003" hora="19:30">
+                                                  <equipo id="0005" puntuacion="22">
+                                                                  <nombre>Aestethics</nombre>
+                                                                  <pais>Italia</pais>
+                                                  </equipo>
+                                                  <equipo id="0006" puntuacion="3">
+                                                                  <nombre>Naranjito</nombre>
+                                                                  <pais>Venezuela</pais>
+                                                  </equipo>
+                                </partido>
+                                <partido id="0004" hora="20:30">
+                                                  <equipo id="0007" puntuacion="45">
+                                                                  <nombre>Goku</nombre>
+                                                                  <pais>Japon</pais>
+                                                  </equipo>
+                                                  <equipo id="0008" puntuacion="14">
+                                                                  <nombre>Shin</nombre>
+                                                                  <pais>China</pais>
+                                                  </equipo>
+                                </partido>
+                </jornada>
+        </info>
+        <info>
+                <jornada id="0002" fecha="2021-05-12">
+                                <partido id="0009" hora="17:30">
+                                                  <equipo id="0007" puntuacion="18">
+                                                                  <nombre>Goku</nombre>
+                                                                  <pais>Japon</pais>
+                                                  </equipo>
+                                                  <equipo id="0002" puntuacion="11">
+                                                                  <nombre>Giant</nombre>
+                                                                  <pais>Rusia</pais>
+                                                  </equipo>
+                                </partido>
+                                <partido id="0010" hora="18:30">
+                                                  <equipo id="0005" puntuacion="14">
+                                                                  <nombre>Aestethics</nombre>
+                                                                  <pais>Italia</pais>
+                                                  </equipo>
+                                                  <equipo id="0004" puntuacion="33">
+                                                                  <nombre>Cloud9</nombre>
+                                                                  <pais>Polonia</pais>
+                                                  </equipo>
+                                </partido>
+                </jornada>
+        </info>
+        <info>        
+                <jornada id="0003" fecha="2021-05-19">
+                                <partido id="0011" hora="17:30">
+                                                  <equipo id="0004" puntuacion="34">
+                                                                  <nombre>Cloud9</nombre>
+                                                                  <pais>Polonia</pais>
+                                                  </equipo>
+                                                  <equipo id="0002" puntuacion="24">
+                                                                  <nombre>Giant</nombre>
+                                                                  <pais>Rusia</pais>
+                                                  </equipo>
+                                </partido>
+                </jornada>
+        </info>
+</torneo>

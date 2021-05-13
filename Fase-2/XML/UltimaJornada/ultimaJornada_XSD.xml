@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ultimaJornada xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+                xs:noNamespaceSchemaLocation = "ultimaJornada.xsd">
+            <info>
+                <torneo estado="CERRADO">
+                        <jornada id="0001" fecha="2021-05-05">
+                                  <partido id="0001" hora="17:30:00">
+                                                    <equipo id="0001">
+                                                                    <nombre>Astralis</nombre>
+                                                                    <pais>Belgica</pais>
+                                                    </equipo>
+                                                    <equipo id="0002">
+                                                                    <nombre>Giant</nombre>
+                                                                    <pais>Rusia</pais>
+                                                    </equipo>
+                                  </partido>
+                                  <partido id="0002" hora="18:30:00">
+                                                    <equipo id="0003">
+                                                                    <nombre>G2A</nombre>
+                                                                    <pais>Espana</pais>
+                                                    </equipo>
+                                                    <equipo id="0004">
+                                                                    <nombre>Cloud9</nombre>
+                                                                    <pais>Polonia</pais>
+                                                    </equipo>
+                                  </partido>
+                                  <partido id="0003" hora="19:30:00">
+                                                    <equipo id="0005">
+                                                                    <nombre>Aestethics</nombre>
+                                                                    <pais>Italia</pais>
+                                                    </equipo>
+                                                    <equipo id="0006">
+                                                                    <nombre>Naranjito</nombre>
+                                                                    <pais>Venezuela</pais>
+                                                    </equipo>
+                                  </partido>
+                                  <partido id="0004" hora="20:30:00">
+                                                    <equipo id="0007">
+                                                                    <nombre>Goku</nombre>
+                                                                    <pais>Japon</pais>
+                                                    </equipo>
+                                                    <equipo id="0008">
+                                                                    <nombre>Shin</nombre>
+                                                                    <pais>China</pais>
+                                                    </equipo>
+                                  </partido>
+                        </jornada>
+                </torneo>
+            </info>
+</ultimaJornada>
