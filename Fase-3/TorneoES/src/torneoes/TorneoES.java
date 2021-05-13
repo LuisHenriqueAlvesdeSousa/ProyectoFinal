@@ -5,17 +5,22 @@
  */
 package torneoes;
 
+import BD.BaseDatos;
+
 /**
  *
  * @author 1GDAW04
  */
 public class TorneoES {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        try{
+            BaseDatos.conectar();
+        }
+        catch(Exception e){
+            System.out.println("Error");
+        }
         
     }
     
