@@ -2,6 +2,9 @@ package BD;
 import java.sql.*;
 import UML.Jugador;
 import UML.Persona;
+import BD.BaseDatos;
+import java.util.ArrayList;
+import UML.Persona;
 import java.util.ArrayList;
 
 public class tablaJugadores {
