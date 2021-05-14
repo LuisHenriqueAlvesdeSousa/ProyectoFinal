@@ -7,8 +7,6 @@ public class Perfil {
     private String passwd;
     private String privilegios;
 
-    public Perfil() {
-    }
     
     public Perfil(int idPerfil, String usuario, String passwd, String privilegios) {
         this.idPerfil = idPerfil;
@@ -55,3 +53,7 @@ public class Perfil {
     
     
 }
+
+    public Perfil() {
+    }
+

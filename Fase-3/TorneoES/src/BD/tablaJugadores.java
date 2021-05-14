@@ -169,4 +169,11 @@ public class tablaJugadores {
         BaseDatos.desconectar();
         return listaJugadores;
     }
+    public static void modJugador (Jugador jugador) throws Exception{
+    }
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        tablaPersonas.modPersona(Jugador jugador);
+        BaseDatos.desconectar();
 }
