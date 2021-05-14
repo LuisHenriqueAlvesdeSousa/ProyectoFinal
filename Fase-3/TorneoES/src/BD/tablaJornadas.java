@@ -24,6 +24,9 @@ public class tablaJornadas {
     }
     
     public static void crearJornada(Jornada j) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("INSERT INTO JORNADAS (FECHA, IDTORNEO) VALUES (?, ?);");
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
@@ -32,9 +35,14 @@ public class tablaJornadas {
         //relacion con partidos
         ps.executeUpdate();  
         
+        BaseDatos.desconectar();
+        
     }
     
     public static void modFechaJornada(Jornada j)  throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("UPDATE JORNADAS SET FECHA=? WHERE IDJORNADA=?;");
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
@@ -42,25 +50,37 @@ public class tablaJornadas {
 
         int n = ps.executeUpdate();
         
+        BaseDatos.desconectar();
+        
         if( n > 1)
             throw new Exception("Se ha modificado mas de una jornada");
     }
     
     public static void eliminarJornada(Jornada j)  throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("DELETE FROM JORNADAS WHERE IDJORNADA=?;");
         ps.setInt(1, j.getIdJornada());
 
         int n = ps.executeUpdate();  
+        
+        BaseDatos.desconectar();
         
         if( n > 1)
             throw new Exception("Se ha eliminado mas de una jornada");
     }
     
     public static Jornada jornadaById(String idJornada) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS WHERE UPPER(IDJORNADA)=UPPER(?);");
         ps.setString(1, idJornada);
 
         ResultSet resultado = ps.executeQuery();
+        
+       
 
         Jornada j = new Jornada();
         j.setIdJornada(resultado.getInt("IDJORNADA"));
@@ -69,10 +89,16 @@ public class tablaJornadas {
         j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
         ****
                 //Falta la relacion con partidos;
+                
+        BaseDatos.desconectar();
+                
         return j;  
     }
     
     public static ArrayList<Jornada> allJornadas() throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS;");
 
 
@@ -87,6 +113,8 @@ public class tablaJornadas {
             j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
             ****
                     //Falta la relacion con partidos;
+                    
+            BaseDatos.desconectar();
         }
         return j;  
     }

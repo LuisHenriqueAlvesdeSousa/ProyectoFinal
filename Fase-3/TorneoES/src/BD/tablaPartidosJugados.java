@@ -24,6 +24,9 @@ public class tablaPartidosJugados {
     }
     
     public static void crearPartidoJugado(PartidoJugado p) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("INSERT INTO PARTIDOS_JUGADOS (IDEQUIPO, IDPARTIDO, PUNTUACION) "
                 + "VALUES (?, ?, ?);");
         ps.setInt(1, p.getEquipo().getIdEquipo());
@@ -32,9 +35,13 @@ public class tablaPartidosJugados {
         
         ps.executeUpdate();  
         
+        BaseDatos.desconectar();        
     }
     
     public static void modPartidoJugado(PartidoJugado p)  throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("UPDATE PARTIDOS_JUGADOS SET PUNTUACION=?"
                                                     + " WHERE IDPARTIDO=? AND IDEQUIPO=?;");
         ps.setInt(1, p.getPuntuacion());
@@ -43,11 +50,16 @@ public class tablaPartidosJugados {
 
         int n = ps.executeUpdate();
         
+        BaseDatos.desconectar();
+        
         if( n > 1)
             throw new Exception("Se ha modificado mas de un resultado de partido");
     }
     
     public static void eliminarPartidoJugado(PartidoJugado p)  throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("DELETE FROM PARTIDOS_JUGADOS WHERE IDPARTIDO=? AND "
                                                     + "IDEQUIPO=?;");
         ps.setInt(1, p.getPartido().getIdPartido());
@@ -55,11 +67,16 @@ public class tablaPartidosJugados {
 
         int n = ps.executeUpdate();  
         
+        BaseDatos.desconectar();
+        
         if( n > 1)
             throw new Exception("Se ha eliminado mas de un resultado de partido");
     }
     
     public static PartidoJugado partidoJugadoById(int idPartido, int idEquipo) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS WHERE IDPARTIDO=? AND "
                                                     + "IDEQUIPO=?;");
         ps.setInt(1, idPartido);
@@ -72,10 +89,15 @@ public class tablaPartidosJugados {
         p.setPartido(//relacion partidos);
         p.setPuntuacion(resultado.getInt("PUNTUACION"));
         
+        BaseDatos.desconectar();
+        
         return p;
     }
     
     public static ArrayList<PartidoJugado> allPartidosJugados() throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS_JUGADOS;");
         
 
@@ -89,6 +111,8 @@ public class tablaPartidosJugados {
             p.setPuntuacion(resultado.getInt("PUNTUACION"));
             partidos.add(p);
         }
+        
+        BaseDatos.desconectar();
         
         return p;
     }
