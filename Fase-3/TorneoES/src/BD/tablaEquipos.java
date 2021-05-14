@@ -1,6 +1,7 @@
 package BD;
 import java.sql.*;
 import UML.Equipo;
+import java.util.ArrayList;
 import BD.BaseDatos;
 
 public class tablaEquipos {
@@ -29,7 +30,7 @@ public class tablaEquipos {
         BaseDatos.desconectar();
     }
     
-    public static void consultaIDEquipo (Equipo equipo) throws Exception{
+    public static void consultaByIdEquipo (Equipo equipo) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -38,6 +39,32 @@ public class tablaEquipos {
         ps.setInt(1, equipo.getIdEquipo);
         
         BaseDatos.desconectar();
+    }
+    
+    public static ArrayList<Equipo> allEquipo (Equipo equipo) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM EQUIPOS;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ResultSet resultado = ps.executeQuery();
+        
+        Equipo equipoActual = new Equipo();
+        ArrayList<Equipo> listaEquipos = new ArrayList();
+        
+        if (resultado == null){
+            listaEquipos = null;
+            System.out.println("No se han encontrado equipos en la BD");
+        }
+        else{
+            while(resultado.next()){
+                equipoActual.setIdEquipo(resultado.getInt("IDEQUIPO"));
+                equipoActual.setNombre(resultado.getString("NOMBRE"));
+                equipoActual.setPais(resultado.getString("PAIS"));
+            }
+        }
+        BaseDatos.desconectar();
+        return listaEquipos;
     }
     
     public static void eliminarEquipo (Equipo equipo) throws Exception{
@@ -62,4 +89,5 @@ public class tablaEquipos {
         
         BaseDatos.desconectar();
     }
+    
 }

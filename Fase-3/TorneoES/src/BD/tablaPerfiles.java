@@ -2,6 +2,7 @@ package BD;
 import java.sql.*;
 import UML.Perfil;
 import BD.BaseDatos;
+import java.util.ArrayList;
 
 public class tablaPerfiles {
     private static Connection con;
@@ -41,20 +42,50 @@ public class tablaPerfiles {
         BaseDatos.desconectar();
     }
     
-    public static void consultaIDPerfil (Perfil perfil) throws Exception{
+    public static void consultaByIdPerfil (Perfil perfil) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         String plantilla = "SELECT * FROM PERFILES WHERE IDPERFIL=?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setInt(1, perfil.getIdPerfil);
+        ps.setInt(1, perfil.getIdPerfil());
         
         BaseDatos.desconectar();
+    }
+    
+    public static ArrayList<Perfil> allPerfil (Perfil perfil) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM PERFILES;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ResultSet resultado = ps.executeQuery();
+        
+        Perfil perfilActual = new Perfil();
+        ArrayList<Perfil> listaPerfiles = new ArrayList();
+        
+        if(resultado == null){
+            listaPerfiles = null;
+            System.out.println("No hay perfiles creados en la BD");
+        }
+        else{
+            while(resultado.next()){
+                perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
+                perfilActual.setUsuario(resultado.getString("USUARIO"));
+                perfilActual.setPasswd(resultado.getString("PASSWD"));
+                //MIRAR PRIVILEGIOS
+            }
+        }
+        
+        BaseDatos.desconectar();
+        return listaPerfiles;
     }
     
     public static void modPerfil (Perfil perfil) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
+        
+        String plantilla = "UPDATE PERFILES SET"
         
         BaseDatos.desconectar();
     }
