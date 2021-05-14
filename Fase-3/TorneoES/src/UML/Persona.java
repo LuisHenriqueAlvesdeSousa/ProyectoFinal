@@ -33,18 +33,6 @@ public class Persona {
         this.fechaFinContrato = fechaFinContrato;
         this.nacionalidad = nacionalidad;
     }
-    
-    public Persona(String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad) {
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.sueldo = sueldo;
-        this.telefono = telefono;
-        this.fechaContrato = fechaContrato;
-        this.fechaFinContrato = fechaFinContrato;
-        this.nacionalidad = nacionalidad;
-    }
 
     public int getIdPersona() {
         return idPersona;
@@ -125,13 +113,10 @@ public class Persona {
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
-
+    
     @Override
     public String toString() {
         return "Id Persona:" + idPersona + " con dni " + dni + " y nombre " + nombre + " " + apellido + ". Fecha Nacimiento " + fechaNacimiento + "| Sueldo " + sueldo + "| Telefono: " + telefono + "| Fecha Contrato: " + fechaContrato + "| Fecha Fin Contrato: " + fechaFinContrato + "| Nacionalidad: " + nacionalidad;
     }
-    
-    
-    
     
 }
