@@ -48,6 +48,7 @@ public class tablaJefes {
         ps.setInt(1, j.getIdPersona());
         
         int n = ps.executeUpdate();
+        tablaPersonas.eliminarPersona(j);
         
         if(n != 1)
             throw new Exception("Se ha eliminado más de un Jefe.");
@@ -62,7 +63,10 @@ public class tablaJefes {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM JEFES;";
+        String plantilla = "SELECT * "
+                            + "FROM PERSONAS "
+                            + "WHERE IDPERSONA IN (SELECT * "
+                                                + "FROM JEFES);";
         PreparedStatement ps = con.prepareStatement(plantilla);
         
         ResultSet resultado = ps.executeQuery();
@@ -77,6 +81,19 @@ public class tablaJefes {
         else{
             while(resultado.next()){
                 jefeActual.setIdPersona(resultado.getInt("IDPERSONA"));
+                jefeActual.setDni(resultado.getString("DNI"));
+                jefeActual.setNombre(resultado.getString("NOMBRE"));
+                jefeActual.setApellido(resultado.getString("APELLIDO"));
+                jefeActual.setFechaNacimiento(
+                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                jefeActual.setSueldo(resultado.getDouble("SUELDO"));
+                jefeActual.setTelefono(resultado.getString("TELEFONO"));
+                jefeActual.setFechaContrato(
+                        resultado.getDate("FECHACONTRATO").toLocalDate());
+                jefeActual.setFechaFinContrato(
+                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                jefeActual.setNacionalidad(
+                        resultado.getString("NACIONALIDAD"));
                 listaJefes.add(jefeActual);
             }
             System.out.println("Todos los jefes selecionados con exito.");
