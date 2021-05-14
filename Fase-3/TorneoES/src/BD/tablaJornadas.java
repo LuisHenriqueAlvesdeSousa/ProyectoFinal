@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
 /**
  *
  * @author 1GDAW04
@@ -26,14 +27,14 @@ public class tablaJornadas {
         PreparedStatement ps = con.prepareStatement("INSERT INTO JORNADAS (FECHA, IDTORNEO) VALUES (?, ?);");
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
-        ps.setInt(1, j.getIdJornada());
+        ps.setInt(1, j.getTorneo().getIdTorneo());
         ***
         //relacion con partidos
         ps.executeUpdate();  
         
     }
     
-    public static void modJornada(Jornada j)  throws Exception{
+    public static void modFechaJornada(Jornada j)  throws Exception{
         PreparedStatement ps = con.prepareStatement("UPDATE JORNADAS SET FECHA=? WHERE IDJORNADA=?;");
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
@@ -65,9 +66,28 @@ public class tablaJornadas {
         j.setIdJornada(resultado.getInt("IDJORNADA"));
         LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
         j.setFecha(fecha);
-        j.setIdTorneo(resultado.getInt("IDTORNEO"));
+        j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
         ****
                 //Falta la relacion con partidos;
+        return j;  
+    }
+    
+    public static ArrayList<Jornada> allJornadas() throws Exception{
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS;");
+
+
+        ResultSet resultado = ps.executeQuery();
+
+        ArrayList<Jornada> jornadas= new ArrayList();
+        while(resultado.next()){
+            Jornada j = new Jornada();
+            j.setIdJornada(resultado.getInt("IDJORNADA"));
+            LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
+            j.setFecha(fecha);
+            j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
+            ****
+                    //Falta la relacion con partidos;
+        }
         return j;  
     }
 }

@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class Jornada {
     private int idJornada;
     private LocalDate fecha;
-    private int idTorneo;
+    private Torneo torneo;
     ArrayList<Partido> partidos;
 
-    public Jornada(LocalDate fecha) {
-        partidos = new ArrayList();
+    public Jornada(LocalDate fecha, Torneo torneo) {
         this.fecha = fecha;
+        this.torneo = torneo;
     }
 
     public Jornada() {
@@ -34,13 +34,15 @@ public class Jornada {
         this.idJornada = idJornada;
     }
 
-    public int getIdTorneo() {
-        return idTorneo;
+    public Torneo getTorneo() {
+        return torneo;
     }
 
-    public void setIdTorneo(int idTorneo) {
-        this.idTorneo = idTorneo;
+    public void setTorneo(Torneo torneo) {
+        this.torneo = torneo;
     }
+
+    
 
     public LocalDate getFecha() {
         return fecha;

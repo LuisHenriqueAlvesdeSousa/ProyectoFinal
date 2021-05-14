@@ -1,12 +1,12 @@
 package UML;
 
 public class PartidoJugado {
-    private int idPartido;
+    private Partido partido;
     private Equipo equipo;
     private int puntuacion;
 
-    public PartidoJugado(int idPartido, Equipo equipo, int puntuacion) {
-        this.idPartido = idPartido;
+    public PartidoJugado(Partido partido, Equipo equipo, int puntuacion) {
+        this.partido = partido;
         this.equipo = equipo;
         this.puntuacion = puntuacion;
     }
@@ -14,12 +14,12 @@ public class PartidoJugado {
     public PartidoJugado() {
     }
 
-    public void setIdPartido(int idPartido) {
-        this.idPartido = idPartido;
+    public Partido getPartido() {
+        return partido;
     }
-    
-    public int getIdPartido() {
-        return idPartido;
+
+    public void setPartido(Partido partido) {
+        this.partido = partido;
     }
 
     public Equipo getEquipo() {

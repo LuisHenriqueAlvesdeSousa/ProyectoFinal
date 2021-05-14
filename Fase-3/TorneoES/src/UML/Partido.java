@@ -3,7 +3,7 @@ package UML;
 import java.time.LocalTime;
 
 
-class Partido {
+public class Partido {
     private int idPartido;
     private LocalTime hora;
 

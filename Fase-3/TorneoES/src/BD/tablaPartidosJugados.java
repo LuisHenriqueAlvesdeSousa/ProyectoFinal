@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,7 +27,7 @@ public class tablaPartidosJugados {
         PreparedStatement ps = con.prepareStatement("INSERT INTO PARTIDOS_JUGADOS (IDEQUIPO, IDPARTIDO, PUNTUACION) "
                 + "VALUES (?, ?, ?);");
         ps.setInt(1, p.getEquipo().getIdEquipo());
-        ps.setInt(2, p.getIdPartido());
+        ps.setInt(2, p.getPartido().getIdPartido());
         ps.setInt(3, p.getPuntuacion());
         
         ps.executeUpdate();  
@@ -37,7 +38,7 @@ public class tablaPartidosJugados {
         PreparedStatement ps = con.prepareStatement("UPDATE PARTIDOS_JUGADOS SET PUNTUACION=?"
                                                     + " WHERE IDPARTIDO=? AND IDEQUIPO=?;");
         ps.setInt(1, p.getPuntuacion());
-        ps.setInt(2, p.getIdPartido());
+        ps.setInt(2, p.getPartido().getIdPartido());
         ps.setInt(3, p.getEquipo().getIdEquipo());
 
         int n = ps.executeUpdate();
@@ -49,8 +50,8 @@ public class tablaPartidosJugados {
     public static void eliminarPartidoJugado(PartidoJugado p)  throws Exception{
         PreparedStatement ps = con.prepareStatement("DELETE FROM PARTIDOS_JUGADOS WHERE IDPARTIDO=? AND "
                                                     + "IDEQUIPO=?;");
-        ps.setInt(1, p.getIdPartido());
-        ps.setInt(1, p.getEquipo().getIdEquipo());
+        ps.setInt(1, p.getPartido().getIdPartido());
+        ps.setInt(2, p.getEquipo().getIdEquipo());
 
         int n = ps.executeUpdate();  
         
@@ -62,14 +63,32 @@ public class tablaPartidosJugados {
         PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS WHERE IDPARTIDO=? AND "
                                                     + "IDEQUIPO=?;");
         ps.setInt(1, idPartido);
-        ps.setInt(1, idEquipo);
+        ps.setInt(2, idEquipo);
 
         ResultSet resultado = ps.executeQuery();
 
         PartidoJugado p = new PartidoJugado();
-        p.setEquipo();//relacion equipos);
-        p.setIdPartido(idPartido);
+        p.setEquipo(tablaEquipos.class.);//relacion equipos);
+        p.setPartido(//relacion partidos);
         p.setPuntuacion(resultado.getInt("PUNTUACION"));
+        
+        return p;
+    }
+    
+    public static ArrayList<PartidoJugado> allPartidosJugados() throws Exception{
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS_JUGADOS;");
+        
+
+        ResultSet resultado = ps.executeQuery();
+        
+        ArrayList<PartidoJugado> partidos = new ArrayList(); 
+        while(resultado.next()){
+            PartidoJugado p = new PartidoJugado();
+            p.setEquipo(tablaEquipos.class.);//relacion equipos);
+            p.setPartido(idPartido);
+            p.setPuntuacion(resultado.getInt("PUNTUACION"));
+            partidos.add(p);
+        }
         
         return p;
     }

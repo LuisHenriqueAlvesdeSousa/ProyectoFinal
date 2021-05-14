@@ -16,14 +16,23 @@ public class tablaTorneos {
     }
     
     public static void crearTorneo(Torneo t) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("INSERT INTO TORNEOS (ESTADO) VALUES (?);");
         ps.setString(1, t.getEstado());
 
         ps.executeUpdate();  
         
+        BaseDatos.desconectar();
+
+        
     }
     
     public static void modTorneo(Torneo t)  throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("UPDATE TORNEOS SET ESTADO=? WHERE IDTORNEO=?;");
         ps.setString(1, t.getEstado());
         ps.setInt(2, t.getIdTorneo());
@@ -32,9 +41,15 @@ public class tablaTorneos {
         
         if( n > 1)
             throw new Exception("Se ha modificado mas de un torneo");
+        
+        BaseDatos.desconectar();
+
     }
     
     public static void eliminarTorneo(Torneo t)  throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("DELETE FROM TORNEOS WHERE IDTORNEO=?;");
         ps.setInt(1, t.getIdTorneo());
 
@@ -42,26 +57,44 @@ public class tablaTorneos {
         
         if( n > 1)
             throw new Exception("Se ha eliminado mas de un torneo");
+        
+        BaseDatos.desconectar();
+
     }
     
     public static Torneo torneoById(int idTorneo) throws Exception{
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS WHERE UPPER(IDTORNEO)=UPPER(?);");
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS WHERE IDTORNEO=?;");
         ps.setInt(1, idTorneo);
 
         ResultSet resultado = ps.executeQuery();
-
+        
         Torneo t = new Torneo();
-        t.setIdTorneo(resultado.getInt("IDTORNEO"));
-        if(resultado.getString("ESTADO").equalsIgnoreCase("ABIERTO")){
-            t.setEstadoAbierto();
+        if(resultado.next()){
+            t.setIdTorneo(resultado.getInt("IDTORNEO"));
+            if(resultado.getString("ESTADO").equalsIgnoreCase("ABIERTO")){
+                t.setEstadoAbierto();
+            }
+            else{
+                t.setEstadoCerrado();
+            }
         }
         else{
-            t.setEstadoCerrado();
+            t = null;
         }
+        
+        BaseDatos.desconectar();
+
+        
         return t;  
     }
     
     public static ArrayList<Torneo> allTorneos() throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS;");
 
         ResultSet resultado = ps.executeQuery();
@@ -82,10 +115,16 @@ public class tablaTorneos {
         if(torneos.isEmpty())
             return null;
         
+        BaseDatos.desconectar();
+
+        
         return torneos;
     }
     
     public static boolean existeTorneo(int idTorneo) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
         PreparedStatement ps = con.prepareStatement("SELECT 'X' FROM TORNEOS WHERE UPPER(IDTORNEO)=UPPER(?);");
         ps.setInt(1, idTorneo);
 
@@ -94,8 +133,11 @@ public class tablaTorneos {
         boolean existe = false;
         if(resultado.next())
             existe = true;
+        
+        BaseDatos.desconectar();
 
         return existe;
+        
         
     }
 }
