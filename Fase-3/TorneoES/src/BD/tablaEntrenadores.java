@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BD;
 
-/**
- *
- * @author 1GDAW04
- */
+import java.sql.Connection;
+
+
 public class tablaEntrenadores {
+    private static Connection con;
+
+    public tablaEntrenadores(Connection con) {
+        this.con = con;
+    }
     
+    public static void crearEntrenador()
 }
