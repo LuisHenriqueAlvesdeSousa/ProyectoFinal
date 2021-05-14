@@ -5,10 +5,12 @@
  */
 package UML;
 
-/**
- *
- * @author 1GDAW04
- */
 public class Perfil {
-    
-}
+    private int idperfil;
+    private String usuario;
+    private String passwd;
+    private String privilegios;
+
+    public Perfil() {
+    }
+
