@@ -1,9 +1,13 @@
 package BD;
 import java.sql.*;
 import UML.Jugador;
+<<<<<<< HEAD
 import UML.Persona;
 import BD.BaseDatos;
 import java.util.ArrayList;
+=======
+import BD.BaseDatos;
+>>>>>>> lineaRober
 
 public class tablaJugadores {
     private static Connection con;
@@ -12,6 +16,7 @@ public class tablaJugadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
+<<<<<<< HEAD
         tablaPersonas.crearPersona(jugador);
         Persona personaActual = tablaPersonas.PersonaByDni(jugador);
         int id = personaActual.getIdPersona();
@@ -21,6 +26,13 @@ public class tablaJugadores {
         ps.setString(2, Nickname);
         ps.setString(3, Rol);
         ps.setString(4, Equipo);
+=======
+        tablaPersonas.crearPersona(Jugador jugador);
+        int id = tablaPersonas.PersonaByDni(String dni);
+        String plantilla = "INSERT INTO JUGADORES (IDPERSONA) VALUES (?,?,?,?)";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setInt(1, id);
+>>>>>>> lineaRober
         
         int n = ps.executeUpdate();
         
@@ -50,13 +62,21 @@ public class tablaJugadores {
         int n = ps.executeUpdate();
         
         if (n!=1)
+<<<<<<< HEAD
             throw new Exception("Error, se ha eliminado más de un jugador");
+=======
+            throw new Exception("Error");
+>>>>>>> lineaRober
             
         System.out.println("Jugador eliminado con exito");
         BaseDatos.desconectar();
     }
     
+<<<<<<< HEAD
     public static void consultaByIdPersona (Jugador jugador) throws Exception{
+=======
+        public static void consultaIDJugador (Jugador jugador) throws Exception{
+>>>>>>> lineaRober
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -65,13 +85,19 @@ public class tablaJugadores {
         ps.setInt(1, jugador.getIdPersona);
         
         BaseDatos.desconectar();
+<<<<<<< HEAD
     }
         
     public static ArrayList<Jugador> allJugador (Jugador jugador) throws Exception{
+=======
+    
+    public static void allJugador (Jugador jugador) throws Exception{
+>>>>>>> lineaRober
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         String plantilla = "SELECT * FROM JUGADORES;";
+<<<<<<< HEAD
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
@@ -102,5 +128,9 @@ public class tablaJugadores {
         }
         BaseDatos.desconectar();
         return listaJugadores;
+=======
+        
+        BaseDatos.desconectar();
+>>>>>>> lineaRober
     }
 }

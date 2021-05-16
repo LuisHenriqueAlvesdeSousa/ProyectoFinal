@@ -2,7 +2,10 @@ package BD;
 import java.sql.*;
 import UML.Perfil;
 import BD.BaseDatos;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> lineaRober
 
 public class tablaPerfiles {
     private static Connection con;
@@ -42,12 +45,17 @@ public class tablaPerfiles {
         BaseDatos.desconectar();
     }
     
+<<<<<<< HEAD
     public static void consultaByIdPerfil (Perfil perfil) throws Exception{
+=======
+    public static void consultaIDPerfil (Perfil perfil) throws Exception{
+>>>>>>> lineaRober
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         String plantilla = "SELECT * FROM PERFILES WHERE IDPERFIL=?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
+<<<<<<< HEAD
         ps.setInt(1, perfil.getIdPerfil());
         
         BaseDatos.desconectar();
@@ -79,14 +87,22 @@ public class tablaPerfiles {
         
         BaseDatos.desconectar();
         return listaPerfiles;
+=======
+        ps.setInt(1, perfil.getIdPerfil);
+        
+        BaseDatos.desconectar();
+>>>>>>> lineaRober
     }
     
     public static void modPerfil (Perfil perfil) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
+<<<<<<< HEAD
         String plantilla = "UPDATE PERFILES SET"
         
+=======
+>>>>>>> lineaRober
         BaseDatos.desconectar();
     }
 }

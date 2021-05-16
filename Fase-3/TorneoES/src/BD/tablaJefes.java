@@ -48,7 +48,10 @@ public class tablaJefes {
         ps.setInt(1, j.getIdPersona());
         
         int n = ps.executeUpdate();
+<<<<<<< HEAD
         tablaPersonas.eliminarPersona(j);
+=======
+>>>>>>> lineaRober
         
         if(n != 1)
             throw new Exception("Se ha eliminado más de un Jefe.");
@@ -58,6 +61,7 @@ public class tablaJefes {
         System.out.println("Se ha eliminado el Jefe con exito.");
         BaseDatos.desconectar();
     }
+<<<<<<< HEAD
     
     public static ArrayList<Jefe> allJefe(Jefe j) throws Exception{
         BaseDatos.conectar();
@@ -150,10 +154,20 @@ public class tablaJefes {
         String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, j.getIdPersona());
+=======
+    
+    public static ArrayList<Jefe> allJefe(Jefe j) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM JEFES;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+>>>>>>> lineaRober
         
         ResultSet resultado = ps.executeQuery();
         
         Jefe jefeActual = new Jefe();
+<<<<<<< HEAD
         
         if(resultado == null){
             jefeActual = null;
@@ -181,5 +195,23 @@ public class tablaJefes {
         
         BaseDatos.desconectar();
         return jefeActual;
+=======
+        ArrayList<Jefe> listaJefes = new ArrayList();
+        
+        if(resultado == null){
+            listaJefes = null;
+            System.out.println("No se ha encontrado Jefes en la BD.");
+        }
+        else{
+            while(resultado.next()){
+                jefeActual.setIdPersona(resultado.getInt("IDPERSONA"));
+                listaJefes.add(jefeActual);
+            }
+            System.out.println("Todos los jefes selecionados con exito.");
+        }
+        
+        BaseDatos.desconectar();
+        return listaJefes;
+>>>>>>> lineaRober
     }
 }
