@@ -6,6 +6,7 @@
 package torneoes;
 
 import BD.BaseDatos;
+import java.sql.*;
 
 /**
  *
@@ -17,6 +18,8 @@ public class TorneoES {
     public static void main(String[] args) {
         try{
             BaseDatos.conectar();
+            	            
+            
         }
         catch(Exception e){
             System.out.println("Error");
