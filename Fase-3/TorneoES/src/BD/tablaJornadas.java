@@ -31,7 +31,7 @@ public class tablaJornadas {
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
         ps.setInt(1, j.getTorneo().getIdTorneo());
-        ***
+    
         //relacion con partidos
         ps.executeUpdate();  
         
@@ -87,7 +87,7 @@ public class tablaJornadas {
         LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
         j.setFecha(fecha);
         j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
-        ****
+
                 //Falta la relacion con partidos;
                 
         BaseDatos.desconectar();
@@ -111,8 +111,7 @@ public class tablaJornadas {
             LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
             j.setFecha(fecha);
             j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
-            ****
-                    //Falta la relacion con partidos;
+          //Falta la relacion con partidos;
                     
             BaseDatos.desconectar();
         }

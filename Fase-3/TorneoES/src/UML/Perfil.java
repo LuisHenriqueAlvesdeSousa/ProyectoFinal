@@ -1,11 +1,10 @@
 package UML;
 
 public class Perfil {
-<<<<<<< HEAD
+
     private int idPerfil;
-=======
+
     private int idperfil;
->>>>>>> lineaRober
     private String usuario;
     private String passwd;
     private String privilegios;
@@ -13,7 +12,7 @@ public class Perfil {
     public Perfil() {
     }
 
-<<<<<<< HEAD
+
     public Perfil(int idPerfil, String usuario, String passwd, String privilegios) {
         this.idPerfil = idPerfil;
         this.usuario = usuario;
@@ -57,6 +56,3 @@ public class Perfil {
         this.privilegios = "USER";
     }
 }
-
-=======
->>>>>>> lineaRober

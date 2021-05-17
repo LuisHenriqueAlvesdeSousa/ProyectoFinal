@@ -6,16 +6,25 @@ import java.time.LocalTime;
 public class Partido {
     private int idPartido;
     private LocalTime hora;
+    private Jornada jornada;
 
-    
-    public Partido(LocalTime hora) {
+    public Partido() {
+    }
+
+    public Partido(int idPartido, LocalTime hora, Jornada jornada) {
+        this.idPartido = idPartido;
         this.hora = hora;
+        this.jornada = jornada;
     }
 
     public int getIdPartido() {
         return idPartido;
     }
-    
+
+    public void setIdPartido(int idPartido) {
+        this.idPartido = idPartido;
+    }
+
     public LocalTime getHora() {
         return hora;
     }
@@ -24,6 +33,15 @@ public class Partido {
         this.hora = hora;
     }
 
+    public Jornada getJornada() {
+        return jornada;
+    }
+
+    public void setJornada(Jornada jornada) {
+        this.jornada = jornada;
+    }
+
     
     
+   
 }
