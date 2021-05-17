@@ -8,11 +8,11 @@ public class Partido {
     private LocalTime hora;
     private Jornada jornada;
 
-
     public Partido() {
     }
 
-    public Partido(LocalTime hora, Jornada jornada) {
+    public Partido(int idPartido, LocalTime hora, Jornada jornada) {
+        this.idPartido = idPartido;
         this.hora = hora;
         this.jornada = jornada;
     }
@@ -40,4 +40,8 @@ public class Partido {
     public void setJornada(Jornada jornada) {
         this.jornada = jornada;
     }
+
+    
+    
+   
 }
