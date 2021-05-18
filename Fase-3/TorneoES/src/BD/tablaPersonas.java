@@ -155,7 +155,7 @@ public class tablaPersonas {
                         resultado.getString("NACIONALIDAD"));
                 listaPersonas.add(personaActual);
             }
-            System.out.println("Todos loas Personas selecionados con exito.");
+            System.out.println("Todos los jefes selecionados con exito.");
         }
         
         BaseDatos.desconectar();
