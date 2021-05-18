@@ -3,16 +3,13 @@ package UML;
 public class Perfil {
 
     private int idPerfil;
-
-    private int idperfil;
     private String usuario;
     private String passwd;
     private String privilegios;
 
     public Perfil() {
     }
-
-
+    
     public Perfil(int idPerfil, String usuario, String passwd, String privilegios) {
         this.idPerfil = idPerfil;
         this.usuario = usuario;
@@ -55,4 +52,6 @@ public class Perfil {
     public void setPrivilegiosUser(){
         this.privilegios = "USER";
     }
+    
+    
 }

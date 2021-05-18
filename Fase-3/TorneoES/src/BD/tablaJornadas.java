@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BD;
 
 import UML.Jornada;
@@ -14,15 +9,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 /**
  *
- * @author 1GDAW04
+ * @author ROber
  */
 public class tablaJornadas {
     private static Connection con;
 
-    public tablaJornadas(Connection con) {
-        this.con = con;
-    }
-    
     public static void crearJornada(Jornada j) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
@@ -31,8 +22,7 @@ public class tablaJornadas {
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
         ps.setInt(1, j.getTorneo().getIdTorneo());
-    
-        //relacion con partidos
+        
         ps.executeUpdate();  
         
         BaseDatos.desconectar();
@@ -47,7 +37,7 @@ public class tablaJornadas {
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
         ps.setInt(2, j.getIdJornada());
-
+        
         int n = ps.executeUpdate();
         
         BaseDatos.desconectar();
@@ -71,7 +61,7 @@ public class tablaJornadas {
             throw new Exception("Se ha eliminado mas de una jornada");
     }
     
-    public static Jornada jornadaById(String idJornada) throws Exception{
+    public static Jornada jornadaByIdJornada(String idJornada) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -86,9 +76,7 @@ public class tablaJornadas {
         j.setIdJornada(resultado.getInt("IDJORNADA"));
         LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
         j.setFecha(fecha);
-        j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
-
-                //Falta la relacion con partidos;
+        j.setTorneo(tablaTorneos.torneoByIdTorneo(resultado.getInt("IDTORNEO")));
                 
         BaseDatos.desconectar();
                 
@@ -110,11 +98,16 @@ public class tablaJornadas {
             j.setIdJornada(resultado.getInt("IDJORNADA"));
             LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
             j.setFecha(fecha);
-            j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
-          //Falta la relacion con partidos;
-                    
-            BaseDatos.desconectar();
+            j.setTorneo(tablaTorneos.torneoByIdTorneo(resultado.getInt("IDTORNEO")));
         }
-        return j;  
+        
+        BaseDatos.desconectar();
+        
+        if(!jornadas.isEmpty()){
+            return jornadas;
+        }
+        else{
+            return null;
+        } 
     }
 }

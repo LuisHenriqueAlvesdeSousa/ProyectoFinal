@@ -48,11 +48,7 @@ public class tablaJefes {
         ps.setInt(1, j.getIdPersona());
         
         int n = ps.executeUpdate();
-<<<<<<< HEAD
-        tablaPersonas.eliminarPersona(j);
-=======
->>>>>>> lineaRober
-        
+
         if(n != 1)
             throw new Exception("Se ha eliminado más de un Jefe.");
         
@@ -61,7 +57,6 @@ public class tablaJefes {
         System.out.println("Se ha eliminado el Jefe con exito.");
         BaseDatos.desconectar();
     }
-<<<<<<< HEAD
     
     public static ArrayList<Jefe> allJefe(Jefe j) throws Exception{
         BaseDatos.conectar();
@@ -147,27 +142,17 @@ public class tablaJefes {
         return jefeActual;
     }
     
-    public static Jefe JefeById(Jefe j) throws Exception{
+    public static Jefe JefeByIdJefe(String idJefe) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setInt(1, j.getIdPersona());
-=======
-    
-    public static ArrayList<Jefe> allJefe(Jefe j) throws Exception{
-        BaseDatos.conectar();
-        con = BaseDatos.getCon();
-        
-        String plantilla = "SELECT * FROM JEFES;";
-        PreparedStatement ps = con.prepareStatement(plantilla);
->>>>>>> lineaRober
-        
+        ps.setString(1, idJefe);
+         
         ResultSet resultado = ps.executeQuery();
         
         Jefe jefeActual = new Jefe();
-<<<<<<< HEAD
         
         if(resultado == null){
             jefeActual = null;
@@ -195,23 +180,47 @@ public class tablaJefes {
         
         BaseDatos.desconectar();
         return jefeActual;
-=======
-        ArrayList<Jefe> listaJefes = new ArrayList();
+    }
+    
+    public static Jefe JefeByIdJefe(Jefe j) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setInt(1, j.getIdPersona());
+         
+        ResultSet resultado = ps.executeQuery();
+        
+        Jefe jefeActual = new Jefe();
         
         if(resultado == null){
-            listaJefes = null;
-            System.out.println("No se ha encontrado Jefes en la BD.");
+            jefeActual = null;
+            System.out.println("Jefe no encontrado.");
         }
         else{
-            while(resultado.next()){
-                jefeActual.setIdPersona(resultado.getInt("IDPERSONA"));
-                listaJefes.add(jefeActual);
-            }
-            System.out.println("Todos los jefes selecionados con exito.");
+            resultado.next();
+            jefeActual.setIdPersona(resultado.getInt("IDPERSONA"));
+            jefeActual.setDni(resultado.getString("DNI"));
+            jefeActual.setNombre(resultado.getString("NOMBRE"));
+            jefeActual.setApellido(resultado.getString("APELLIDO"));
+            jefeActual.setFechaNacimiento(
+                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+            jefeActual.setSueldo(resultado.getDouble("SUELDO"));
+            jefeActual.setTelefono(resultado.getString("TELEFONO"));
+            jefeActual.setFechaContrato(
+                        resultado.getDate("FECHACONTRATO").toLocalDate());
+            jefeActual.setFechaFinContrato(
+                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+            jefeActual.setNacionalidad(
+                        resultado.getString("NACIONALIDAD"));
+            
+            System.out.println("Jefe encontrado con exito.");
         }
         
         BaseDatos.desconectar();
-        return listaJefes;
->>>>>>> lineaRober
+        return jefeActual;
     }
+    
+    
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Luis H. Alves
- *//*
+ */
 public class tablaTrabajadores {
     private static Connection con;
     
@@ -27,7 +27,7 @@ public class tablaTrabajadores {
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, t.getIdPersona());
         ps.setString(2, t.getOficio());
-        ps.setString(3, t.getEquipo().getIdEquipo());
+        ps.setInt(3, t.getEquipo().getIdEquipo());
         
         int n = ps.executeUpdate();
         
@@ -51,7 +51,7 @@ public class tablaTrabajadores {
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, t.getIdPersona());
         ps.setString(2, t.getOficio());
-        ps.setString(3, t.getEquipo().getIdEquipo());
+        ps.setInt(3, t.getEquipo().getIdEquipo());
         
         int n = ps.executeUpdate();
         tablaPersonas.modPersona(t);
@@ -128,7 +128,7 @@ public class tablaTrabajadores {
                 trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
                 trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
-                Equipo equipoActual = tablaEquipos.consultaByIdEquipo(
+                Equipo equipoActual = tablaEquipos.equipoByIdEquipo(
                                         resultado.getString("T.IDEQUIPO"));
                 trabajadorActual.setEquipo(equipoActual);
             }
@@ -186,7 +186,7 @@ public class tablaTrabajadores {
             trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
             trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
-                Equipo equipoActual = tablaEquipos.consultaByIdEquipo(
+                Equipo equipoActual = tablaEquipos.equipoByIdEquipo(
                                         resultado.getString("T.IDEQUIPO"));
             trabajadorActual.setEquipo(equipoActual);   
             System.out.println("Trabajador encontrado con exito.");
@@ -196,7 +196,64 @@ public class tablaTrabajadores {
         return trabajadorActual;
     }
     
-    public static Persona PersonaById(Persona p) throws Exception{
+    public static Trabajador trabajadorByIdTrabajador(String idTrabajador) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT  P.IDPERSONA,"
+                                + " P.DNI,"
+                                + " P.NOMBRE,"
+                                + " P.APELLIDO,"
+                                + " P.FECHANACIMIENTO,"
+                                + " P.SUELDO,"
+                                + " P.TELEFONO,"
+                                + " P.FECHACONTRATO,"
+                                + " P.FECHAFINCONTRATO,"
+                                + " P.NACIONALIDAD,"
+                                + " T.OFICIO,"
+                                + " T.IDEQUIPO"
+                            + "FROM PERSONAS P, TRABAJADORES T"
+                            + "WHERE P.IDPERSONA = T.IDPERSONA"
+                            + "AND P.IDPERSONA = ?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, idTrabajador);
+        
+        ResultSet resultado = ps.executeQuery();
+        
+        Trabajador trabajadorActual = new Trabajador();
+        
+        if(resultado == null){
+            trabajadorActual = null;
+            System.out.println("Trabajador no encontrado.");
+        }
+        else{
+            resultado.next();
+            trabajadorActual.setIdPersona(resultado.getInt("P.IDPERSONA"));
+            trabajadorActual.setDni(resultado.getString("P.DNI"));
+            trabajadorActual.setNombre(resultado.getString("P.NOMBRE"));
+            trabajadorActual.setApellido(resultado.getString("P.APELLIDO"));
+            trabajadorActual.setFechaNacimiento(
+                        resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+            trabajadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
+            trabajadorActual.setTelefono(resultado.getString("P.TELEFONO"));
+            trabajadorActual.setFechaContrato(
+                        resultado.getDate("P.FECHACONTRATO").toLocalDate());
+            trabajadorActual.setFechaFinContrato(
+                        resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+            trabajadorActual.setNacionalidad(
+                        resultado.getString("P.NACIONALIDAD"));
+            trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
+                Equipo equipoActual = tablaEquipos.equipoByIdEquipo(
+                                        resultado.getString("T.IDEQUIPO"));
+            trabajadorActual.setEquipo(equipoActual);   
+            System.out.println("Trabajador encontrado con exito.");
+        }
+        
+        BaseDatos.desconectar();
+        return trabajadorActual;
+    }
+    
+    public static Persona TrabajadorByIdTrabajador(Persona p) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -243,7 +300,7 @@ public class tablaTrabajadores {
             trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
             trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
-                Equipo equipoActual = tablaEquipos.consultaByIdEquipo(
+                Equipo equipoActual = tablaEquipos.equipoByIdEquipo(
                                         resultado.getString("T.IDEQUIPO"));
             trabajadorActual.setEquipo(equipoActual);   
             System.out.println("Trabajador encontrado con exito.");
@@ -253,4 +310,3 @@ public class tablaTrabajadores {
         return trabajadorActual;
     }
 }
-*/

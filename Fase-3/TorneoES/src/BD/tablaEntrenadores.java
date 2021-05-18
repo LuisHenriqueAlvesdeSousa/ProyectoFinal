@@ -46,7 +46,7 @@ public class tablaEntrenadores {
         int n = ps.executeUpdate();  
         
         if( n > 1)
-            throw new Exception("Se ha eliminado mas de un resultado de partido");
+            throw new Exception("Se ha eliminado mas de un entrenador de partido");
         
         BaseDatos.desconectar();
         
@@ -55,10 +55,23 @@ public class tablaEntrenadores {
         System.out.println("Se ha eliminado un entrenador");
     }
     
-    public static Entrenador entrenadorById(Entrenador e) throws Exception{
+    public static Entrenador entrenadorByIdEntrenador(String idEntrenador) throws Exception{
+        Persona p = new Persona();
+        p.setIdPersona(Integer.parseInt(idEntrenador));
+        p = tablaPersonas.PersonaByIdPersona(p);
+        if(p != null){
+            Entrenador entrenador = new Entrenador(p.getIdPersona(), p.getDni(), p.getNombre(), p.getApellido(), p.getFechaNacimiento(), p.getSueldo(), p.getTelefono(), p.getFechaContrato(), p.getFechaFinContrato(), p.getNacionalidad() );
+            return entrenador;
+        }
+        else{
+            return null;  
+        }
+    }
+    
+    public static Entrenador entrenadorByIdEntrenador(Entrenador e) throws Exception{
         Persona p = new Persona();
         p.setIdPersona(e.getIdPersona());
-        p = tablaPersonas.PersonaById(p);
+        p = tablaPersonas.PersonaByIdPersona(p);
         if(p != null){
             Entrenador entrenador = new Entrenador(p.getIdPersona(), p.getDni(), p.getNombre(), p.getApellido(), p.getFechaNacimiento(), p.getSueldo(), p.getTelefono(), p.getFechaContrato(), p.getFechaFinContrato(), p.getNacionalidad() );
             return entrenador;
@@ -81,7 +94,7 @@ public class tablaEntrenadores {
         while(resultado.next()){
             Entrenador e = new Entrenador();
             e.setIdPersona(resultado.getInt("IDPERSONA"));
-            e = tablaEntrenadores.entrenadorById(e);
+            e = tablaEntrenadores.entrenadorByIdEntrenador(e);
             entrenadores.add(e);
         }
         if(entrenadores.isEmpty())

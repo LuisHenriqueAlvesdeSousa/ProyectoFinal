@@ -45,19 +45,32 @@ public class tablaPreparadores {
         int n = ps.executeUpdate();  
         
         if( n > 1)
-            throw new Exception("Se ha eliminado mas de un resultado de partido");
+            throw new Exception("Se ha eliminado mas de un PREPARADOR de la BD");
         
         BaseDatos.desconectar();
         
         tablaPersonas.eliminarPersona(e);
         
-        System.out.println("Se ha eliminado un entrenador");
+        System.out.println("Se ha eliminado un preparador");
     }
     
-    public static Preparador entrenadorById(Preparador e) throws Exception{
+    public static Preparador preparadorByIdPreparador(String idPreparador) throws Exception{
+        Persona p = new Persona();
+        p.setIdPersona(Integer.parseInt(idPreparador));
+        p = tablaPersonas.PersonaByIdPersona(p);
+        if(p != null){
+            Preparador entrenador = new Preparador(p.getIdPersona(), p.getDni(), p.getNombre(), p.getApellido(), p.getFechaNacimiento(), p.getSueldo(), p.getTelefono(), p.getFechaContrato(), p.getFechaFinContrato(), p.getNacionalidad() );
+            return entrenador;
+        }
+        else{
+            return null;  
+        }
+    }
+    
+    public static Preparador preparadorByIdPreparador(Preparador e) throws Exception{
         Persona p = new Persona();
         p.setIdPersona(e.getIdPersona());
-        p = tablaPersonas.PersonaById(p);
+        p = tablaPersonas.PersonaByIdPersona(p);
         if(p != null){
             Preparador entrenador = new Preparador(p.getIdPersona(), p.getDni(), p.getNombre(), p.getApellido(), p.getFechaNacimiento(), p.getSueldo(), p.getTelefono(), p.getFechaContrato(), p.getFechaFinContrato(), p.getNacionalidad() );
             return entrenador;
@@ -80,7 +93,7 @@ public class tablaPreparadores {
         while(resultado.next()){
             Preparador e = new Preparador();
             e.setIdPersona(resultado.getInt("IDPERSONA"));
-            e = tablaPreparadores.entrenadorById(e);
+            e = tablaPreparadores.preparadorByIdPreparador(e);
             preparadores.add(e);
         }
         if(preparadores.isEmpty())

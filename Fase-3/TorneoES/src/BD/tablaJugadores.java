@@ -1,13 +1,8 @@
 package BD;
 import java.sql.*;
 import UML.Jugador;
-<<<<<<< HEAD
 import UML.Persona;
-import BD.BaseDatos;
 import java.util.ArrayList;
-=======
-import BD.BaseDatos;
->>>>>>> lineaRober
 
 public class tablaJugadores {
     private static Connection con;
@@ -16,23 +11,15 @@ public class tablaJugadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-<<<<<<< HEAD
         tablaPersonas.crearPersona(jugador);
         Persona personaActual = tablaPersonas.PersonaByDni(jugador);
         int id = personaActual.getIdPersona();
         String plantilla = "INSERT INTO JUGADORES (IDPERSONA) VALUES (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setInt(1, id);
-        ps.setString(2, Nickname);
-        ps.setString(3, Rol);
-        ps.setString(4, Equipo);
-=======
-        tablaPersonas.crearPersona(Jugador jugador);
-        int id = tablaPersonas.PersonaByDni(String dni);
-        String plantilla = "INSERT INTO JUGADORES (IDPERSONA) VALUES (?,?,?,?)";
-        PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setInt(1, id);
->>>>>>> lineaRober
+        ps.setInt(1, jugador.getIdPersona());
+        ps.setString(2, jugador.getNickname());
+        ps.setString(3, jugador.getRol());
+        ps.setInt(4, jugador.getEquipo().getIdEquipo());
         
         int n = ps.executeUpdate();
         
@@ -43,11 +30,22 @@ public class tablaJugadores {
          BaseDatos.desconectar(); 
     }
     
-    public static void modJugador (Jugador jugador) throws Exception{
+    public static void modNickJugador (Jugador jugador) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        tablaPersonas.modPersona(Jugador jugador);
+        String plantilla = "UPDATE JUGADORES SET NICKNAME=? WHERE IDPERSONA=?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, jugador.getNickname());
+        ps.setInt(2, jugador.getIdPersona());
+        
+        int n = ps.executeUpdate();
+        
+        if (n!=1)
+            throw new Exception ("Se ha modificado más de un jugador");
+        
+        System.out.println("Jugador modificado con éxito");
+        
         BaseDatos.desconectar();
     }
     
@@ -62,42 +60,79 @@ public class tablaJugadores {
         int n = ps.executeUpdate();
         
         if (n!=1)
-<<<<<<< HEAD
             throw new Exception("Error, se ha eliminado más de un jugador");
-=======
-            throw new Exception("Error");
->>>>>>> lineaRober
             
         System.out.println("Jugador eliminado con exito");
         BaseDatos.desconectar();
     }
     
-<<<<<<< HEAD
-    public static void consultaByIdPersona (Jugador jugador) throws Exception{
-=======
-        public static void consultaIDJugador (Jugador jugador) throws Exception{
->>>>>>> lineaRober
+    public static Jugador consultaByIdPersona (Jugador jugador) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERFILES WHERE IDPERSONA=?;";
+        String plantilla = "SELECT  P.IDPERSONA,"
+                                + " P.DNI,"
+                                + " P.NOMBRE,"
+                                + " P.APELLIDO,"
+                                + " P.FECHANACIMIENTO,"
+                                + " P.SUELDO,"
+                                + " P.TELEFONO,"
+                                + " P.FECHACONTRATO,"
+                                + " P.FECHAFINCONTRATO,"
+                                + " P.NACIONALIDAD,"
+                                + " J.NICKNAME,"
+                                + " J.ROL,"
+                                + " J.IDEQUIPO"
+                            + "FROM PERSONAS P, JUGADOR J"
+                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
         PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setInt(1, jugador.getIdPersona);
+        ps.setInt(1, jugador.getIdPersona());
+        
+        ResultSet resultado = ps.executeQuery();
+        
+        Jugador jugadorActual = new Jugador();
+        jugadorActual.setIdPersona(resultado.getInt("P.IDPERSONA"));
+        jugadorActual.setDni(resultado.getString("P.DNI"));
+        jugadorActual.setNombre(resultado.getString("P.NOMBRE"));
+        jugadorActual.setApellido(resultado.getString("P.APELLIDO"));
+        jugadorActual.setFechaNacimiento(
+                        resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+        jugadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
+        jugadorActual.setTelefono(resultado.getString("P.TELEFONO"));
+        jugadorActual.setFechaContrato(
+                        resultado.getDate("P.FECHACONTRATO").toLocalDate());
+        jugadorActual.setFechaFinContrato(
+                        resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+        jugadorActual.setNacionalidad(
+                        resultado.getString("P.NACIONALIDAD"));
+        
+        jugadorActual.setNickname(resultado.getString("J.NICKNAME"));
+        jugadorActual.setRol(resultado.getString("J.ROL"));
+        jugadorActual.setEquipo(tablaEquipos.equipoByIdEquipo(resultado.getString("J.IDEQUIPO")));
         
         BaseDatos.desconectar();
-<<<<<<< HEAD
+        return jugadorActual;
     }
         
     public static ArrayList<Jugador> allJugador (Jugador jugador) throws Exception{
-=======
-    
-    public static void allJugador (Jugador jugador) throws Exception{
->>>>>>> lineaRober
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM JUGADORES;";
-<<<<<<< HEAD
+        String plantilla = "SELECT  P.IDPERSONA,"
+                                + " P.DNI,"
+                                + " P.NOMBRE,"
+                                + " P.APELLIDO,"
+                                + " P.FECHANACIMIENTO,"
+                                + " P.SUELDO,"
+                                + " P.TELEFONO,"
+                                + " P.FECHACONTRATO,"
+                                + " P.FECHAFINCONTRATO,"
+                                + " P.NACIONALIDAD,"
+                                + " J.NICKNAME,"
+                                + " J.ROL,"
+                                + " J.IDEQUIPO"
+                            + "FROM PERSONAS P, JUGADOR J"
+                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
@@ -110,27 +145,28 @@ public class tablaJugadores {
         }
         else{
             while(resultado.next()){
-                jugadorActual.setIdPersona(resultado.getInt("IDPERSONA"));
-                jugadorActual.setDni(resultado.getString("DNI"));
-                jugadorActual.setNombre(resultado.getString("NOMBRE"));
-                jugadorActual.setApellido(resultado.getString("APELLIDO"));
-                jugadorActual.setFechaNacimiento(resultado.getDate("FECHANACIMIENTO").toLocalDate());
-                jugadorActual.setSueldo(resultado.getDouble("SUELDO"));
-                jugadorActual.setTelefono(resultado.getString("TELEFONO"));
-                jugadorActual.setFechaContrato(resultado.getDate("FECHACONTRATO").toLocalDate());
-                jugadorActual.setFechaFinContrato(resultado.getDate("FECHAFINCONTRATO").toLocalDate());
-                jugadorActual.setNacionalidad(resultado.getString("NACIONALIDAD"));
-                jugadorActual.setNickname(resultado.getString("NICKNAME"));
-                jugadorActual.setRol(resultado.getString("ROL"));
-                jugadorActual.setEquipo(resultado.getInt("IDEQUIPO"));
+                jugadorActual.setIdPersona(resultado.getInt("P.IDPERSONA"));
+                jugadorActual.setDni(resultado.getString("P.DNI"));
+                jugadorActual.setNombre(resultado.getString("P.NOMBRE"));
+                jugadorActual.setApellido(resultado.getString("P.APELLIDO"));
+                jugadorActual.setFechaNacimiento(
+                                resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+                jugadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
+                jugadorActual.setTelefono(resultado.getString("P.TELEFONO"));
+                jugadorActual.setFechaContrato(
+                                resultado.getDate("P.FECHACONTRATO").toLocalDate());
+                jugadorActual.setFechaFinContrato(
+                                resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+                jugadorActual.setNacionalidad(
+                                resultado.getString("P.NACIONALIDAD"));
+
+                jugadorActual.setNickname(resultado.getString("J.NICKNAME"));
+                jugadorActual.setRol(resultado.getString("J.ROL"));
+                jugadorActual.setEquipo(tablaEquipos.equipoByIdEquipo(resultado.getString("J.IDEQUIPO")));
             }
             System.out.println("Todos los jugadores seleccionados con éxito");
         }
         BaseDatos.desconectar();
         return listaJugadores;
-=======
-        
-        BaseDatos.desconectar();
->>>>>>> lineaRober
     }
 }

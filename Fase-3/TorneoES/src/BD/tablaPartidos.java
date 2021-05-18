@@ -1,11 +1,9 @@
 package BD;
 
-import UML.Jornada;
 import UML.Partido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -65,23 +63,25 @@ public class tablaPartidos {
             throw new Exception("Se ha eliminado mas de una Partido");
     }
     
-    public static Partido partidoById(String idPartido) throws Exception{
+    
+    public static Partido partidoById(int idPartido) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDPARTIDO = ?;");
-        ps.setString(1, idPartido);
+        ps.setInt(1, idPartido);
 
         ResultSet resultado = ps.executeQuery();
         
         Partido p = new Partido();
         p.setIdPartido(resultado.getInt("IDPARTIDO"));
         p.setHora(resultado.getTime("HORA").toLocalTime());
-        p.setJornada(tablaJornadas.jornadaById(resultado.getString("IDJORNADA")));
+        p.setJornada(tablaJornadas.jornadaByIdJornada(resultado.getString("IDJORNADA")));
 
         BaseDatos.desconectar();
         return p;  
     }
+    
     
     public static ArrayList<Partido> allPartidos() throws Exception{
         BaseDatos.conectar();
@@ -97,13 +97,50 @@ public class tablaPartidos {
             Partido p = new Partido();
             p.setIdPartido(resultado.getInt("IDPARTIDO"));
             p.setHora(resultado.getTime("HORA").toLocalTime());
-            p.setJornada(tablaJornadas.jornadaById(resultado.getString("IDJORNADA")));
+            p.setJornada(tablaJornadas.jornadaByIdJornada(resultado.getString("IDJORNADA")));
             
             listaPartidos.add(p);
         }
         
         BaseDatos.desconectar();
+        if(!listaPartidos.isEmpty()){
+            return listaPartidos;
+        }
+        else{
+            return null;
+        }
+    }
+    
+    
+    public static ArrayList<Partido> partidosByIdJornada(int idJornada) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDPARTIDO = ?;");
+        ps.setInt(1, idJornada);
+
+        ResultSet resultado = ps.executeQuery();
+
+        ArrayList<Partido> listaPartidos= new ArrayList();
+        while(resultado.next()){
+            Partido p = new Partido();
+            p.setIdPartido(resultado.getInt("IDPARTIDO"));
+            p.setHora(resultado.getTime("HORA").toLocalTime());
+            p.setJornada(tablaJornadas.jornadaByIdJornada(resultado.getString("IDJORNADA")));
+            
+            listaPartidos.add(p);
+        }
+        
+        BaseDatos.desconectar();
+        
+        if(listaPartidos.isEmpty()){
+           return null;
+        }
+        
         return listaPartidos;
     }
 }
+
+
+
 
