@@ -106,7 +106,7 @@ public class tablaPartidosJugados {
         ArrayList<PartidoJugado> partidos = new ArrayList(); 
         while(resultado.next()){
             PartidoJugado p = new PartidoJugado();
-            p.setEquipo(tablaEquipos.class.);//relacion equipos);
+            p.setEquipo(tablaEquipos.);//relacion equipos);
             p.setPartido(tablaPartidos.partidoById(resultado.getInt("IDPARTIDO")));
             p.setPuntuacion(resultado.getInt("PUNTUACION"));
             partidos.add(p);

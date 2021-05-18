@@ -12,5 +12,13 @@ package Excepciones.Java;
 
 //Crear switch con todos los atributos
 public class campoVacio extends Exception{
-    super(msg)
+    String mensaje = "No se puede dejar el campo vacio";
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 }

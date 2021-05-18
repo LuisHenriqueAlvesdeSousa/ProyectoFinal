@@ -7,10 +7,10 @@ package Excepciones.Java;
 
 /**
  *
- * @author 1GDAW04
+ * @author 1gdaw06
  */
-public class personaRegistrada extends Exception{
-    String mensaje = "La persona ya esta registrada en la BD.";
+public class jugadorNoEncontrado extends Exception{
+    String mensaje = "No se ha encontrado ningun jugador con esos datos.";
 
     public String getMensaje() {
         return mensaje;

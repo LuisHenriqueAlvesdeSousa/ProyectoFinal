@@ -7,10 +7,10 @@ package Excepciones.Java;
 
 /**
  *
- * @author 1GDAW04
+ * @author 1gdaw06
  */
-public class personaRegistrada extends Exception{
-    String mensaje = "La persona ya esta registrada en la BD.";
+public class TorneoCerrado extends Exception{
+    String mensaje = "No se permiten cambios. El torneo esta cerrado.";
 
     public String getMensaje() {
         return mensaje;

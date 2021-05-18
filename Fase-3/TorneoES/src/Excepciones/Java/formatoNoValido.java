@@ -10,6 +10,14 @@ package Excepciones.Java;
  * @author 1GDAW04
  */
 //Crear switch con todos los atributos
-public class formatoNoValido {
-    
+public class formatoNoValido extends Exception{
+    String mensaje = "El formato introducido no es valido.";
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 }
