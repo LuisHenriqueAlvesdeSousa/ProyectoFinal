@@ -1,16 +1,10 @@
 package torneoes;
 
 import BD.BaseDatos;
-import BD.tablaJefes;
-import UML.Jefe;
-import UML.Perfil;
-import UML.Persona;
-import UML.Torneo;
-import Views.*;
-import Views.Jefe.*;
-import Views.Torneo.vAllTorneo;
-import Views.Torneo.vModTorneo;
 import java.sql.*;
+=======
+import Views.vLogin;
+>>>>>>> Stashed changes
 
 import Views.vLogin;
 import java.awt.Dimension;
@@ -30,24 +24,9 @@ public class TorneoES {
     
     public static void main(String[] args) {
         try{
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
-            screenHeight = screenSize.height;
-            screenWidth = screenSize.width;
+            BaseDatos.conectar();
+            	            
             
-            //vLogin l = new vLogin();
-            //l.setVisible(true);
-            vMainAdmin v = new vMainAdmin();
-            v.setVisible(true);
-            
-            //vCrearJefe v1 = new vCrearJefe();
-            //v1.setVisible(true);
-            
-           //ModJefe v2 = new vModJefe(23);
-            //v2.setVisible(true);
-            
-            //vAllJefe v3 = new vAllJefe();
-            //v3.setVisible(true);
-
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage() + e.getClass());

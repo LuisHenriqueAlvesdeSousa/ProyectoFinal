@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Luis H. Alves
- */
+ *//*
 public class tablaTrabajadores {
     private static Connection con;
     
