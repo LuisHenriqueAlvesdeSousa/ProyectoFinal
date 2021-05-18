@@ -85,8 +85,8 @@ public class tablaPartidosJugados {
         ResultSet resultado = ps.executeQuery();
 
         PartidoJugado p = new PartidoJugado();
-        p.setEquipo(tablaEquipos.class.);//relacion equipos);
-        p.setPartido(//relacion partidos);
+        p.setEquipo(tablaEquipos.equipoById(resultado.getInt("IDEQUIPO")));
+        p.setPartido(tablaPartidos.partidoById(resultado.getInt("IDPARTIDO")));
         p.setPuntuacion(resultado.getInt("PUNTUACION"));
         
         BaseDatos.desconectar();
@@ -107,7 +107,7 @@ public class tablaPartidosJugados {
         while(resultado.next()){
             PartidoJugado p = new PartidoJugado();
             p.setEquipo(tablaEquipos.class.);//relacion equipos);
-            p.setPartido(idPartido);
+            p.setPartido(tablaPartidos.partidoById(resultado.getInt("IDPARTIDO")));
             p.setPuntuacion(resultado.getInt("PUNTUACION"));
             partidos.add(p);
         }

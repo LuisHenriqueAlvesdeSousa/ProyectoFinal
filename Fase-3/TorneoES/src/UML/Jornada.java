@@ -25,6 +25,10 @@ public class Jornada {
     public void setPartidos(ArrayList<Partido> p){
         this.partidos = p;
     }
+    
+    public ArrayList<Partido> getPartidos(){
+        return this.partidos;
+    }
 
     public int getIdJornada() {
         return idJornada;

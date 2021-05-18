@@ -6,6 +6,7 @@
 package BD;
 
 import UML.Jornada;
+import UML.Partido;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -31,8 +32,11 @@ public class tablaJornadas {
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
         ps.setInt(1, j.getTorneo().getIdTorneo());
-        ***
-        //relacion con partidos
+        ArrayList<Partido> partidos = j.getPartidos();
+        for(Partido partido : partidos){
+            tablaPartidos.crearPartido(partido);
+        }
+        
         ps.executeUpdate();  
         
         BaseDatos.desconectar();
@@ -47,7 +51,7 @@ public class tablaJornadas {
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
         ps.setInt(2, j.getIdJornada());
-
+        
         int n = ps.executeUpdate();
         
         BaseDatos.desconectar();
@@ -87,8 +91,7 @@ public class tablaJornadas {
         LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
         j.setFecha(fecha);
         j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
-        ****
-                //Falta la relacion con partidos;
+        j.setPartidos(tablaPartidos.partidosByIdJornada(resultado.getInt("IDJORNADA")));
                 
         BaseDatos.desconectar();
                 
@@ -111,11 +114,15 @@ public class tablaJornadas {
             LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
             j.setFecha(fecha);
             j.setTorneo(tablaTorneos.torneoById(resultado.getInt("IDTORNEO")));
-            ****
-                    //Falta la relacion con partidos;
+            j.setPartidos(tablaPartidos.partidosByIdJornada(resultado.getInt("IDJORNADA")));
                     
             BaseDatos.desconectar();
         }
-        return j;  
+        if(!jornadas.isEmpty()){
+            return jornadas;
+        }
+        else{
+            return null;
+        } 
     }
 }

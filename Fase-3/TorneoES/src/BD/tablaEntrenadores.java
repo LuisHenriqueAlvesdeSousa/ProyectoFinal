@@ -46,7 +46,7 @@ public class tablaEntrenadores {
         int n = ps.executeUpdate();  
         
         if( n > 1)
-            throw new Exception("Se ha eliminado mas de un resultado de partido");
+            throw new Exception("Se ha eliminado mas de un entrenador de partido");
         
         BaseDatos.desconectar();
         

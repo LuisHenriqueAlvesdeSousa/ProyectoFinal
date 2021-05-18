@@ -45,13 +45,13 @@ public class tablaPreparadores {
         int n = ps.executeUpdate();  
         
         if( n > 1)
-            throw new Exception("Se ha eliminado mas de un resultado de partido");
+            throw new Exception("Se ha eliminado mas de un PREPARADOR de la BD");
         
         BaseDatos.desconectar();
         
         tablaPersonas.eliminarPersona(e);
         
-        System.out.println("Se ha eliminado un entrenador");
+        System.out.println("Se ha eliminado un preparador");
     }
     
     public static Preparador entrenadorById(Preparador e) throws Exception{

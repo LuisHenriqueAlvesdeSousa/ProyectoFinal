@@ -16,9 +16,9 @@ public class tablaEquipos {
         ps.setInt(1, equipo.getIdEquipo());
         ps.setString(2, equipo.getNombre());
         ps.setString(3, equipo.getPais());
-        ps.setString(4, equipo.getIdJefe());
-        ps.setString(5, equipo.IdPreparador());
-        ps.setString(6, equipo.idEntrenador());
+        ps.setString(4, String.valueOf(equipo.getJefe().getIdPersona()));
+        ps.setString(5, String.valueOf(equipo.getPreparador().getIdPersona()));
+        ps.setString(6, String.valueOf(equipo.getEntrenador().getIdPersona()));
         
         int n = ps.executeUpdate();
         ps.close();
@@ -29,13 +29,24 @@ public class tablaEquipos {
         BaseDatos.desconectar();
     }
     
-    public static void consultaIDEquipo (Equipo equipo) throws Exception{
+    public static void equipoById (Equipo equipo) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         String plantilla = "SELECT * FROM EQUIPOS WHERE IDEQUIPO=?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setInt(1, equipo.getIdEquipo);
+        ps.setInt(1, equipo.getIdEquipo());
+        
+        BaseDatos.desconectar();
+    }
+    
+    public static void equipoById (int IdEquipo) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM EQUIPOS WHERE IDEQUIPO=?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setInt(1, IdEquipo);
         
         BaseDatos.desconectar();
     }
