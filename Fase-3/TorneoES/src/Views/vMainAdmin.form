@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -23,104 +23,396 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="tabbedPaneHeader1" max="32767" attributes="0"/>
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="tabGeneral" pref="0" max="32767" attributes="0"/>
+          <Component id="panelGeneral" pref="749" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="tabbedPaneHeader1" min="-2" pref="248" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="tabGeneral" min="-2" pref="320" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelGeneral" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="org.edisoncor.gui.tabbedPane.TabbedPaneHeader" name="tabbedPaneHeader1">
+    <Container class="org.edisoncor.gui.tabbedPane.TabbedPaneHeader" name="tabGeneral">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="org.edisoncor.gui.tabbedPane.TabbedPaneTask" name="tabbedPaneTask2">
+        <Container class="javax.swing.JPanel" name="panelPerfiles">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="ESCUDER&#xcd;A">
-                <Property name="tabTitle" type="java.lang.String" value="ESCUDER&#xcd;A"/>
+              <JTabbedPaneConstraints tabName="          PERFILES          ">
+                <Property name="tabTitle" type="java.lang.String" value="          PERFILES          "/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+            <Property name="horizontalGap" type="int" value="50"/>
+            <Property name="verticalGap" type="int" value="50"/>
+          </Layout>
+          <SubComponents>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bAnadirUsuario">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoA&#xf1;adir.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="A&#xf1;adir Usuario"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarUsuario">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEliminar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Eliminar Usuario"/>
+                <Property name="defaultCapable" type="boolean" value="false"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bEditarUsuario">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEditar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Editar Usuario"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bVerListaUsuarios">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoBuscar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ver Lista Usarios"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
-        <Container class="org.edisoncor.gui.tabbedPane.TabbedPaneTask" name="tabbedPaneTask3">
+        <Container class="javax.swing.JPanel" name="panelEscuderia">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="TORNEO">
-                <Property name="tabTitle" type="java.lang.String" value="TORNEO"/>
+              <JTabbedPaneConstraints tabName="          ESCUDERIA             ">
+                <Property name="tabTitle" type="java.lang.String" value="          ESCUDERIA             "/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="tabEscuderia" alignment="0" pref="762" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="tabEscuderia" min="-2" pref="248" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="org.edisoncor.gui.tabbedPane.TabbedPaneHeader" name="tabEscuderia">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="panelGestionEquipos">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Gestion Equipos                           ">
+                        <Property name="tabTitle" type="java.lang.String" value="Gestion Equipos                           "/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                    <Property name="horizontalGap" type="int" value="30"/>
+                    <Property name="verticalGap" type="int" value="30"/>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bAnadirEquipo">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEquipo.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="A&#xf1;adir Equipo"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarEquipo">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEliminar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Eliminar Equipo"/>
+                        <Property name="alignmentX" type="float" value="0.5"/>
+                        <Property name="defaultCapable" type="boolean" value="false"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                        <Property name="horizontalAlignment" type="int" value="4"/>
+                        <Property name="horizontalTextPosition" type="int" value="0"/>
+                        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                          <Insets value="[30, 50, 2, 14]"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bEditarEquipo">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEditar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Editar Equipo"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEditarEquipoActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bVerDatosEquipo">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoBuscar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Ver Datos Equipo"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bMostrarTrabajadores">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoBuscar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Ver Trabajadores                    "/>
+                        <Property name="description" type="java.lang.String" value="Trabajadores de un equipo"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrarTrabajadoresActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="panelGestionJefes">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Gestion Jefes                   ">
+                        <Property name="tabTitle" type="java.lang.String" value="Gestion Jefes                   "/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                    <Property name="horizontalGap" type="int" value="30"/>
+                    <Property name="verticalGap" type="int" value="30"/>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bAnadirJefe">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoA&#xf1;adir.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="A&#xf1;adir Jefe"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarJefe">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEliminar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Eliminar Jefe"/>
+                        <Property name="defaultCapable" type="boolean" value="false"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bEditarJefe">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEditar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Editar Jefe"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bVerJefes">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoBuscar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Ver Jefes"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="panelGestionJugadores">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="     Gestion Jugadores     ">
+                        <Property name="tabTitle" type="java.lang.String" value="     Gestion Jugadores     "/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                    <Property name="horizontalGap" type="int" value="30"/>
+                    <Property name="verticalGap" type="int" value="30"/>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bAnadirJugador">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoA&#xf1;adir.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="A&#xf1;adir Jugador"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarJugador">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEliminar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Eliminar Jugador"/>
+                        <Property name="defaultCapable" type="boolean" value="false"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bEditarJugador">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEditar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Editar Jugador"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="org.edisoncor.gui.button.ButtonTask" name="bVerJugador">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoBuscar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Ver Jugador"/>
+                        <Property name="description" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panelTorneos">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="          TORNEOS          ">
+                <Property name="tabTitle" type="java.lang.String" value="          TORNEOS          "/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+            <Property name="horizontalGap" type="int" value="30"/>
+            <Property name="verticalGap" type="int" value="30"/>
+          </Layout>
+          <SubComponents>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bIniciarTorneo">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\a&#xf1;adir.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Iniciar Torneo"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarTorneo">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEliminar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Eliminar Torneo"/>
+                <Property name="defaultCapable" type="boolean" value="false"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bAdministrarTorneo">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoEditar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Administrar Torneo"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonTask" name="bVerTorneos">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\1GDAW06\Desktop\Archivos Proyecto\imagenes\iconoBuscar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ver Torneos"/>
+                <Property name="description" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="panelGeneral">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder justification="1" title="Acciones Generales">
+              <Font PropertyName="font" name="Candara" size="14" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="0" type="rgb"/>
+        </Property>
+      </Properties>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="buttonAction2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="buttonAction3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="435" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="buttonAction4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="587" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonAction2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonAction3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="buttonAction4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="59" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="2"/>
+        <Property name="horizontalGap" type="int" value="40"/>
+        <Property name="rows" type="int" value="3"/>
+        <Property name="verticalGap" type="int" value="50"/>
       </Layout>
       <SubComponents>
-        <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction2">
+        <Component class="org.edisoncor.gui.button.ButtonAction" name="bImprimirJornadas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="buttonAction2"/>
+            <Property name="text" type="java.lang.String" value="IMPRIMIR TODAS LAS JORNADAS"/>
           </Properties>
         </Component>
-        <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction3">
+        <Component class="org.edisoncor.gui.button.ButtonAction" name="bImprimirClasificacion">
           <Properties>
-            <Property name="text" type="java.lang.String" value="buttonAction1"/>
+            <Property name="text" type="java.lang.String" value="IMPRIMIR CLASIFICACION GENERAL"/>
           </Properties>
         </Component>
-        <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction4">
+        <Component class="org.edisoncor.gui.button.ButtonAction" name="bInsertarResultados">
           <Properties>
-            <Property name="text" type="java.lang.String" value="buttonAction1"/>
+            <Property name="text" type="java.lang.String" value="INSERTAR RESULTADOS JORNADA"/>
+          </Properties>
+        </Component>
+        <Component class="org.edisoncor.gui.button.ButtonAction" name="bJornadasRandom">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="JORNADAS RANDOM"/>
+          </Properties>
+        </Component>
+        <Component class="org.edisoncor.gui.button.ButtonAction" name="bTorneoRandom">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FINALIZAR TORNEO RANDOM"/>
           </Properties>
         </Component>
       </SubComponents>
