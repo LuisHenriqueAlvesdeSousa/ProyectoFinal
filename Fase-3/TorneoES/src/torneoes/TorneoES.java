@@ -1,25 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package torneoes;
 
 import BD.BaseDatos;
+<<<<<<< Updated upstream
 import java.sql.*;
+=======
+import Views.vLogin;
+>>>>>>> Stashed changes
 
 /**
  *
- * @author 1GDAW04
+ * @author Grupo 2 
  */
 public class TorneoES {
 
 
     public static void main(String[] args) {
         try{
+<<<<<<< Updated upstream
             BaseDatos.conectar();
             	            
             
+=======
+            vLogin l = new vLogin();
+            l.setVisible(true);
+>>>>>>> Stashed changes
         }
         catch(Exception e){
             System.out.println("Error");

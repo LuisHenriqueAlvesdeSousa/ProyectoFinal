@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Luis H. Alves
- */
+ *//*
 public class tablaTrabajadores {
     private static Connection con;
     
@@ -128,7 +128,7 @@ public class tablaTrabajadores {
                 trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
                 trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
-                Equipo equipoActual = tablaEquipos.EquipoByIdEquipo(
+                Equipo equipoActual = tablaEquipos.consultaByIdEquipo(
                                         resultado.getString("T.IDEQUIPO"));
                 trabajadorActual.setEquipo(equipoActual);
             }
@@ -186,7 +186,7 @@ public class tablaTrabajadores {
             trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
             trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
-                Equipo equipoActual = tablaEquipos.EquipoByIdEquipo(
+                Equipo equipoActual = tablaEquipos.consultaByIdEquipo(
                                         resultado.getString("T.IDEQUIPO"));
             trabajadorActual.setEquipo(equipoActual);   
             System.out.println("Trabajador encontrado con exito.");
@@ -243,7 +243,7 @@ public class tablaTrabajadores {
             trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
             trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
-                Equipo equipoActual = tablaEquipos.EquipoByIdEquipo(
+                Equipo equipoActual = tablaEquipos.consultaByIdEquipo(
                                         resultado.getString("T.IDEQUIPO"));
             trabajadorActual.setEquipo(equipoActual);   
             System.out.println("Trabajador encontrado con exito.");
@@ -253,3 +253,4 @@ public class tablaTrabajadores {
         return trabajadorActual;
     }
 }
+*/
