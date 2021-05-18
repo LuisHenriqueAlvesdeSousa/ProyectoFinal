@@ -18,7 +18,7 @@ public class tablaJornadas {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("INSERT INTO JORNADAS (FECHA, IDTORNEO) VALUES (?, ?)");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO JORNADAS (FECHA, IDTORNEO) VALUES (?, ?);");
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
         ps.setInt(1, j.getTorneo().getIdTorneo());
@@ -33,7 +33,7 @@ public class tablaJornadas {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("UPDATE JORNADAS SET FECHA=? WHERE IDJORNADA=?");
+        PreparedStatement ps = con.prepareStatement("UPDATE JORNADAS SET FECHA=? WHERE IDJORNADA=?;");
         Date fecha = Date.valueOf(j.getFecha());
         ps.setDate(1, fecha);
         ps.setInt(2, j.getIdJornada());
@@ -50,7 +50,7 @@ public class tablaJornadas {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("DELETE FROM JORNADAS WHERE IDJORNADA=?");
+        PreparedStatement ps = con.prepareStatement("DELETE FROM JORNADAS WHERE IDJORNADA=?;");
         ps.setInt(1, j.getIdJornada());
 
         int n = ps.executeUpdate();  
@@ -65,7 +65,7 @@ public class tablaJornadas {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS WHERE UPPER(IDJORNADA)=UPPER(?)");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS WHERE UPPER(IDJORNADA)=UPPER(?);");
         ps.setString(1, idJornada);
 
         ResultSet resultado = ps.executeQuery();
@@ -87,7 +87,7 @@ public class tablaJornadas {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS;");
 
 
         ResultSet resultado = ps.executeQuery();

@@ -44,4 +44,8 @@ public class Partido {
     
     
    
+    public Partido(LocalTime hora, Jornada jornada) {
+        this.hora = hora;
+        this.jornada = jornada;
+    }
 }

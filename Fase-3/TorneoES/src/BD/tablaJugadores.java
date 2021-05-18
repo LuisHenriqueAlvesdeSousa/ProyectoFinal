@@ -2,9 +2,6 @@ package BD;
 import java.sql.*;
 import UML.Jugador;
 import UML.Persona;
-import BD.BaseDatos;
-import java.util.ArrayList;
-import UML.Persona;
 import java.util.ArrayList;
 
 public class tablaJugadores {
@@ -37,7 +34,7 @@ public class tablaJugadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "UPDATE JUGADORES SET NICKNAME=? WHERE IDPERSONA=?";
+        String plantilla = "UPDATE JUGADORES SET NICKNAME=? WHERE IDPERSONA=?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, jugador.getNickname());
         ps.setInt(2, jugador.getIdPersona());
@@ -56,7 +53,7 @@ public class tablaJugadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM JUGADORES WHERE IDPERSONA=?";
+        String plantilla = "DELETE FROM JUGADORES WHERE IDPERSONA=?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, jugador.getIdPersona());
         
@@ -87,7 +84,7 @@ public class tablaJugadores {
                                 + " J.ROL,"
                                 + " J.IDEQUIPO"
                             + "FROM PERSONAS P, JUGADOR J"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, jugador.getIdPersona());
         
@@ -135,7 +132,7 @@ public class tablaJugadores {
                                 + " J.ROL,"
                                 + " J.IDEQUIPO"
                             + "FROM PERSONAS P, JUGADOR J"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
@@ -172,11 +169,4 @@ public class tablaJugadores {
         BaseDatos.desconectar();
         return listaJugadores;
     }
-    public static void modJugador (Jugador jugador) throws Exception{
-    }
-        BaseDatos.conectar();
-        con = BaseDatos.getCon();
-        
-        tablaPersonas.modPersona(Jugador jugador);
-        BaseDatos.desconectar();
 }
