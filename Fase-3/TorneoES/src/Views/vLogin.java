@@ -216,7 +216,8 @@ public class vLogin extends javax.swing.JFrame {
     private void validarUser() throws Exception{
         if(tfUser.getText().isEmpty())
             throw new errorLogin();
-        
+            
+       
         if(!tfUser.getText().matches("[a-z A-Z 0-9]{4,}"))
             throw new errorLogin();
     }
