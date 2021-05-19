@@ -5,6 +5,8 @@
  */
 package Views.Jefe;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author 1GDAW04
@@ -27,146 +29,181 @@ public class vCrearJefe extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelHeader1 = new org.edisoncor.gui.label.LabelHeader();
+        textFieldRectImage1 = new org.edisoncor.gui.textField.TextFieldRectImage();
+        textFieldRectImage2 = new org.edisoncor.gui.textField.TextFieldRectImage();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        tfDni = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel2 = new javax.swing.JLabel();
+        tfNombre = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel3 = new javax.swing.JLabel();
+        tfApellido = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel4 = new javax.swing.JLabel();
+        dpFechaNacimiento = new com.github.lgooddatepicker.components.DatePicker();
         jLabel5 = new javax.swing.JLabel();
+        tfSueldo = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel6 = new javax.swing.JLabel();
+        tfTelefono = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel7 = new javax.swing.JLabel();
+        dpFechaContrato = new com.github.lgooddatepicker.components.DatePicker();
         jLabel8 = new javax.swing.JLabel();
+        dpFechaFinContrato = new com.github.lgooddatepicker.components.DatePicker();
         jLabel9 = new javax.swing.JLabel();
-        labelRect1 = new org.edisoncor.gui.label.LabelRect();
+        tfNacionalidad = new org.edisoncor.gui.textField.TextFieldRound();
+        labelRect2 = new org.edisoncor.gui.label.LabelRect();
+        bGuardar = new org.edisoncor.gui.button.ButtonAction();
+
+        textFieldRectImage1.setText("textFieldRectImage1");
+
+        textFieldRectImage2.setText("textFieldRectImage2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelHeader1.setText("Añadir Jefe");
+        jPanel1.setLayout(new java.awt.GridLayout(5, 4, 5, 25));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("DNI:");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel1);
 
+        tfDni.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfDni.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfDni.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfDni.setSelectionColor(new java.awt.Color(255, 153, 102));
+        jPanel1.add(tfDni);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
+        jPanel1.add(jLabel2);
 
+        tfNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfNombre.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
+        jPanel1.add(tfNombre);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Apellido:");
+        jPanel1.add(jLabel3);
 
+        tfApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfApellido.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfApellido.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfApellido.setSelectionColor(new java.awt.Color(255, 153, 102));
+        jPanel1.add(tfApellido);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Fecha Nacimiento:");
+        jPanel1.add(jLabel4);
+        jPanel1.add(dpFechaNacimiento);
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Sueldo:");
+        jPanel1.add(jLabel5);
 
+        tfSueldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfSueldo.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfSueldo.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfSueldo.setSelectionColor(new java.awt.Color(255, 153, 102));
+        jPanel1.add(tfSueldo);
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Telefono");
+        jPanel1.add(jLabel6);
 
+        tfTelefono.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfTelefono.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfTelefono.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfTelefono.setSelectionColor(new java.awt.Color(255, 153, 102));
+        jPanel1.add(tfTelefono);
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Fecha Contrato:");
+        jPanel1.add(jLabel7);
+        jPanel1.add(dpFechaContrato);
 
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Fecha Fin Contrato:");
+        jPanel1.add(jLabel8);
+        jPanel1.add(dpFechaFinContrato);
 
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Nacionalidad:");
+        jPanel1.add(jLabel9);
 
-        labelRect1.setText("labelRect1");
+        tfNacionalidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfNacionalidad.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfNacionalidad.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfNacionalidad.setSelectionColor(new java.awt.Color(255, 153, 102));
+        jPanel1.add(tfNacionalidad);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel5))
-                    .addComponent(jLabel7))
-                .addContainerGap(383, Short.MAX_VALUE))
-            .addComponent(labelRect1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(labelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
+        labelRect2.setText("Formulario nuevo jefe");
+
+        bGuardar.setText("Guardar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelHeader1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelRect2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 124, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(323, 323, 323))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(labelHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(labelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+
+    public void validarDatos(){
+        String dni = tfDni.getText();
+        String nombre = tfNombre.getText();
+        String apellido = tfApellido.getText();
+        LocalDate fechaNacimiento = dpFechaNacimiento.getDate();
+        String sueldo = tfSueldo.getText();
+        String telefono = tfTelefono.getText();
+        LocalDate fechaContrato = dpFechaContrato.getDate();
+        LocalDate fechaFinContrato = dpFechaFinContrato.getDate();
+        String nacionalidad = tfNacionalidad.getText();
+        
+        
+        if(dni.matches("[0-9]{8}[a-z A-Z]{1}")){
+            if(nombre.matches("[a-zA-Z]{3,}")){
+                if(apellido.matches("[a-zA-Z]{3,}")){
+                    if(sueldo.matches("\\d{3,6}")){
+                        if(telefono.matches("\\d{9}")){
+                            if(fechaFinContrato.isAfter(fechaContrato)){
+                                if(!nacionalidad.isEmpty()){
+                                    
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vCrearJefe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vCrearJefe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vCrearJefe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vCrearJefe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vCrearJefe().setVisible(true);
-            }
-        });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.button.ButtonAction bGuardar;
+    private com.github.lgooddatepicker.components.DatePicker dpFechaContrato;
+    private com.github.lgooddatepicker.components.DatePicker dpFechaFinContrato;
+    private com.github.lgooddatepicker.components.DatePicker dpFechaNacimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -177,7 +214,14 @@ public class vCrearJefe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private org.edisoncor.gui.label.LabelHeader labelHeader1;
-    private org.edisoncor.gui.label.LabelRect labelRect1;
+    private org.edisoncor.gui.label.LabelRect labelRect2;
+    private org.edisoncor.gui.textField.TextFieldRectImage textFieldRectImage1;
+    private org.edisoncor.gui.textField.TextFieldRectImage textFieldRectImage2;
+    private org.edisoncor.gui.textField.TextFieldRound tfApellido;
+    private org.edisoncor.gui.textField.TextFieldRound tfDni;
+    private org.edisoncor.gui.textField.TextFieldRound tfNacionalidad;
+    private org.edisoncor.gui.textField.TextFieldRound tfNombre;
+    private org.edisoncor.gui.textField.TextFieldRound tfSueldo;
+    private org.edisoncor.gui.textField.TextFieldRound tfTelefono;
     // End of variables declaration//GEN-END:variables
 }
