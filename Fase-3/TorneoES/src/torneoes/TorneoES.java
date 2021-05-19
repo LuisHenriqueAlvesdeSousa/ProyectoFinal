@@ -2,9 +2,10 @@ package torneoes;
 
 import BD.BaseDatos;
 import java.sql.*;
-=======
+
 import Views.vLogin;
->>>>>>> Stashed changes
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import Views.vLogin;
 import java.awt.Dimension;
@@ -24,9 +25,14 @@ public class TorneoES {
     
     public static void main(String[] args) {
         try{
-            BaseDatos.conectar();
-            	            
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+            screenHeight = screenSize.height;
+            screenWidth = screenSize.width;
             
+=======
+            vLogin l = new vLogin();
+            l.setVisible(true);
+>>>>>>> Stashed changes
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage() + e.getClass());
@@ -88,6 +94,11 @@ public class TorneoES {
             comboBox.addItem(torneo.getIdTorneo() + ": " + torneo.getJornadas().get(0).getFecha().toString());
         }
         
+    }
+    
+    public static boolean validarUsuario(String user, String pass) throws Exception{
+        Perfil p = new Perfil();
+        p.setUsuario(user);
     }
     
 }
