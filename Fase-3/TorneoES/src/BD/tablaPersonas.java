@@ -4,12 +4,11 @@ import UML.Persona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
  *
- * @author 1GDAW04
+ * @author Luis H. Alves
  */
 public class tablaPersonas {
     private static Connection con;
@@ -43,8 +42,7 @@ public class tablaPersonas {
         if(n != 1)
             throw new Exception("Se ha insertado más de una Persona.");
         
-        System.out.println("Persona insertado con exito.");
-        
+        System.out.println("Persona insertado con exito.");   
         BaseDatos.desconectar();
     }
     
@@ -155,30 +153,33 @@ public class tablaPersonas {
         
         if(resultado == null){
             personaActual = null;
+            System.out.println("Persona no encontrada.");
         }
         else{
             resultado.next();
             personaActual.setIdPersona(resultado.getInt("IDPERSONA"));
-                personaActual.setDni(resultado.getString("DNI"));
-                personaActual.setNombre(resultado.getString("NOMBRE"));
-                personaActual.setApellido(resultado.getString("APELLIDO"));
-                personaActual.setFechaNacimiento(
+            personaActual.setDni(resultado.getString("DNI"));
+            personaActual.setNombre(resultado.getString("NOMBRE"));
+            personaActual.setApellido(resultado.getString("APELLIDO"));
+            personaActual.setFechaNacimiento(
                         resultado.getDate("FECHANACIMIENTO").toLocalDate());
-                personaActual.setSueldo(resultado.getDouble("SUELDO"));
-                personaActual.setTelefono(resultado.getString("TELEFONO"));
-                personaActual.setFechaContrato(
+            personaActual.setSueldo(resultado.getDouble("SUELDO"));
+            personaActual.setTelefono(resultado.getString("TELEFONO"));
+            personaActual.setFechaContrato(
                         resultado.getDate("FECHACONTRATO").toLocalDate());
-                personaActual.setFechaFinContrato(
+            personaActual.setFechaFinContrato(
                         resultado.getDate("FECHAFINCONTRATO").toLocalDate());
-                personaActual.setNacionalidad(
+            personaActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
+                
+            System.out.println("Persona encontrada con exito.");
         }
         
         BaseDatos.desconectar();
         return personaActual;
     }
     
-    public static Persona PersonaById(Persona p) throws Exception{
+    public static Persona PersonaByIdPersona(Persona p) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -192,23 +193,26 @@ public class tablaPersonas {
         
         if(resultado == null){
             personaActual = null;
+            System.out.println("Persona no encontrada.");
         }
         else{
             resultado.next();
             personaActual.setIdPersona(resultado.getInt("IDPERSONA"));
-                personaActual.setDni(resultado.getString("DNI"));
-                personaActual.setNombre(resultado.getString("NOMBRE"));
-                personaActual.setApellido(resultado.getString("APELLIDO"));
-                personaActual.setFechaNacimiento(
+            personaActual.setDni(resultado.getString("DNI"));
+            personaActual.setNombre(resultado.getString("NOMBRE"));
+            personaActual.setApellido(resultado.getString("APELLIDO"));
+            personaActual.setFechaNacimiento(
                         resultado.getDate("FECHANACIMIENTO").toLocalDate());
-                personaActual.setSueldo(resultado.getDouble("SUELDO"));
-                personaActual.setTelefono(resultado.getString("TELEFONO"));
-                personaActual.setFechaContrato(
+            personaActual.setSueldo(resultado.getDouble("SUELDO"));
+            personaActual.setTelefono(resultado.getString("TELEFONO"));
+            personaActual.setFechaContrato(
                         resultado.getDate("FECHACONTRATO").toLocalDate());
-                personaActual.setFechaFinContrato(
+            personaActual.setFechaFinContrato(
                         resultado.getDate("FECHAFINCONTRATO").toLocalDate());
-                personaActual.setNacionalidad(
+            personaActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
+            
+            System.out.println("Persona encontrada con exito.");
         }
         
         BaseDatos.desconectar();

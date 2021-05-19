@@ -2,6 +2,7 @@ package BD;
 import java.sql.*;
 import UML.Perfil;
 import BD.BaseDatos;
+import java.util.ArrayList;
 
 public class tablaPerfiles {
     private static Connection con;
@@ -41,21 +42,101 @@ public class tablaPerfiles {
         BaseDatos.desconectar();
     }
     
-    public static void consultaIDPerfil (Perfil perfil) throws Exception{
+    public static Perfil PerfilByIdPerfil (Perfil perfil) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         String plantilla = "SELECT * FROM PERFILES WHERE IDPERFIL=?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setInt(1, perfil.getIdPerfil);
+        ps.setInt(1, perfil.getIdPerfil());
+        
+        ResultSet resultado = ps.executeQuery();
+        
+        Perfil perfilActual = new Perfil();
+        perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
+        perfilActual.setUsuario(resultado.getString("USUARIO"));
+        perfilActual.setPasswd(resultado.getString("PASSWD"));
+        if(resultado.getString("PRIVILEGIOS").equalsIgnoreCase("ADMIN")){
+            perfilActual.setPrivilegiosAdmin();
+        }
+        else{
+            perfilActual.setPrivilegiosUser();
+        }
+        
+        BaseDatos.desconectar();
+        return perfilActual;
+    }
+    
+    public static ArrayList<Perfil> allPerfil () throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM PERFILES;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ResultSet resultado = ps.executeQuery();
+        
+        Perfil perfilActual = new Perfil();
+        ArrayList<Perfil> listaPerfiles = new ArrayList();
+        
+        if(resultado == null){
+            listaPerfiles = null;
+            System.out.println("No hay perfiles creados en la BD");
+        }
+        else{
+            while(resultado.next()){
+                perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
+                perfilActual.setUsuario(resultado.getString("USUARIO"));
+                perfilActual.setPasswd(resultado.getString("PASSWD"));
+                if(resultado.getString("PRIVILEGIOS").equalsIgnoreCase("ADMIN")){
+                    perfilActual.setPrivilegiosAdmin();
+                }
+                else{
+                    perfilActual.setPrivilegiosUser();
+                }
+            }
+        }
+        
+        BaseDatos.desconectar();
+        return listaPerfiles;
+    }
+    
+    public static void modUsuarioPerfil (Perfil perfil) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "UPDATE PERFILES SET USUARIO=? WHERE IDPERFIL=?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, perfil.getUsuario());
+        ps.setInt(2, perfil.getIdPerfil());
+        
+        int n = ps.executeUpdate();
+        
+        if (n!=1)
+            throw new Exception ("Se ha modificado más de un perfil");
+        
+        System.out.println("Perfil modificado con éxito");
         
         BaseDatos.desconectar();
     }
     
-    public static void modPerfil (Perfil perfil) throws Exception{
+    public static void modPassPerfil (Perfil perfil) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
+        String plantilla = "UPDATE PERFILES SET PASSWD=? WHERE IDPERFIL=?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, perfil.getPasswd());
+        ps.setInt(2, perfil.getIdPerfil());
+        
+        int n = ps.executeUpdate();
+        
+        if (n!=1)
+            throw new Exception ("Se ha modificado más de un perfil");
+        
+        System.out.println("Perfil modificado con éxito");
+        
         BaseDatos.desconectar();
     }
+    
+    
 }

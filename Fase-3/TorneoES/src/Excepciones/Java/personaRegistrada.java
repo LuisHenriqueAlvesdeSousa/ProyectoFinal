@@ -9,8 +9,8 @@ package Excepciones.Java;
  *
  * @author 1GDAW04
  */
-public class personaRegistrada extends Exception{
-    String mensaje = "La persona ya esta registrada en la BD.";
+public class personaRegistrada {
+    String mensaje = "Ya hay una persona con ese DNI registrada en la BD.";
 
     public String getMensaje() {
         return mensaje;

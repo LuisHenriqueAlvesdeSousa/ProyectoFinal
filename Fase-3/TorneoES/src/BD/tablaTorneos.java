@@ -62,7 +62,7 @@ public class tablaTorneos {
 
     }
     
-    public static Torneo torneoById(int idTorneo) throws Exception{
+    public static Torneo torneoByIdTorneo(int idTorneo) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         

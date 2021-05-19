@@ -6,6 +6,9 @@
 package Views.Jefe;
 
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,9 +16,17 @@ import java.time.LocalDate;
  */
 public class vCrearJefe extends javax.swing.JFrame {
 
-    /**
-     * Creates new form vCrearJefe
-     */
+   
+    String dni;
+    String nombre;
+    String apellido;
+    LocalDate fechaNacimiento;
+    String sueldo;
+    String telefono;
+    LocalDate fechaContrato;
+    LocalDate fechaFinContrato;
+    String nacionalidad;
+    
     public vCrearJefe() {
         initComponents();
     }
@@ -140,6 +151,11 @@ public class vCrearJefe extends javax.swing.JFrame {
         labelRect2.setText("Formulario nuevo jefe");
 
         bGuardar.setText("Guardar");
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,8 +169,8 @@ public class vCrearJefe extends javax.swing.JFrame {
                         .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(323, 323, 323))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,33 +186,66 @@ public class vCrearJefe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    public void validarDatos(){
-        String dni = tfDni.getText();
-        String nombre = tfNombre.getText();
-        String apellido = tfApellido.getText();
-        LocalDate fechaNacimiento = dpFechaNacimiento.getDate();
-        String sueldo = tfSueldo.getText();
-        String telefono = tfTelefono.getText();
-        LocalDate fechaContrato = dpFechaContrato.getDate();
-        LocalDate fechaFinContrato = dpFechaFinContrato.getDate();
-        String nacionalidad = tfNacionalidad.getText();
-        
-        
-        if(dni.matches("[0-9]{8}[a-z A-Z]{1}")){
-            if(nombre.matches("[a-zA-Z]{3,}")){
-                if(apellido.matches("[a-zA-Z]{3,}")){
-                    if(sueldo.matches("\\d{3,6}")){
-                        if(telefono.matches("\\d{9}")){
-                            if(fechaFinContrato.isAfter(fechaContrato)){
-                                if(!nacionalidad.isEmpty()){
-                                    
-                                }
-                            }
-                        }
-                    }
-                }
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        dni = tfDni.getText();
+        nombre = tfNombre.getText();
+        apellido = tfApellido.getText();
+        fechaNacimiento = dpFechaNacimiento.getDate();
+        sueldo = tfSueldo.getText();
+        telefono = tfTelefono.getText();
+        fechaContrato = dpFechaContrato.getDate();
+        fechaFinContrato = dpFechaFinContrato.getDate();
+        nacionalidad = tfNacionalidad.getText();
+        if(validarDatos()){
+            try {
+                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
+                System.out.println("Se ha insertado el jefe en la BD.");
+            } catch (Exception ex) {
+                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
+                System.out.println(ex.getMessage());
             }
+        }
+        else{
+            System.out.println("mierdaaa");
+        }
+    }//GEN-LAST:event_bGuardarActionPerformed
+
+
+    public boolean validarDatos(){        
+        try{
+            if(dni.matches("[0-9]{8}[a-z A-Z]{1}")){
+                if(nombre.matches("[a-zA-Z]{3,}")){
+                    if(apellido.matches("[a-zA-Z]{3,}")){
+                        if(sueldo.matches("\\d{3,6}")){
+                            if(telefono.matches("\\d{9}")){
+                                if(fechaFinContrato.isAfter(fechaContrato)){
+                                    if(!nacionalidad.isEmpty()){
+                                        return true;
+                                    }else{
+                                        throw new Excepciones.Java.campoVacio("El campo nacionalidad no puede estar vacio");
+                                    }
+                                }else{
+                                throw new Exception("La fecha fin contrato no puede ser anterior a la fecha de inicio del contrato");
+                            }
+                            }else{
+                                throw new Excepciones.Java.formatoNoValido("El campo telefono no tiene el formato correcto");
+                            }
+                        }else{
+                            throw new Excepciones.Java.formatoNoValido("El campo sueldo solo admite digitos con un minimo de 3 y maximo de 6 digitos");
+                        }
+                    }else{
+                        throw new Excepciones.Java.formatoNoValido("El campo apellido ha de tener mas de 3 caracteres");
+                    }
+                }else{
+                    throw new Excepciones.Java.formatoNoValido("El campo nombre ha de tener mas de 3 caracteres");
+                }
+            }else{
+                throw new Excepciones.Java.formatoNoValido("El campo DNI no tiene el formato correcto");
+            }
+        }
+        catch(Exception ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+                return false;
         }
     }
     

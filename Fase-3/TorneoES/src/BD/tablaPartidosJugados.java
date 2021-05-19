@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BD;
 
 import UML.PartidoJugado;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
  *
- * @author 1GDAW04
+ * @author Rober
  */
 public class tablaPartidosJugados {
     private static Connection con;
@@ -85,7 +79,7 @@ public class tablaPartidosJugados {
         ResultSet resultado = ps.executeQuery();
 
         PartidoJugado p = new PartidoJugado();
-        p.setEquipo(tablaEquipos.equipoById(resultado.getInt("IDEQUIPO")));
+        p.setEquipo(tablaEquipos.equipoByIdEquipo(resultado.getString("IDEQUIPO")));
         p.setPartido(tablaPartidos.partidoById(resultado.getInt("IDPARTIDO")));
         p.setPuntuacion(resultado.getInt("PUNTUACION"));
         
@@ -106,7 +100,7 @@ public class tablaPartidosJugados {
         ArrayList<PartidoJugado> partidos = new ArrayList(); 
         while(resultado.next()){
             PartidoJugado p = new PartidoJugado();
-            p.setEquipo(tablaEquipos.);//relacion equipos);
+            p.setEquipo(tablaEquipos.equipoByIdEquipo(resultado.getString("IDEQUIPO")));
             p.setPartido(tablaPartidos.partidoById(resultado.getInt("IDPARTIDO")));
             p.setPuntuacion(resultado.getInt("PUNTUACION"));
             partidos.add(p);
@@ -114,6 +108,6 @@ public class tablaPartidosJugados {
         
         BaseDatos.desconectar();
         
-        return p;
+        return partidos;
     }
 }
