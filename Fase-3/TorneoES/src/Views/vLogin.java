@@ -225,7 +225,7 @@ public class vLogin extends javax.swing.JFrame {
         if(!mat.matches())
             throw new errorLogin();
     }
-
+jajajaja
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound bAceptar;
     private javax.swing.JLabel jLabel1;
