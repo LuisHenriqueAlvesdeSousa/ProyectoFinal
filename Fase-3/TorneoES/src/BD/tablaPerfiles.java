@@ -42,6 +42,37 @@ public class tablaPerfiles {
         BaseDatos.desconectar();
     }
     
+    public static Perfil validarLogin (Perfil perfil) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM PERFILES WHERE USER=? AND PASSWD=?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, perfil.getUsuario());
+        ps.setString(2, perfil.getPasswd());
+        
+        ResultSet resultado = ps.executeQuery();
+        
+        Perfil perfilActual = new Perfil();
+        
+        if(resultado == null){
+            perfilActual = null;
+        }
+        else{
+            perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
+            perfilActual.setUsuario(resultado.getString("USUARIO"));
+            perfilActual.setPasswd(resultado.getString("PASSWD"));
+            if(resultado.getString("PRIVILEGIOS").equalsIgnoreCase("ADMIN")){
+                perfilActual.setPrivilegiosAdmin();
+            }
+            else{
+                perfilActual.setPrivilegiosUser();
+            }
+        }
+        BaseDatos.desconectar();
+        return perfilActual;
+    }
+    
     public static Perfil PerfilByIdPerfil (Perfil perfil) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
