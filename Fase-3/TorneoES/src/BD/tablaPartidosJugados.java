@@ -22,7 +22,7 @@ public class tablaPartidosJugados {
         con = BaseDatos.getCon();
         
         PreparedStatement ps = con.prepareStatement("INSERT INTO PARTIDOS_JUGADOS (IDEQUIPO, IDPARTIDO, PUNTUACION) "
-                + "VALUES (?, ?, ?);");
+                + "VALUES (?, ?, ?)");
         ps.setInt(1, p.getEquipo().getIdEquipo());
         ps.setInt(2, p.getPartido().getIdPartido());
         ps.setInt(3, p.getPuntuacion());
@@ -37,7 +37,7 @@ public class tablaPartidosJugados {
         con = BaseDatos.getCon();
         
         PreparedStatement ps = con.prepareStatement("UPDATE PARTIDOS_JUGADOS SET PUNTUACION=?"
-                                                    + " WHERE IDPARTIDO=? AND IDEQUIPO=?;");
+                                                    + " WHERE IDPARTIDO=? AND IDEQUIPO=?");
         ps.setInt(1, p.getPuntuacion());
         ps.setInt(2, p.getPartido().getIdPartido());
         ps.setInt(3, p.getEquipo().getIdEquipo());
@@ -55,7 +55,7 @@ public class tablaPartidosJugados {
         con = BaseDatos.getCon();
         
         PreparedStatement ps = con.prepareStatement("DELETE FROM PARTIDOS_JUGADOS WHERE IDPARTIDO=? AND "
-                                                    + "IDEQUIPO=?;");
+                                                    + "IDEQUIPO=?");
         ps.setInt(1, p.getPartido().getIdPartido());
         ps.setInt(2, p.getEquipo().getIdEquipo());
 
@@ -72,7 +72,7 @@ public class tablaPartidosJugados {
         con = BaseDatos.getCon();
         
         PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS WHERE IDPARTIDO=? AND "
-                                                    + "IDEQUIPO=?;");
+                                                    + "IDEQUIPO=?");
         ps.setInt(1, idPartido);
         ps.setInt(2, idEquipo);
 
@@ -92,7 +92,7 @@ public class tablaPartidosJugados {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS_JUGADOS;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS_JUGADOS");
         
 
         ResultSet resultado = ps.executeQuery();

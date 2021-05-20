@@ -17,7 +17,7 @@ public class tablaPartidos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("INSERT INTO PARTIDOS (HORA, IDJO0RNADA) VALUES (?, ?, ?);");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO PARTIDOS (HORA, IDJO0RNADA) VALUES (?, ?, ?)");
         ps.setTime(1, java.sql.Time.valueOf(p.getHora()));
         ps.setInt(2, p.getJornada().getIdJornada());
     
@@ -36,7 +36,7 @@ public class tablaPartidos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("UPDATE PARTIDOS SET HORA = ? WHERE IDPARTIDO = ?;");
+        PreparedStatement ps = con.prepareStatement("UPDATE PARTIDOS SET HORA = ? WHERE IDPARTIDO = ?");
         ps.setTime(1, java.sql.Time.valueOf(p.getHora()));
         ps.setInt(2, p.getIdPartido());
 
@@ -52,7 +52,7 @@ public class tablaPartidos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("DELETE FROM PARTIDOS WHERE IDPARTIDO = ?;");
+        PreparedStatement ps = con.prepareStatement("DELETE FROM PARTIDOS WHERE IDPARTIDO = ?");
         ps.setInt(1, p.getIdPartido());
 
         int n = ps.executeUpdate();  
@@ -68,7 +68,7 @@ public class tablaPartidos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDPARTIDO = ?;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDPARTIDO = ?");
         ps.setInt(1, idPartido);
 
         ResultSet resultado = ps.executeQuery();
@@ -87,7 +87,7 @@ public class tablaPartidos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS");
 
 
         ResultSet resultado = ps.executeQuery();
@@ -116,7 +116,7 @@ public class tablaPartidos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDPARTIDO = ?;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDPARTIDO = ?");
         ps.setInt(1, idJornada);
 
         ResultSet resultado = ps.executeQuery();

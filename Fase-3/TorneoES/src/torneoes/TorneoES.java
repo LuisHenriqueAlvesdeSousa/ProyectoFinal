@@ -3,6 +3,7 @@ package torneoes;
 import BD.BaseDatos;
 import UML.Jefe;
 import UML.Perfil;
+import UML.Persona;
 import Views.Jefe.vCrearJefe;
 import java.sql.*;
 
@@ -31,10 +32,14 @@ public class TorneoES {
             //l.setVisible(true);
             Views.Jefe.vCrearJefe ventana = new vCrearJefe();
             ventana.setVisible(true);
-            
+
+            //Persona p = new Persona("12345688h", "patata", "picante", LocalDate.of(1, 1, 1), 1000, "653456789", LocalDate.of(1, 2, 3), LocalDate.of(1, 2, 3), "marcioana");
+            //Jefe j = new Jefe("58007778J", "patata", "picante", LocalDate.of(1, 1, 1), 1000, "653456789", LocalDate.of(1, 2, 3), LocalDate.of(1, 2, 3), "marcioana");
+            //BD.tablaPersonas.crearPersona(p);
+            //BD.tablaJefes.crearJefe(j);
         }
         catch(Exception e){
-            System.out.println("Error");
+            System.out.println("Error:" + e.getMessage());
         }
     }
     

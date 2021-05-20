@@ -21,12 +21,13 @@ public class tablaPersonas {
                                                 + " DNI,"
                                                 + " NOMBRE,"
                                                 + " APELLIDO,"
-                                                + " FECHANACIMIENTO,"
+                                                + " FECHA_NACIMIENTO,"
                                                 + " SUELDO,"
                                                 + " TELEFONO,"
-                                                + " FECHACONTRATO,"
+                                                + " FECHA_CONTRATO,"
+                                                + " FECHA_FIN_CONTRATO,"
                                                 + " NACIONALIDAD) "
-                          + "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+                          + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, p.getDni());
         ps.setString(2, p.getNombre());
@@ -35,7 +36,8 @@ public class tablaPersonas {
         ps.setDouble(5, p.getSueldo());
         ps.setString(6, p.getTelefono());
         ps.setDate(7, java.sql.Date.valueOf(p.getFechaContrato()));
-        ps.setString(8, p.getNacionalidad());
+        ps.setDate(8, java.sql.Date.valueOf(p.getFechaFinContrato()));
+        ps.setString(9, p.getNacionalidad());
         
         int n = ps.executeUpdate();
         
@@ -54,12 +56,13 @@ public class tablaPersonas {
                                                 + " DNI = ?,"
                                                 + " NOMBRE = ?,"
                                                 + " APELLIDO = ?,"
-                                                + " FECHANACIMIENTO = ?,"
+                                                + " FECHA_NACIMIENTO = ?,"
                                                 + " SUELDO = ?,"
                                                 + " TELEFONO = ?,"
-                                                + " FECHACONTRATO = ?,"
+                                                + " FECHA_CONTRATO = ?,"
+                                                + " FECHA_FIN_CONTRATO = ?,"
                                                 + " NACIONALIDAD = ?"
-                          + "WHERE IDPERSONA = ?;";
+                          + "WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, p.getDni());
         ps.setString(2, p.getNombre());
@@ -68,8 +71,9 @@ public class tablaPersonas {
         ps.setDouble(5, p.getSueldo());
         ps.setString(6, p.getTelefono());
         ps.setDate(7, java.sql.Date.valueOf(p.getFechaContrato()));
-        ps.setString(8, p.getNacionalidad());
-        ps.setInt(9, p.getIdPersona());
+        ps.setDate(8, java.sql.Date.valueOf(p.getFechaFinContrato()));
+        ps.setString(9, p.getNacionalidad());
+        ps.setInt(10, p.getIdPersona());
         
         int n = ps.executeUpdate();
         
@@ -85,7 +89,7 @@ public class tablaPersonas {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM PERSONAS WHERE IDPERSONA = ?;";
+        String plantilla = "DELETE FROM PERSONAS WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, p.getIdPersona());
         
@@ -98,11 +102,11 @@ public class tablaPersonas {
         BaseDatos.desconectar();
     }
     
-    public static ArrayList<Persona> allPersona(Persona p) throws Exception{
+    public static ArrayList<Persona> allPersona() throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERSONAS;";
+        String plantilla = "SELECT * FROM PERSONAS";
         PreparedStatement ps = con.prepareStatement(plantilla);
         
         ResultSet resultado = ps.executeQuery();
@@ -121,13 +125,13 @@ public class tablaPersonas {
                 personaActual.setNombre(resultado.getString("NOMBRE"));
                 personaActual.setApellido(resultado.getString("APELLIDO"));
                 personaActual.setFechaNacimiento(
-                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
                 personaActual.setSueldo(resultado.getDouble("SUELDO"));
                 personaActual.setTelefono(resultado.getString("TELEFONO"));
                 personaActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
                 personaActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
                 personaActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
                 listaPersonas.add(personaActual);
@@ -139,11 +143,51 @@ public class tablaPersonas {
         return listaPersonas;
     }
     
+    public static Persona PersonaByDni(String dni) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT * FROM PERSONAS WHERE DNI = ?";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, dni);
+        
+        ResultSet resultado = ps.executeQuery();
+        
+        Persona personaActual = new Persona();
+        
+        if(resultado == null){
+            personaActual = null;
+            System.out.println("Persona no encontrada.");
+        }
+        else{
+            resultado.next();
+            personaActual.setIdPersona(resultado.getInt("IDPERSONA"));
+            personaActual.setDni(resultado.getString("DNI"));
+            personaActual.setNombre(resultado.getString("NOMBRE"));
+            personaActual.setApellido(resultado.getString("APELLIDO"));
+            personaActual.setFechaNacimiento(
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
+            personaActual.setSueldo(resultado.getDouble("SUELDO"));
+            personaActual.setTelefono(resultado.getString("TELEFONO"));
+            personaActual.setFechaContrato(
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
+            personaActual.setFechaFinContrato(
+                        resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
+            personaActual.setNacionalidad(
+                        resultado.getString("NACIONALIDAD"));
+                
+            System.out.println("Persona encontrada con exito.");
+        }
+        
+        BaseDatos.desconectar();
+        return personaActual;
+    }
+    
     public static Persona PersonaByDni(Persona p) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERSONAS WHERE DNI = ?;";
+        String plantilla = "SELECT * FROM PERSONAS WHERE DNI = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, p.getDni());
         
@@ -162,13 +206,13 @@ public class tablaPersonas {
             personaActual.setNombre(resultado.getString("NOMBRE"));
             personaActual.setApellido(resultado.getString("APELLIDO"));
             personaActual.setFechaNacimiento(
-                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
             personaActual.setSueldo(resultado.getDouble("SUELDO"));
             personaActual.setTelefono(resultado.getString("TELEFONO"));
             personaActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
             personaActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
             personaActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
                 
@@ -183,7 +227,7 @@ public class tablaPersonas {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?;";
+        String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, p.getIdPersona());
         
@@ -202,13 +246,13 @@ public class tablaPersonas {
             personaActual.setNombre(resultado.getString("NOMBRE"));
             personaActual.setApellido(resultado.getString("APELLIDO"));
             personaActual.setFechaNacimiento(
-                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
             personaActual.setSueldo(resultado.getDouble("SUELDO"));
             personaActual.setTelefono(resultado.getString("TELEFONO"));
             personaActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
             personaActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
             personaActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
             

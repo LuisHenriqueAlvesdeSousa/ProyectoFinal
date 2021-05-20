@@ -11,7 +11,7 @@ public class tablaEquipos {
         con = BaseDatos.getCon();
         
         
-        String plantilla = "INSERT INTO EQUIPOS VALUES (?,?,?,?,?,?);";
+        String plantilla = "INSERT INTO EQUIPOS VALUES (?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, equipo.getIdEquipo());
         ps.setString(2, equipo.getNombre());
@@ -33,7 +33,7 @@ public class tablaEquipos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM EQUIPOS WHERE IDEQUIPO=?;";
+        String plantilla = "SELECT * FROM EQUIPOS WHERE IDEQUIPO=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, idEquipo);
         
@@ -55,7 +55,7 @@ public class tablaEquipos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM EQUIPOS WHERE IDEQUIPO=?;";
+        String plantilla = "SELECT * FROM EQUIPOS WHERE IDEQUIPO=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, equipo.getIdEquipo());
         
@@ -77,7 +77,7 @@ public class tablaEquipos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM EQUIPOS;";
+        String plantilla = "SELECT * FROM EQUIPOS";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
@@ -107,7 +107,7 @@ public class tablaEquipos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM EQUIPOS WHERE IDEQUIPO=?;";
+        String plantilla = "DELETE FROM EQUIPOS WHERE IDEQUIPO=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, equipo.getIdEquipo());
         
@@ -124,7 +124,7 @@ public class tablaEquipos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "UPDATE EQUIPOS SET NOMBRE=? WHERE IDEQUIPO=?;";
+        String plantilla = "UPDATE EQUIPOS SET NOMBRE=? WHERE IDEQUIPO=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, equipo.getNombre());
         ps.setInt(2, equipo.getIdEquipo());
@@ -143,7 +143,7 @@ public class tablaEquipos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "UPDATE EQUIPOS SET PAIS=? WHERE IDEQUIPO=?;";
+        String plantilla = "UPDATE EQUIPOS SET PAIS=? WHERE IDEQUIPO=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, equipo.getPais());
         ps.setInt(2, equipo.getIdEquipo());

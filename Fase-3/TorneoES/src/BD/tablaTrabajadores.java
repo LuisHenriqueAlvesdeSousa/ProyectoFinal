@@ -23,7 +23,7 @@ public class tablaTrabajadores {
         Persona personaActual = tablaPersonas.PersonaByDni(t);
         int id = personaActual.getIdPersona();
         String plantilla = "INSERT INTO TRABAJADOR(IDPERSONA, OFICIO, IDEQUIPO) "
-                          + "VALUES (?, ?, ?);";
+                          + "VALUES (?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, t.getIdPersona());
         ps.setString(2, t.getOficio());
@@ -47,7 +47,7 @@ public class tablaTrabajadores {
                                                 + " IDPERSONA = ?,"
                                                 + " OFICIO = ?,"
                                                 + " IDEQUIPO = ? "
-                          + "WHERE IDPERSONA = ?;";
+                          + "WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, t.getIdPersona());
         ps.setString(2, t.getOficio());
@@ -68,7 +68,7 @@ public class tablaTrabajadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM TRABAJADORES WHERE IDPERSONA = ?;";
+        String plantilla = "DELETE FROM TRABAJADORES WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, t.getIdPersona());
         
@@ -99,7 +99,7 @@ public class tablaTrabajadores {
                                 + " T.OFICIO,"
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA";
         PreparedStatement ps = con.prepareStatement(plantilla);
         
         ResultSet resultado = ps.executeQuery();
@@ -157,7 +157,7 @@ public class tablaTrabajadores {
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
                             + "WHERE P.IDPERSONA = T.IDPERSONA"
-                            + "AND P.DNI = ?;";
+                            + "AND P.DNI = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, p.getDni());
         
@@ -214,7 +214,7 @@ public class tablaTrabajadores {
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
                             + "WHERE P.IDPERSONA = T.IDPERSONA"
-                            + "AND P.IDPERSONA = ?;";
+                            + "AND P.IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, idTrabajador);
         
@@ -271,7 +271,7 @@ public class tablaTrabajadores {
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
                             + "WHERE P.IDPERSONA = T.IDPERSONA"
-                            + "AND P.IDPERSONA = ?;";
+                            + "AND P.IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, p.getIdPersona());
         

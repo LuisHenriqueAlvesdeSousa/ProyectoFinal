@@ -19,9 +19,9 @@ public class tablaJefes {
         con = BaseDatos.getCon();
         
         tablaPersonas.crearPersona(j);
-        Persona personaActual = tablaPersonas.PersonaByDni(j);
+        Persona personaActual = tablaPersonas.PersonaByDni(j.getDni());
         int id = personaActual.getIdPersona();
-        String plantilla = "INSERT INTO JEFES (IDPERSONA) VALUES (?);";
+        String plantilla = "INSERT INTO JEFES (IDPERSONA) VALUES (?)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, id);
         
@@ -43,7 +43,7 @@ public class tablaJefes {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM JEFES WHERE IDPERSONA = ?;";
+        String plantilla = "DELETE FROM JEFES WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, j.getIdPersona());
         
@@ -65,7 +65,7 @@ public class tablaJefes {
         String plantilla = "SELECT * "
                             + "FROM PERSONAS "
                             + "WHERE IDPERSONA IN (SELECT * "
-                                                + "FROM JEFES);";
+                                                + "FROM JEFES)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         
         ResultSet resultado = ps.executeQuery();
@@ -107,7 +107,7 @@ public class tablaJefes {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERSONAS WHERE DNI = ?;";
+        String plantilla = "SELECT * FROM PERSONAS WHERE DNI = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, j.getDni());
         
@@ -146,7 +146,7 @@ public class tablaJefes {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?;";
+        String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, idJefe);
          
@@ -186,7 +186,7 @@ public class tablaJefes {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?;";
+        String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, j.getIdPersona());
          

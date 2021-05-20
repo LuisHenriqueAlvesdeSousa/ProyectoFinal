@@ -19,7 +19,7 @@ public class tablaTorneos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("INSERT INTO TORNEOS (ESTADO) VALUES (?);");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO TORNEOS (ESTADO) VALUES (?)");
         ps.setString(1, t.getEstado());
 
         ps.executeUpdate();  
@@ -33,7 +33,7 @@ public class tablaTorneos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("UPDATE TORNEOS SET ESTADO=? WHERE IDTORNEO=?;");
+        PreparedStatement ps = con.prepareStatement("UPDATE TORNEOS SET ESTADO=? WHERE IDTORNEO=?");
         ps.setString(1, t.getEstado());
         ps.setInt(2, t.getIdTorneo());
 
@@ -50,7 +50,7 @@ public class tablaTorneos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("DELETE FROM TORNEOS WHERE IDTORNEO=?;");
+        PreparedStatement ps = con.prepareStatement("DELETE FROM TORNEOS WHERE IDTORNEO=?");
         ps.setInt(1, t.getIdTorneo());
 
         int n = ps.executeUpdate();  
@@ -66,7 +66,7 @@ public class tablaTorneos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS WHERE IDTORNEO=?;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS WHERE IDTORNEO=?");
         ps.setInt(1, idTorneo);
 
         ResultSet resultado = ps.executeQuery();
@@ -95,7 +95,7 @@ public class tablaTorneos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM TORNEOS");
 
         ResultSet resultado = ps.executeQuery();
 
@@ -125,7 +125,7 @@ public class tablaTorneos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT 'X' FROM TORNEOS WHERE UPPER(IDTORNEO)=UPPER(?);");
+        PreparedStatement ps = con.prepareStatement("SELECT 'X' FROM TORNEOS WHERE UPPER(IDTORNEO)=UPPER(?)");
         ps.setInt(1, idTorneo);
 
         ResultSet resultado = ps.executeQuery();

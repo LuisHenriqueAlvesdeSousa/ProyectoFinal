@@ -34,7 +34,7 @@ public class tablaJugadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "UPDATE JUGADORES SET NICKNAME=? WHERE IDPERSONA=?;";
+        String plantilla = "UPDATE JUGADORES SET NICKNAME=? WHERE IDPERSONA=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, jugador.getNickname());
         ps.setInt(2, jugador.getIdPersona());
@@ -53,7 +53,7 @@ public class tablaJugadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM JUGADORES WHERE IDPERSONA=?;";
+        String plantilla = "DELETE FROM JUGADORES WHERE IDPERSONA=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, jugador.getIdPersona());
         
@@ -84,7 +84,7 @@ public class tablaJugadores {
                                 + " J.ROL,"
                                 + " J.IDEQUIPO"
                             + "FROM PERSONAS P, JUGADOR J"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, jugador.getIdPersona());
         
@@ -132,7 +132,7 @@ public class tablaJugadores {
                                 + " J.ROL,"
                                 + " J.IDEQUIPO"
                             + "FROM PERSONAS P, JUGADOR J"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         

@@ -21,7 +21,7 @@ public class tablaEntrenadores {
         con = BaseDatos.getCon();
         
         tablaPersonas.crearPersona(e);
-        PreparedStatement ps = con.prepareStatement("INSERT INTO ENTRENADORES (IDPERSONA) VALUES (?);");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO ENTRENADORES (IDPERSONA) VALUES (?)");
         ps.setInt(1, e.getIdPersona());
 
         
@@ -39,7 +39,7 @@ public class tablaEntrenadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("DELETE FROM ENTRENADORES WHERE IDPERSONA=?;");
+        PreparedStatement ps = con.prepareStatement("DELETE FROM ENTRENADORES WHERE IDPERSONA=?");
         ps.setInt(1, e.getIdPersona());
 
 
@@ -85,7 +85,7 @@ public class tablaEntrenadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM ENTRENADORES;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM ENTRENADORES");
 
         ResultSet resultado = ps.executeQuery();
 
