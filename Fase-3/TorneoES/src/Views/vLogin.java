@@ -216,8 +216,7 @@ public class vLogin extends javax.swing.JFrame {
     private void validarUser() throws Exception{
         if(tfUser.getText().isEmpty())
             throw new errorLogin();
-            
-       
+        
         if(!tfUser.getText().matches("[a-z A-Z 0-9]{4,}"))
             throw new errorLogin();
     }
@@ -225,10 +224,8 @@ public class vLogin extends javax.swing.JFrame {
     private void validarPass() throws Exception{
         if(tfPass.getText().isEmpty())
             throw new errorLogin();
-            
-        Pattern pat = Pattern.compile("[a-zA-Z0-9]");
-        Matcher mat = pat.matcher(tfPass.getText());
-        if(!mat.matches())
+        
+        if(!tfPass.getText().matches("[a-z A-Z 0-9]{4,}"))
             throw new errorLogin();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
