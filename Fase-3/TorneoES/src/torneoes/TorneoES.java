@@ -1,16 +1,19 @@
 package torneoes;
 
 import BD.BaseDatos;
+import BD.tablaJefes;
 import UML.Jefe;
 import UML.Perfil;
 import UML.Persona;
-import Views.Jefe.vCrearJefe;
+import Views.*;
+import Views.Jefe.*;
 import java.sql.*;
 
 import Views.vLogin;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 /**
@@ -30,16 +33,14 @@ public class TorneoES {
             
             //vLogin l = new vLogin();
             //l.setVisible(true);
-            Views.Jefe.vCrearJefe ventana = new vCrearJefe();
-            ventana.setVisible(true);
+            vMainAdmin v = new vMainAdmin();
+            v.setVisible(true);
 
-            //Persona p = new Persona("12345688h", "patata", "picante", LocalDate.of(1, 1, 1), 1000, "653456789", LocalDate.of(1, 2, 3), LocalDate.of(1, 2, 3), "marcioana");
-            //Jefe j = new Jefe("58007778J", "patata", "picante", LocalDate.of(1, 1, 1), 1000, "653456789", LocalDate.of(1, 2, 3), LocalDate.of(1, 2, 3), "marcioana");
-            //BD.tablaPersonas.crearPersona(p);
-            //BD.tablaJefes.crearJefe(j);
+            vModJefe v1 = new vModJefe(23);
+            v1.setVisible(true);
         }
         catch(Exception e){
-            System.out.println("Error:" + e.getMessage());
+            System.out.println("Error:" + e.getMessage() + e.getClass());
         }
     }
     
@@ -51,6 +52,29 @@ public class TorneoES {
     public static void insertarJefe(String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad) throws Exception{
         Jefe jefeActual = new Jefe(dni, nombre, apellido, fechaNacimiento, sueldo, telefono, fechaContrato, fechaFinContrato, nacionalidad);
         BD.tablaJefes.crearJefe(jefeActual);
+    }
+    
+    public static void abrirVentanaCrearJefe(){
+        Views.Jefe.vCrearJefe ventana = new vCrearJefe();
+        ventana.setVisible(true);
+    }
+    
+    public static void abrirVentanaModJefe(int idPersona){
+        Views.Jefe.vModJefe ventana = new vModJefe(idPersona);
+        ventana.setVisible(true);
+    }
+    
+    public static void abrirVentanaSeleccion(String titulo, String seleccion, String ventana){ //ventana es la ventana a la que se envia
+        Views.vSelector vSeleccion = new vSelector(null, true, titulo, seleccion, ventana);
+        vSeleccion.setVisible(true);
+    }
+    
+    public static void llenarComboBoxJefes(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
+        ArrayList<Jefe> jefes = tablaJefes.allJefe();
+        for(Jefe jefe : jefes){
+            comboBox.addItem(jefe.getIdPersona() + ": " + jefe.getApellido());
+        }
+        
     }
     
 }

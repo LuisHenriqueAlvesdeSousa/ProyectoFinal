@@ -43,7 +43,7 @@ public class tablaEquipos {
         equipoActual.setIdEquipo(resultado.getInt("IDEQUIPO"));
         equipoActual.setNombre(resultado.getString("NOMBRE"));
         equipoActual.setPais(resultado.getString("PAIS"));
-        equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getString("IDJEFE")));
+        equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getInt("IDJEFE")));
         equipoActual.setPreparador(tablaPreparadores.preparadorByIdPreparador(resultado.getString("IDPREPARADOR")));
         equipoActual.setEntrenador(tablaEntrenadores.entrenadorByIdEntrenador(resultado.getString("IDENTRENADOR")));
         
@@ -65,7 +65,7 @@ public class tablaEquipos {
         equipoActual.setIdEquipo(resultado.getInt("IDEQUIPO"));
         equipoActual.setNombre(resultado.getString("NOMBRE"));
         equipoActual.setPais(resultado.getString("PAIS"));
-        equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getString("IDJEFE")));
+        equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getInt("IDJEFE")));
         equipoActual.setPreparador(tablaPreparadores.preparadorByIdPreparador(resultado.getString("IDPREPARADOR")));
         equipoActual.setEntrenador(tablaEntrenadores.entrenadorByIdEntrenador(resultado.getString("IDENTRENADOR")));
         
@@ -93,7 +93,7 @@ public class tablaEquipos {
                 equipoActual.setIdEquipo(resultado.getInt("IDEQUIPO"));
                 equipoActual.setNombre(resultado.getString("NOMBRE"));
                 equipoActual.setPais(resultado.getString("PAIS"));
-                equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getString("IDJEFE")));
+                equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getInt("IDJEFE")));
                 equipoActual.setPreparador(tablaPreparadores.preparadorByIdPreparador(resultado.getString("IDPREPARADOR")));
                 equipoActual.setEntrenador(tablaEntrenadores.entrenadorByIdEntrenador(resultado.getString("IDENTRENADOR")));
             }

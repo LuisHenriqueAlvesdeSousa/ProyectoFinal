@@ -102,6 +102,24 @@ public class tablaPersonas {
         BaseDatos.desconectar();
     }
     
+    
+    public static void eliminarPersona(int idpersona) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "DELETE FROM PERSONAS WHERE IDPERSONA = ?";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setInt(1, idpersona);
+        
+        int n = ps.executeUpdate();
+        
+        if(n != 1)
+            throw new Exception("Se ha eliminado más de una Persona.");
+        
+        System.out.println("Se ha eliminado la Persona con exito.");
+        BaseDatos.desconectar();
+    }
+    
     public static ArrayList<Persona> allPersona() throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();

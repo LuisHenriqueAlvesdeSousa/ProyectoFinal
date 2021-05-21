@@ -58,7 +58,28 @@ public class tablaJefes {
         BaseDatos.desconectar();
     }
     
-    public static ArrayList<Jefe> allJefe(Jefe j) throws Exception{
+    
+    
+    public static void eliminarJefe(int idpersona) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "DELETE FROM JEFES WHERE IDPERSONA = ?";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setInt(1, idpersona);
+        
+        int n = ps.executeUpdate();
+
+        if(n != 1)
+            throw new Exception("Se ha eliminado más de un Jefe.");
+        
+        tablaPersonas.eliminarPersona(idpersona);
+        
+        System.out.println("Se ha eliminado el Jefe con exito.");
+        BaseDatos.desconectar();
+    }
+    
+    public static ArrayList<Jefe> allJefe() throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -70,7 +91,7 @@ public class tablaJefes {
         
         ResultSet resultado = ps.executeQuery();
         
-        Jefe jefeActual = new Jefe();
+        
         ArrayList<Jefe> listaJefes = new ArrayList();
         
         if(resultado == null){
@@ -79,18 +100,21 @@ public class tablaJefes {
         }
         else{
             while(resultado.next()){
+                Jefe jefeActual = new Jefe();
                 jefeActual.setIdPersona(resultado.getInt("IDPERSONA"));
                 jefeActual.setDni(resultado.getString("DNI"));
                 jefeActual.setNombre(resultado.getString("NOMBRE"));
                 jefeActual.setApellido(resultado.getString("APELLIDO"));
                 jefeActual.setFechaNacimiento(
-                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
                 jefeActual.setSueldo(resultado.getDouble("SUELDO"));
                 jefeActual.setTelefono(resultado.getString("TELEFONO"));
                 jefeActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
-                jefeActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
+                if(resultado.getDate("FECHA_FIN_CONTRATO")!=null){
+                    jefeActual.setFechaFinContrato(
+                            resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
+                }
                 jefeActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
                 listaJefes.add(jefeActual);
@@ -125,13 +149,15 @@ public class tablaJefes {
             jefeActual.setNombre(resultado.getString("NOMBRE"));
             jefeActual.setApellido(resultado.getString("APELLIDO"));
             jefeActual.setFechaNacimiento(
-                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
             jefeActual.setSueldo(resultado.getDouble("SUELDO"));
             jefeActual.setTelefono(resultado.getString("TELEFONO"));
             jefeActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
-            jefeActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
+            if(resultado.getDate("FECHA_FIN_CONTRATO")!=null){
+                    jefeActual.setFechaFinContrato(
+                            resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
+                }
             jefeActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
             
@@ -142,13 +168,13 @@ public class tablaJefes {
         return jefeActual;
     }
     
-    public static Jefe JefeByIdJefe(String idJefe) throws Exception{
+    public static Jefe JefeByIdJefe(int idJefe) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
         String plantilla = "SELECT * FROM PERSONAS WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
-        ps.setString(1, idJefe);
+        ps.setInt(1, idJefe);
          
         ResultSet resultado = ps.executeQuery();
         
@@ -165,13 +191,15 @@ public class tablaJefes {
             jefeActual.setNombre(resultado.getString("NOMBRE"));
             jefeActual.setApellido(resultado.getString("APELLIDO"));
             jefeActual.setFechaNacimiento(
-                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
             jefeActual.setSueldo(resultado.getDouble("SUELDO"));
             jefeActual.setTelefono(resultado.getString("TELEFONO"));
             jefeActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
-            jefeActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
+            if(resultado.getDate("FECHA_FIN_CONTRATO")!=null){
+                    jefeActual.setFechaFinContrato(
+                            resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
+                }
             jefeActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
             
@@ -205,13 +233,15 @@ public class tablaJefes {
             jefeActual.setNombre(resultado.getString("NOMBRE"));
             jefeActual.setApellido(resultado.getString("APELLIDO"));
             jefeActual.setFechaNacimiento(
-                        resultado.getDate("FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("FECHA_NACIMIENTO").toLocalDate());
             jefeActual.setSueldo(resultado.getDouble("SUELDO"));
             jefeActual.setTelefono(resultado.getString("TELEFONO"));
             jefeActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
-            jefeActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
+            if(resultado.getDate("FECHA_FIN_CONTRATO")!=null){
+                    jefeActual.setFechaFinContrato(
+                            resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
+                }
             jefeActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
             

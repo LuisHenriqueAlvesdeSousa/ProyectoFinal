@@ -59,8 +59,6 @@ public class vLogin extends javax.swing.JFrame {
         labelCustom1.setText("LOGIN");
         labelCustom1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
-        tfUser.setBackground(new java.awt.Color(255, 255, 255));
-        tfUser.setForeground(new java.awt.Color(0, 0, 0));
         tfUser.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -71,9 +69,6 @@ public class vLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
         jLabel2.setText("Contraseña");
-
-        tfPass.setBackground(new java.awt.Color(255, 255, 255));
-        tfPass.setForeground(new java.awt.Color(0, 0, 0));
 
         bAceptar.setBackground(new java.awt.Color(255, 153, 51));
         bAceptar.setText("ACEPTAR");
@@ -146,7 +141,7 @@ public class vLogin extends javax.swing.JFrame {
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(781, 781, 781)
+                .addGap(745, 745, 745)
                 .addComponent(panelRectTranslucido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(876, Short.MAX_VALUE))
         );
@@ -164,7 +159,7 @@ public class vLogin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 105, Short.MAX_VALUE))
+                .addGap(0, 141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

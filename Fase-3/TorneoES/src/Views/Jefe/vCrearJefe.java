@@ -8,6 +8,7 @@ package Views.Jefe;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +30,7 @@ public class vCrearJefe extends javax.swing.JFrame {
     
     public vCrearJefe() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**

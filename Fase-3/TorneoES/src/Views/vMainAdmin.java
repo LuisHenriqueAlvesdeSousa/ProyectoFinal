@@ -5,6 +5,8 @@
  */
 package Views;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author 1GDAW04
@@ -16,6 +18,7 @@ public class vMainAdmin extends javax.swing.JFrame {
      */
     public vMainAdmin() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -141,6 +144,11 @@ public class vMainAdmin extends javax.swing.JFrame {
         bAnadirJefe.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoAñadir.png")); // NOI18N
         bAnadirJefe.setText("Añadir Jefe");
         bAnadirJefe.setDescription(" ");
+        bAnadirJefe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnadirJefeActionPerformed(evt);
+            }
+        });
         panelGestionJefes.add(bAnadirJefe);
 
         bEliminarJefe.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEliminar.png")); // NOI18N
@@ -152,6 +160,11 @@ public class vMainAdmin extends javax.swing.JFrame {
         bEditarJefe.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEditar.png")); // NOI18N
         bEditarJefe.setText("Editar Jefe");
         bEditarJefe.setDescription(" ");
+        bEditarJefe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarJefeActionPerformed(evt);
+            }
+        });
         panelGestionJefes.add(bEditarJefe);
 
         bVerJefes.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoBuscar.png")); // NOI18N
@@ -271,41 +284,16 @@ public class vMainAdmin extends javax.swing.JFrame {
     private void bEditarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarEquipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bEditarEquipoActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vMainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vMainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vMainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vMainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vMainAdmin().setVisible(true);
-            }
-        });
-    }
+    private void bAnadirJefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirJefeActionPerformed
+        torneoes.TorneoES.abrirVentanaCrearJefe();
+    }//GEN-LAST:event_bAnadirJefeActionPerformed
+
+    private void bEditarJefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarJefeActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Selecciona jefe a modificar", "Jefe", "modjefe");
+    }//GEN-LAST:event_bEditarJefeActionPerformed
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonTask bAdministrarTorneo;
