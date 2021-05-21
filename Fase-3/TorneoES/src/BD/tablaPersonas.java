@@ -129,7 +129,7 @@ public class tablaPersonas {
         
         ResultSet resultado = ps.executeQuery();
         
-        Persona personaActual = new Persona();
+       
         ArrayList<Persona> listaPersonas = new ArrayList();
         
         if(resultado == null){
@@ -138,6 +138,7 @@ public class tablaPersonas {
         }
         else{
             while(resultado.next()){
+                Persona personaActual = new Persona();
                 personaActual.setIdPersona(resultado.getInt("IDPERSONA"));
                 personaActual.setDni(resultado.getString("DNI"));
                 personaActual.setNombre(resultado.getString("NOMBRE"));

@@ -36,8 +36,6 @@ public class TorneoES {
             vMainAdmin v = new vMainAdmin();
             v.setVisible(true);
 
-            vModJefe v1 = new vModJefe(23);
-            v1.setVisible(true);
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage() + e.getClass());

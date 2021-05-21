@@ -5,6 +5,9 @@
  */
 package Views.Jefe;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +33,22 @@ public class vCrearJefe extends javax.swing.JFrame {
     
     public vCrearJefe() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(null);
+        this.setAlwaysOnTop(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+        Dimension d1 = new Dimension(1000,500);
+        Dimension d2 = new Dimension(900,400);
+        this.setSize(d1);
+
+        panelGeneral.setSize(d1);
+        panelGeneral.setPreferredSize(d1);
+        panelContenedor.setPreferredSize(d2);
+        panelContenedor.setSize(d2);
+        panelGeneral.setColorPrimario(Color.white);
+        panelGeneral.setColorSecundario(Color.orange);
+        panelGeneral.setLayout(null);
+        panelContenedor.setLocation(((d1.width-100)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
     }
 
     /**
@@ -44,8 +62,10 @@ public class vCrearJefe extends javax.swing.JFrame {
 
         textFieldRectImage1 = new org.edisoncor.gui.textField.TextFieldRectImage();
         textFieldRectImage2 = new org.edisoncor.gui.textField.TextFieldRectImage();
-        panel2 = new org.edisoncor.gui.panel.Panel();
-        jPanel1 = new javax.swing.JPanel();
+        labelRect2 = new org.edisoncor.gui.label.LabelRect();
+        panelGeneral = new org.edisoncor.gui.panel.Panel();
+        panelContenedor = new javax.swing.JPanel();
+        panelFormulario = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tfDni = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel2 = new javax.swing.JLabel();
@@ -64,7 +84,6 @@ public class vCrearJefe extends javax.swing.JFrame {
         dpFechaFinContrato = new com.github.lgooddatepicker.components.DatePicker();
         jLabel9 = new javax.swing.JLabel();
         tfNacionalidad = new org.edisoncor.gui.textField.TextFieldRound();
-        labelRect2 = new org.edisoncor.gui.label.LabelRect();
         bGuardar = new org.edisoncor.gui.button.ButtonAction();
 
         textFieldRectImage1.setText("textFieldRectImage1");
@@ -73,91 +92,95 @@ public class vCrearJefe extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel2.setColorPrimario(new java.awt.Color(255, 255, 255));
-        panel2.setColorSecundario(new java.awt.Color(255, 178, 97));
+        labelRect2.setBackground(new java.awt.Color(255, 153, 0));
+        labelRect2.setText("Formulario nuevo jefe");
+        labelRect2.setColorDeBorde(new java.awt.Color(255, 153, 51));
 
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new java.awt.GridLayout(5, 4, 5, 25));
+        panelGeneral.setColorPrimario(new java.awt.Color(255, 255, 255));
+        panelGeneral.setColorSecundario(new java.awt.Color(255, 178, 97));
+
+        panelContenedor.setMaximumSize(new java.awt.Dimension(400, 400));
+        panelContenedor.setOpaque(false);
+
+        panelFormulario.setOpaque(false);
+        panelFormulario.setLayout(new java.awt.GridLayout(5, 4, 30, 25));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("DNI:");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel1);
+        panelFormulario.add(jLabel1);
 
+        tfDni.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfDni.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tfDni.setCaretColor(new java.awt.Color(255, 204, 102));
         tfDni.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfDni.setSelectionColor(new java.awt.Color(255, 153, 102));
-        jPanel1.add(tfDni);
+        panelFormulario.add(tfDni);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
-        jPanel1.add(jLabel2);
+        panelFormulario.add(jLabel2);
 
         tfNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tfNombre.setCaretColor(new java.awt.Color(255, 204, 102));
         tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
-        jPanel1.add(tfNombre);
+        panelFormulario.add(tfNombre);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Apellido:");
-        jPanel1.add(jLabel3);
+        panelFormulario.add(jLabel3);
 
         tfApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tfApellido.setCaretColor(new java.awt.Color(255, 204, 102));
         tfApellido.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfApellido.setSelectionColor(new java.awt.Color(255, 153, 102));
-        jPanel1.add(tfApellido);
+        panelFormulario.add(tfApellido);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Fecha Nacimiento:");
-        jPanel1.add(jLabel4);
-        jPanel1.add(dpFechaNacimiento);
+        panelFormulario.add(jLabel4);
+        panelFormulario.add(dpFechaNacimiento);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Sueldo:");
-        jPanel1.add(jLabel5);
+        panelFormulario.add(jLabel5);
 
         tfSueldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tfSueldo.setCaretColor(new java.awt.Color(255, 204, 102));
         tfSueldo.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfSueldo.setSelectionColor(new java.awt.Color(255, 153, 102));
-        jPanel1.add(tfSueldo);
+        panelFormulario.add(tfSueldo);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Telefono");
-        jPanel1.add(jLabel6);
+        panelFormulario.add(jLabel6);
 
         tfTelefono.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tfTelefono.setCaretColor(new java.awt.Color(255, 204, 102));
         tfTelefono.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfTelefono.setSelectionColor(new java.awt.Color(255, 153, 102));
-        jPanel1.add(tfTelefono);
+        panelFormulario.add(tfTelefono);
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Fecha Contrato:");
-        jPanel1.add(jLabel7);
-        jPanel1.add(dpFechaContrato);
+        panelFormulario.add(jLabel7);
+        panelFormulario.add(dpFechaContrato);
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Fecha Fin Contrato:");
-        jPanel1.add(jLabel8);
-        jPanel1.add(dpFechaFinContrato);
+        panelFormulario.add(jLabel8);
+        panelFormulario.add(dpFechaFinContrato);
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Nacionalidad:");
-        jPanel1.add(jLabel9);
+        panelFormulario.add(jLabel9);
 
         tfNacionalidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tfNacionalidad.setCaretColor(new java.awt.Color(255, 204, 102));
         tfNacionalidad.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfNacionalidad.setSelectionColor(new java.awt.Color(255, 153, 102));
-        jPanel1.add(tfNacionalidad);
-
-        labelRect2.setText("Formulario nuevo jefe");
-        labelRect2.setBackground(new java.awt.Color(255, 153, 0));
-        labelRect2.setColorDeBorde(new java.awt.Color(255, 153, 51));
+        panelFormulario.add(tfNacionalidad);
 
         bGuardar.setText("Guardar");
         bGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -166,47 +189,51 @@ public class vCrearJefe extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
-        panel2.setLayout(panel2Layout);
-        panel2Layout.setHorizontalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelRect2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(144, 144, 144))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                        .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(405, 405, 405))))
+        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
+        panelContenedor.setLayout(panelContenedorLayout);
+        panelContenedorLayout.setHorizontalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenedorLayout.createSequentialGroup()
+                .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContenedorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(330, 330, 330))
         );
-        panel2Layout.setVerticalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                .addComponent(labelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+        panelContenedorLayout.setVerticalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenedorLayout.createSequentialGroup()
+                .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
                 .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
+        panelGeneral.setLayout(panelGeneralLayout);
+        panelGeneralLayout.setHorizontalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panelGeneralLayout.setVerticalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+            .addComponent(labelRect2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelGeneral, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(790, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(labelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -287,9 +314,10 @@ public class vCrearJefe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private org.edisoncor.gui.label.LabelRect labelRect2;
-    private org.edisoncor.gui.panel.Panel panel2;
+    private javax.swing.JPanel panelContenedor;
+    private javax.swing.JPanel panelFormulario;
+    private org.edisoncor.gui.panel.Panel panelGeneral;
     private org.edisoncor.gui.textField.TextFieldRectImage textFieldRectImage1;
     private org.edisoncor.gui.textField.TextFieldRectImage textFieldRectImage2;
     private org.edisoncor.gui.textField.TextFieldRound tfApellido;

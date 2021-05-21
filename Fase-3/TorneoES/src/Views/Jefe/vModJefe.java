@@ -39,21 +39,24 @@ public class vModJefe extends javax.swing.JFrame {
         try {
             initComponents();
             this.setLocationRelativeTo(null);
+            this.setAlwaysOnTop(true);
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
             Dimension d1 = new Dimension(1000,500);
             Dimension d2 = new Dimension(900,400);
             this.setSize(d1);
             
-            //panel2.setSize(screenSize.width, screenSize.height);
             panelGeneral.setSize(d1);
             panelGeneral.setPreferredSize(d1);
-            //panelContenedor.setPreferredSize(d2);
+            panelContenedor.setPreferredSize(d2);
             panelContenedor.setSize(d2);
             panelGeneral.setColorPrimario(Color.white);
             panelGeneral.setColorSecundario(Color.orange);
             panelGeneral.setLayout(null);
             panelContenedor.setLocation(((d1.width-100)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
             
+            
+            colocarDatos(BD.tablaJefes.JefeByIdJefe(idPersona));
             
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Ha ocurido un error inesperado: " + ex.getMessage());
