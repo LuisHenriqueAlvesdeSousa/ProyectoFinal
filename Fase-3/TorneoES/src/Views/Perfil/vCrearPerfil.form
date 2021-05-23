@@ -115,7 +115,7 @@
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfUsuario">
+            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfNombre">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -142,7 +142,7 @@
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfPass">
+            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfApellido">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -169,7 +169,7 @@
                 <Property name="text" type="java.lang.String" value="Privilegio"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfPrivilegio">
+            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfSueldo">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
