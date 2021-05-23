@@ -103,6 +103,23 @@ public class tablaEquipos {
         return listaEquipos;
     }
     
+    public static void eliminarEquipo (String id) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "DELETE FROM EQUIPOS WHERE IDEQUIPO=?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, id);
+        
+        int n = ps.executeUpdate();
+        ps.close();
+        if (n!=1)
+            throw new Exception ("Se ha eliminado más de un equipo");
+        
+        System.out.println("Equipo eliminado con éxito");
+        BaseDatos.desconectar();
+    }
+    
     public static void eliminarEquipo (Equipo equipo) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();

@@ -110,4 +110,32 @@ public class tablaJornadas {
             return null;
         } 
     }
+    
+    public static ArrayList<Jornada> allJornadasByIdTorneo(String idTorneo) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM JORNADAS WHERE IDTORNEO = ?;");
+        ps.setString(1, idTorneo);
+
+        ResultSet resultado = ps.executeQuery();
+
+        ArrayList<Jornada> jornadas= new ArrayList();
+        while(resultado.next()){
+            Jornada j = new Jornada();
+            j.setIdJornada(resultado.getInt("IDJORNADA"));
+            LocalDate fecha = resultado.getDate("FECHA").toLocalDate();
+            j.setFecha(fecha);
+            j.setTorneo(tablaTorneos.torneoByIdTorneo(resultado.getInt("IDTORNEO")));
+        }
+        
+        BaseDatos.desconectar();
+        
+        if(!jornadas.isEmpty()){
+            return jornadas;
+        }
+        else{
+            return null;
+        } 
+    }
 }

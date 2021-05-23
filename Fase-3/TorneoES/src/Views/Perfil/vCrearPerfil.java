@@ -5,6 +5,10 @@
  */
 package Views.Perfil;
 
+import Excepciones.Java.campoVacio;
+import Excepciones.Java.formatoNoValido;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1GDAW04
@@ -31,11 +35,11 @@ public class vCrearPerfil extends javax.swing.JFrame {
         bGuardar = new org.edisoncor.gui.button.ButtonAction();
         panelFormulario = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        tfNombre = new org.edisoncor.gui.textField.TextFieldRound();
+        tfUsuario = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel3 = new javax.swing.JLabel();
-        tfApellido = new org.edisoncor.gui.textField.TextFieldRound();
+        tfPass = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel5 = new javax.swing.JLabel();
-        tfSueldo = new org.edisoncor.gui.textField.TextFieldRound();
+        tfPrivilegio = new org.edisoncor.gui.textField.TextFieldRound();
         labelRect2 = new org.edisoncor.gui.label.LabelRect();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,33 +62,33 @@ public class vCrearPerfil extends javax.swing.JFrame {
         jLabel2.setText("Usuario");
         panelFormulario.add(jLabel2);
 
-        tfNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfNombre.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfNombre);
+        tfUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfUsuario.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfUsuario.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfUsuario.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfUsuario);
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Contraseña");
         panelFormulario.add(jLabel3);
 
-        tfApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfApellido.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfApellido.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfApellido.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfApellido);
+        tfPass.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfPass.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfPass.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfPass.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfPass);
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Privilegio");
         panelFormulario.add(jLabel5);
 
-        tfSueldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfSueldo.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfSueldo.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfSueldo.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfSueldo);
+        tfPrivilegio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfPrivilegio.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfPrivilegio.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfPrivilegio.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfPrivilegio);
 
         javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
         panelGeneral.setLayout(panelGeneralLayout);
@@ -138,61 +142,48 @@ public class vCrearPerfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
-        dni = tfDni.getText();
-        nombre = tfNombre.getText();
-        apellido = tfApellido.getText();
-        fechaNacimiento = dpFechaNacimiento.getDate();
-        sueldo = tfSueldo.getText();
-        telefono = tfTelefono.getText();
-        fechaContrato = dpFechaContrato.getDate();
-        fechaFinContrato = dpFechaFinContrato.getDate();
-        nacionalidad = tfNacionalidad.getText();
-        if(validarDatos()){
-            try {
-                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
-                System.out.println("Se ha insertado el jefe en la BD.");
-            } catch (Exception ex) {
-                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
-                System.out.println(ex.getMessage() +ex.getClass());
-            }
+        try{
+            validaciones();
+            torneoes.TorneoES.guardarPerfil(tfUsuario.getText(), tfPass.getText(), tfPrivilegio.getText());
+            torneoes.TorneoES.abrirVMainAdmin();
+            dispose();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: " + e.getClass() + " , " + e.getMessage());
         }
     }//GEN-LAST:event_bGuardarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vCrearPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vCrearPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vCrearPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vCrearPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vCrearPerfil().setVisible(true);
-            }
-        });
+    public void validaciones() throws Exception{
+        validarUsuario();
+        validarPass();
+        validarPrivilegio();
     }
-
+    
+    public void validarUsuario() throws Exception{
+        if(tfUsuario.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(!tfUsuario.getText().matches("[a-z A-Z 0-9]{4,}"))
+            throw new formatoNoValido();
+    }
+    
+    public void validarPass() throws Exception{
+        if(tfPass.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(!tfPass.getText().matches("[a-z A-Z 0-9]{4,}"))
+            throw new formatoNoValido();
+    }
+    
+    public void validarPrivilegio() throws Exception{
+        if(tfPrivilegio.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(!tfPrivilegio.getText().toUpperCase().matches("ADMIN") || !tfPrivilegio.getText().toUpperCase().matches("USER"))
+            throw new formatoNoValido();
+        
+        tfPrivilegio.setText(tfPrivilegio.getText().toUpperCase());
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAction bGuardar;
     private javax.swing.JLabel jLabel2;
@@ -201,8 +192,8 @@ public class vCrearPerfil extends javax.swing.JFrame {
     private org.edisoncor.gui.label.LabelRect labelRect2;
     private javax.swing.JPanel panelFormulario;
     private org.edisoncor.gui.panel.Panel panelGeneral;
-    private org.edisoncor.gui.textField.TextFieldRound tfApellido;
-    private org.edisoncor.gui.textField.TextFieldRound tfNombre;
-    private org.edisoncor.gui.textField.TextFieldRound tfSueldo;
+    private org.edisoncor.gui.textField.TextFieldRound tfPass;
+    private org.edisoncor.gui.textField.TextFieldRound tfPrivilegio;
+    private org.edisoncor.gui.textField.TextFieldRound tfUsuario;
     // End of variables declaration//GEN-END:variables
 }

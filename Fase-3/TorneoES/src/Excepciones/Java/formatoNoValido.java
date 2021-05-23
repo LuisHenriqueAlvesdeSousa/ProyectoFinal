@@ -10,6 +10,6 @@ package Excepciones.Java;
  * @author 1GDAW04
  */
 //Crear switch con todos los atributos
-public class formatoNoValido {
+public class formatoNoValido extends Exception{
     
 }
