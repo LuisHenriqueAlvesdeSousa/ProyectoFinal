@@ -5,17 +5,25 @@
  */
 package Views.Perfil;
 
+import BD.tablaPerfiles;
+import UML.Perfil;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1GDAW04
  */
 public class vAllPerfil extends javax.swing.JFrame {
 
-    /**
-     * Creates new form vAllPerfil
-     */
-    public vAllPerfil() {
+    ArrayList<Perfil> listaPerfiles;
+    
+    public vAllPerfil() throws Exception{
         initComponents();
+        listaPerfiles = tablaPerfiles.allPerfil();
+        for(int x = 0; x<listaPerfiles.size(); x++){
+            taListaPerfiles.setText(listaPerfiles.get(x).toString() + "\n");
+        }
     }
 
     /**
@@ -30,7 +38,7 @@ public class vAllPerfil extends javax.swing.JFrame {
         panelGeneral = new org.edisoncor.gui.panel.Panel();
         panelContenedor = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taListaPerfiles = new javax.swing.JTextArea();
         bGuardar = new org.edisoncor.gui.button.ButtonAction();
         labelRect2 = new org.edisoncor.gui.label.LabelRect();
 
@@ -41,9 +49,9 @@ public class vAllPerfil extends javax.swing.JFrame {
 
         panelContenedor.setOpaque(false);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        taListaPerfiles.setColumns(20);
+        taListaPerfiles.setRows(5);
+        jScrollPane1.setViewportView(taListaPerfiles);
 
         javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
         panelContenedor.setLayout(panelContenedorLayout);
@@ -116,67 +124,22 @@ public class vAllPerfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
-        dni = tfDni.getText();
-        nombre = tfNombre.getText();
-        apellido = tfApellido.getText();
-        fechaNacimiento = dpFechaNacimiento.getDate();
-        sueldo = tfSueldo.getText();
-        telefono = tfTelefono.getText();
-        fechaContrato = dpFechaContrato.getDate();
-        fechaFinContrato = dpFechaFinContrato.getDate();
-        nacionalidad = tfNacionalidad.getText();
-        if(validarDatos()){
-            try {
-                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
-                System.out.println("Se ha insertado el jefe en la BD.");
-            } catch (Exception ex) {
-                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
-                System.out.println(ex.getMessage() +ex.getClass());
-            }
+        try{
+            torneoes.TorneoES.abrirVMainAdmin();
+            dispose();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: " + e.getClass() + " , " + e.getMessage());
         }
     }//GEN-LAST:event_bGuardarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vAllPerfil().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAction bGuardar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private org.edisoncor.gui.label.LabelRect labelRect2;
     private javax.swing.JPanel panelContenedor;
     private org.edisoncor.gui.panel.Panel panelGeneral;
+    private javax.swing.JTextArea taListaPerfiles;
     // End of variables declaration//GEN-END:variables
 }

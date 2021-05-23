@@ -73,7 +73,7 @@ public class tablaEquipos {
         return equipoActual;
     }
     
-    public static ArrayList<Equipo> allEquipos (Equipo equipo) throws Exception{
+    public static ArrayList<Equipo> allEquipos () throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         

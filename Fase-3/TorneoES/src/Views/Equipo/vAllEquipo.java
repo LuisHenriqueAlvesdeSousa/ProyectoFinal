@@ -5,17 +5,27 @@
  */
 package Views.Equipo;
 
+import BD.tablaEquipos;
+import UML.Equipo;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1GDAW04
  */
 public class vAllEquipo extends javax.swing.JFrame {
 
+    ArrayList<Equipo> listaEquipos;
     /**
      * Creates new form vAllEquipo
      */
-    public vAllEquipo() {
+    public vAllEquipo() throws Exception{
         initComponents();
+        listaEquipos = tablaEquipos.allEquipos();
+        for(int x = 0; x<listaEquipos.size(); x++){
+            taListaEquipos.setText(listaEquipos.get(x).toString() + "\n");
+        }
     }
 
     /**
@@ -117,61 +127,16 @@ public class vAllEquipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
-        dni = tfDni.getText();
-        nombre = tfNombre.getText();
-        apellido = tfApellido.getText();
-        fechaNacimiento = dpFechaNacimiento.getDate();
-        sueldo = tfSueldo.getText();
-        telefono = tfTelefono.getText();
-        fechaContrato = dpFechaContrato.getDate();
-        fechaFinContrato = dpFechaFinContrato.getDate();
-        nacionalidad = tfNacionalidad.getText();
-        if(validarDatos()){
-            try {
-                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
-                System.out.println("Se ha insertado el jefe en la BD.");
-            } catch (Exception ex) {
-                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
-                System.out.println(ex.getMessage() +ex.getClass());
-            }
+        try{
+            torneoes.TorneoES.abrirVMainAdmin();
+            dispose();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: " + e.getClass() + " , " + e.getMessage());
         }
     }//GEN-LAST:event_bOkActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vAllEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vAllEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vAllEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vAllEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vAllEquipo().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAction bOk;
     private javax.swing.JScrollPane jScrollPane1;
