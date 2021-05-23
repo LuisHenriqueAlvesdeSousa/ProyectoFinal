@@ -37,8 +37,8 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
-                  <Component id="panelGeneral" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelGeneral" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -60,7 +60,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="bActualizar" min="-2" pref="171" max="-2" attributes="0"/>
+                  <Component id="bGuardar" min="-2" pref="171" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -72,10 +72,10 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="93" max="32767" attributes="0"/>
+                  <EmptySpace pref="108" max="32767" attributes="0"/>
                   <Component id="panelContenedor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                  <Component id="bActualizar" min="-2" max="-2" attributes="0"/>
+                  <Component id="bGuardar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -129,15 +129,14 @@
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                   </Properties>
                 </Component>
-                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfIdPerfil">
+                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfDni">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                         <BevelBorder/>
                       </Border>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="cc" red="ff" type="rgb"/>
                     </Property>
@@ -158,7 +157,7 @@
                     <Property name="text" type="java.lang.String" value="Usuario"/>
                   </Properties>
                 </Component>
-                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfUsuario">
+                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfNombre">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -185,7 +184,7 @@
                     <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
                   </Properties>
                 </Component>
-                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfPass">
+                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfApellido">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -212,9 +211,8 @@
                     <Property name="text" type="java.lang.String" value="Privilegio"/>
                   </Properties>
                 </Component>
-                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfPrivilegio">
+                <Component class="org.edisoncor.gui.textField.TextFieldRound" name="tfSueldo">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                         <BevelBorder/>
@@ -235,12 +233,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="org.edisoncor.gui.button.ButtonAction" name="bActualizar">
+        <Component class="org.edisoncor.gui.button.ButtonAction" name="bGuardar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bActualizarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGuardarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -41,14 +41,14 @@ public class vModPerfil extends javax.swing.JFrame {
         panelContenedor = new javax.swing.JPanel();
         panelFormulario = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        tfIdPerfil = new org.edisoncor.gui.textField.TextFieldRound();
+        tfDni = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel2 = new javax.swing.JLabel();
-        tfUsuario = new org.edisoncor.gui.textField.TextFieldRound();
+        tfNombre = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel3 = new javax.swing.JLabel();
-        tfPass = new org.edisoncor.gui.textField.TextFieldRound();
+        tfApellido = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel5 = new javax.swing.JLabel();
-        tfPrivilegio = new org.edisoncor.gui.textField.TextFieldRound();
-        bActualizar = new org.edisoncor.gui.button.ButtonAction();
+        tfSueldo = new org.edisoncor.gui.textField.TextFieldRound();
+        bGuardar = new org.edisoncor.gui.button.ButtonAction();
         labelRect2 = new org.edisoncor.gui.label.LabelRect();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,47 +67,45 @@ public class vModPerfil extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelFormulario.add(jLabel1);
 
-        tfIdPerfil.setEditable(false);
-        tfIdPerfil.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfIdPerfil.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        tfIdPerfil.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfIdPerfil.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfIdPerfil.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfIdPerfil);
+        tfDni.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tfDni.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfDni.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfDni.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfDni.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfDni);
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Usuario");
         panelFormulario.add(jLabel2);
 
-        tfUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfUsuario.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfUsuario.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfUsuario.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfUsuario);
+        tfNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfNombre.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfNombre);
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Contraseña");
         panelFormulario.add(jLabel3);
 
-        tfPass.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfPass.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfPass.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfPass.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfPass);
+        tfApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfApellido.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfApellido.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfApellido.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfApellido);
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Privilegio");
         panelFormulario.add(jLabel5);
 
-        tfPrivilegio.setEditable(false);
-        tfPrivilegio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfPrivilegio.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfPrivilegio.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfPrivilegio.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfPrivilegio);
+        tfSueldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfSueldo.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfSueldo.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfSueldo.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfSueldo);
 
         javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
         panelContenedor.setLayout(panelContenedorLayout);
@@ -125,10 +123,10 @@ public class vModPerfil extends javax.swing.JFrame {
                 .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bActualizar.setText("Actualizar");
-        bActualizar.addActionListener(new java.awt.event.ActionListener() {
+        bGuardar.setText("Actualizar");
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bActualizarActionPerformed(evt);
+                bGuardarActionPerformed(evt);
             }
         });
 
@@ -138,7 +136,7 @@ public class vModPerfil extends javax.swing.JFrame {
             panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89))
             .addGroup(panelGeneralLayout.createSequentialGroup()
                 .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,10 +145,10 @@ public class vModPerfil extends javax.swing.JFrame {
         panelGeneralLayout.setVerticalGroup(
             panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGeneralLayout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
+                .addContainerGap(108, Short.MAX_VALUE)
                 .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
-                .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
 
@@ -173,20 +171,58 @@ public class vModPerfil extends javax.swing.JFrame {
                 .addGap(0, 499, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 27, Short.MAX_VALUE)
-                    .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap()
+                    .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
-        try{
-            validaciones();
-            torneoes.TorneoES.modificarPerfil(tfIdPerfil.getText(), tfUsuario.getText(), tfPass.getText());
-            torneoes.TorneoES.abrirVMainAdmin();
-            dispose();
-            
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        dni = tfDni.getText();
+        nombre = tfNombre.getText();
+        apellido = tfApellido.getText();
+        fechaNacimiento = dpFechaNacimiento.getDate();
+        sueldo = tfSueldo.getText();
+        telefono = tfTelefono.getText();
+        fechaContrato = dpFechaContrato.getDate();
+        fechaFinContrato = dpFechaFinContrato.getDate();
+        nacionalidad = tfNacionalidad.getText();
+        if(validarDatos()){
+            try {
+                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
+                System.out.println("Se ha insertado el jefe en la BD.");
+            } catch (Exception ex) {
+                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
+                System.out.println(ex.getMessage() +ex.getClass());
+            }
+        }
+    }//GEN-LAST:event_bGuardarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(vModPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(vModPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(vModPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(vModPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: " + e.getClass() + " , " + e.getMessage());
@@ -214,7 +250,7 @@ public class vModPerfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonAction bActualizar;
+    private org.edisoncor.gui.button.ButtonAction bGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -223,9 +259,9 @@ public class vModPerfil extends javax.swing.JFrame {
     private javax.swing.JPanel panelContenedor;
     private javax.swing.JPanel panelFormulario;
     private org.edisoncor.gui.panel.Panel panelGeneral;
-    private org.edisoncor.gui.textField.TextFieldRound tfIdPerfil;
-    private org.edisoncor.gui.textField.TextFieldRound tfPass;
-    private org.edisoncor.gui.textField.TextFieldRound tfPrivilegio;
-    private org.edisoncor.gui.textField.TextFieldRound tfUsuario;
+    private org.edisoncor.gui.textField.TextFieldRound tfApellido;
+    private org.edisoncor.gui.textField.TextFieldRound tfDni;
+    private org.edisoncor.gui.textField.TextFieldRound tfNombre;
+    private org.edisoncor.gui.textField.TextFieldRound tfSueldo;
     // End of variables declaration//GEN-END:variables
 }
