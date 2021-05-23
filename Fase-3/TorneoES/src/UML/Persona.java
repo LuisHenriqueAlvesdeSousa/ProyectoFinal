@@ -125,6 +125,13 @@ public class Persona {
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
+
+    @Override
+    public String toString() {
+        return "Id Persona:" + idPersona + " con dni " + dni + " y nombre " + nombre + " " + apellido + ". Fecha Nacimiento " + fechaNacimiento + "| Sueldo " + sueldo + "| Telefono: " + telefono + "| Fecha Contrato: " + fechaContrato + "| Fecha Fin Contrato: " + fechaFinContrato + "| Nacionalidad: " + nacionalidad;
+    }
+    
+    
     
     
 }

@@ -38,6 +38,8 @@ public class vModJefe extends javax.swing.JFrame {
     public vModJefe(int idPersona) {
         try {
             initComponents();
+            
+            
             this.setLocationRelativeTo(null);
             this.setAlwaysOnTop(true);
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -54,7 +56,6 @@ public class vModJefe extends javax.swing.JFrame {
             panelGeneral.setColorSecundario(Color.orange);
             panelGeneral.setLayout(null);
             panelContenedor.setLocation(((d1.width-100)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
-            
             
             colocarDatos(BD.tablaJefes.JefeByIdJefe(idPersona));
             
@@ -224,7 +225,7 @@ public class vModJefe extends javax.swing.JFrame {
             .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        labelRect2.setText("Formulario nuevo jefe");
+        labelRect2.setText("Formulario editar datos jefe");
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
         labelRect2.setColorDeBorde(new java.awt.Color(255, 153, 51));
 
