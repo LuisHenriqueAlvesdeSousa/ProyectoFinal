@@ -5,6 +5,10 @@
  */
 package Views.Equipo;
 
+import Excepciones.Java.campoVacio;
+import Excepciones.Java.formatoNoValido;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1GDAW04
@@ -32,14 +36,14 @@ public class vCrearEquipo extends javax.swing.JFrame {
         panelContenedor = new javax.swing.JPanel();
         panelFormulario = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        tfNombre = new org.edisoncor.gui.textField.TextFieldRound();
+        tfPais = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel4 = new javax.swing.JLabel();
-        tfNacionalidad = new org.edisoncor.gui.textField.TextFieldRound();
+        tfIdJefe = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel5 = new javax.swing.JLabel();
-        tfSueldo = new org.edisoncor.gui.textField.TextFieldRound();
+        tfIdPreparador = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel6 = new javax.swing.JLabel();
-        tfTelefono = new org.edisoncor.gui.textField.TextFieldRound();
-        tfDni = new org.edisoncor.gui.textField.TextFieldRound();
+        tfIdEntrenador = new org.edisoncor.gui.textField.TextFieldRound();
+        tfNombre = new org.edisoncor.gui.textField.TextFieldRound();
         jLabel2 = new javax.swing.JLabel();
         bGuardar = new org.edisoncor.gui.button.ButtonAction();
 
@@ -62,55 +66,50 @@ public class vCrearEquipo extends javax.swing.JFrame {
         jLabel3.setText("Pais");
         panelFormulario.add(jLabel3);
 
-        tfNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfNombre.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfNombre);
+        tfPais.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfPais.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfPais.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfPais.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfPais);
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("ID Jefe");
         panelFormulario.add(jLabel4);
 
-        tfNacionalidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfNacionalidad.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfNacionalidad.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfNacionalidad.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfNacionalidad);
+        tfIdJefe.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfIdJefe.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfIdJefe.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfIdJefe.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfIdJefe);
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("ID Preparador");
         panelFormulario.add(jLabel5);
 
-        tfSueldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfSueldo.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfSueldo.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfSueldo.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfSueldo);
+        tfIdPreparador.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfIdPreparador.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfIdPreparador.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfIdPreparador.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfIdPreparador);
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("ID Entrenador");
         panelFormulario.add(jLabel6);
 
-        tfTelefono.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfTelefono.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfTelefono.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfTelefono.setSelectionColor(new java.awt.Color(255, 153, 102));
-        panelFormulario.add(tfTelefono);
+        tfIdEntrenador.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfIdEntrenador.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfIdEntrenador.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfIdEntrenador.setSelectionColor(new java.awt.Color(255, 153, 102));
+        panelFormulario.add(tfIdEntrenador);
 
-        tfDni.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfDni.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        tfDni.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfDni.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfDni.setSelectionColor(new java.awt.Color(255, 153, 102));
-        tfDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDniActionPerformed(evt);
-            }
-        });
+        tfNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfNombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tfNombre.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -127,7 +126,7 @@ public class vCrearEquipo extends javax.swing.JFrame {
                     .addGroup(panelContenedorLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         panelContenedorLayout.setVerticalGroup(
@@ -136,7 +135,7 @@ public class vCrearEquipo extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(96, Short.MAX_VALUE))
@@ -191,64 +190,69 @@ public class vCrearEquipo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDniActionPerformed
-
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
-        dni = tfDni.getText();
-        nombre = tfNombre.getText();
-        apellido = tfApellido.getText();
-        fechaNacimiento = dpFechaNacimiento.getDate();
-        sueldo = tfSueldo.getText();
-        telefono = tfTelefono.getText();
-        fechaContrato = dpFechaContrato.getDate();
-        fechaFinContrato = dpFechaFinContrato.getDate();
-        nacionalidad = tfNacionalidad.getText();
-        if(validarDatos()){
-            try {
-                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
-                System.out.println("Se ha insertado el jefe en la BD.");
-            } catch (Exception ex) {
-                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
-                System.out.println(ex.getMessage() +ex.getClass());
-            }
-        }
+    try{
+        validaciones();
+        torneoes.TorneoES.guardarEquipo(tfNombre.getText(), tfPais.getText(), tfIdPreparador.getText(), tfIdJefe.getText(), tfIdEntrenador.getText());
+        torneoes.TorneoES.abrirVMainAdmin();
+        dispose();
+    }
+    catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Error: " + e.getClass() +  " , " + e.getMessage());
+    }
     }//GEN-LAST:event_bGuardarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vCrearEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vCrearEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vCrearEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vCrearEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vCrearEquipo().setVisible(true);
-            }
-        });
+    public void validaciones() throws Exception{
+        validarNombre();
+        validarPais();
+        validarPreparador();
+        validarJefe();
+        validarEntrenador();
+    }
+    
+    public void validarNombre() throws Exception{
+        if(tfNombre.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(!tfNombre.getText().matches("[a-z A-Z 0-9]{4,}"))
+            throw new formatoNoValido();
+    }
+    
+    public void validarPais() throws Exception{
+        if(tfPais.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(!tfPais.getText().matches("[a-z A-Z 0-9]{4,}"))
+            throw new formatoNoValido();
+    }
+    
+    public void validarPreparador() throws Exception{
+        if(tfIdPreparador.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(tfIdPreparador.getText().length() > 4)
+            throw new formatoNoValido();
+        
+        Integer.parseInt(tfIdPreparador.getText());
+    }
+    
+    public void validarJefe() throws Exception{
+        if(tfIdJefe.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(tfIdJefe.getText().length() > 4)
+            throw new formatoNoValido();
+        
+        Integer.parseInt(tfIdJefe.getText());
+    }
+    
+    public void validarEntrenador() throws Exception{
+        if(tfIdEntrenador.getText().isEmpty())
+            throw new campoVacio();
+        
+        if(tfIdEntrenador.getText().length() > 4)
+            throw new formatoNoValido();
+        
+        Integer.parseInt(tfIdEntrenador.getText());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -262,10 +266,10 @@ public class vCrearEquipo extends javax.swing.JFrame {
     private javax.swing.JPanel panelContenedor;
     private javax.swing.JPanel panelFormulario;
     private org.edisoncor.gui.panel.Panel panelGeneral;
-    private org.edisoncor.gui.textField.TextFieldRound tfDni;
-    private org.edisoncor.gui.textField.TextFieldRound tfNacionalidad;
+    private org.edisoncor.gui.textField.TextFieldRound tfIdEntrenador;
+    private org.edisoncor.gui.textField.TextFieldRound tfIdJefe;
+    private org.edisoncor.gui.textField.TextFieldRound tfIdPreparador;
     private org.edisoncor.gui.textField.TextFieldRound tfNombre;
-    private org.edisoncor.gui.textField.TextFieldRound tfSueldo;
-    private org.edisoncor.gui.textField.TextFieldRound tfTelefono;
+    private org.edisoncor.gui.textField.TextFieldRound tfPais;
     // End of variables declaration//GEN-END:variables
 }

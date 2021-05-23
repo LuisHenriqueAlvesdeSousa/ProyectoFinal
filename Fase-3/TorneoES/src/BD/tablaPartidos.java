@@ -116,7 +116,7 @@ public class tablaPartidos {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDPARTIDO = ?;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS WHERE IDJORNADA = ?;");
         ps.setInt(1, idJornada);
 
         ResultSet resultado = ps.executeQuery();
