@@ -5,8 +5,12 @@
  */
 package Views;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,19 +19,49 @@ import javax.swing.JOptionPane;
  */
 public class vSelector extends javax.swing.JDialog {
 
+    String label;
     String ventana;
-    String tipoSeleccion;
     
-    public vSelector(java.awt.Frame parent, boolean modal, String titulo, String tipoSeleccion, String ventana) {
+    public vSelector(java.awt.Frame parent, boolean modal, String titulo, String label, String ventana) {
         super(parent, modal);
+        this.label = label;
         this.ventana = ventana;
-        this.tipoSeleccion = tipoSeleccion;
         try {
             initComponents();
-            personalizarVentana(titulo, tipoSeleccion);
-            torneoes.TorneoES.llenarComboBoxJefes(cbSeleccion);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Ha ocurido un error inesperado: " + ex.getMessage());
+            personalizarVentana(titulo, label);
+            this.setLocationRelativeTo(null);
+            this.setAlwaysOnTop(true);
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+            Dimension d1 = new Dimension(450,200);
+            Dimension d2 = new Dimension(350,100);
+            this.setSize(d1);
+
+            panelGeneral.setSize(d1);
+            panelGeneral.setPreferredSize(d1);
+            panelContenedor.setPreferredSize(d2);
+            panelContenedor.setSize(d2);
+            panelGeneral.setColorPrimario(Color.white);
+            panelGeneral.setColorSecundario(Color.orange);
+            panelGeneral.setLayout(null);
+            panelContenedor.setLocation(((d1.width)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
+            switch(ventana){
+                case "modjefe":
+                    torneoes.TorneoES.llenarComboBoxJefes(cbSeleccion);
+                    break;
+                case "borrarjefe":
+                    torneoes.TorneoES.llenarComboBoxJefes(cbSeleccion);
+                    break;
+                case "borrartorneo":
+                    torneoes.TorneoES.llenarComboBoxTorneos(cbSeleccion);
+                    
+            }
+        }catch(java.lang.NullPointerException ex){
+            JOptionPane.showMessageDialog(this, "Ha ocurido un error relacionado con la base de datos");           
+            this.dispose();
+        }catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Ha ocurido un error inesperado: " + ex.getMessage() + ex.getClass());
+            this.dispose();
         }
         
     }
@@ -41,22 +75,29 @@ public class vSelector extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel1 = new org.edisoncor.gui.panel.Panel();
+        panelGeneral = new org.edisoncor.gui.panel.Panel();
         lTitulo = new org.edisoncor.gui.label.LabelRect();
-        cbSeleccion = new org.edisoncor.gui.comboBox.ComboBoxRect();
-        lSelector = new javax.swing.JLabel();
+        panelContenedor = new javax.swing.JPanel();
         bAceptar = new org.edisoncor.gui.button.ButtonAction();
+        lSelector = new javax.swing.JLabel();
+        cbSeleccion = new org.edisoncor.gui.comboBox.ComboBoxRect();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(null);
+        setMinimumSize(null);
+        setModal(true);
+        setResizable(false);
 
-        panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
-        panel1.setColorSecundario(new java.awt.Color(255, 153, 0));
+        panelGeneral.setColorPrimario(new java.awt.Color(255, 255, 255));
+        panelGeneral.setColorSecundario(new java.awt.Color(255, 153, 0));
 
         lTitulo.setBackground(new java.awt.Color(255, 153, 0));
         lTitulo.setText("Formulario nuevo jefe");
         lTitulo.setColorDeBorde(new java.awt.Color(255, 153, 51));
+        lTitulo.setMaximumSize(new java.awt.Dimension(350, 17));
+        lTitulo.setMinimumSize(new java.awt.Dimension(350, 17));
 
-        lSelector.setText("LabelManipulable");
+        panelContenedor.setOpaque(false);
 
         bAceptar.setText("Aceptar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,45 +106,61 @@ public class vSelector extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(lSelector)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(60, 60, 60))
+        lSelector.setText("LabelManipulable");
+
+        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
+        panelContenedor.setLayout(panelContenedorLayout);
+        panelContenedorLayout.setHorizontalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenedorLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lSelector)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panelContenedorLayout.setVerticalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContenedorLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lSelector))
-                .addGap(31, 31, 31)
+                .addGap(29, 29, 29)
                 .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
+        );
+
+        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
+        panelGeneral.setLayout(panelGeneralLayout);
+        panelGeneralLayout.setHorizontalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelGeneralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelGeneralLayout.setVerticalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneralLayout.createSequentialGroup()
+                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -117,10 +174,12 @@ public class vSelector extends javax.swing.JDialog {
                 case "modjefe":
                     torneoes.TorneoES.abrirVentanaModJefe(id);
                     break;
-                    //+++++++++++++++++++++++++++++++++++++añadir las diferentes ventanas
                 case "borrarjefe":
                     BD.tablaJefes.eliminarJefe(id);
-                    JOptionPane.showMessageDialog(null, "Se ha borrado el jefe seleccionado");
+                    JOptionPane.showMessageDialog(null, "Se ha eliminado el jefe seleccionado");
+                case "borrartorneo":
+                    BD.tablaTorneos.eliminarTorneo(id);
+                    JOptionPane.showMessageDialog(null, "Se ha eliminado el torneo seleccionado");
                     
             }
             this.dispose();
@@ -144,6 +203,7 @@ public class vSelector extends javax.swing.JDialog {
     private org.edisoncor.gui.comboBox.ComboBoxRect cbSeleccion;
     private javax.swing.JLabel lSelector;
     private org.edisoncor.gui.label.LabelRect lTitulo;
-    private org.edisoncor.gui.panel.Panel panel1;
+    private javax.swing.JPanel panelContenedor;
+    private org.edisoncor.gui.panel.Panel panelGeneral;
     // End of variables declaration//GEN-END:variables
 }

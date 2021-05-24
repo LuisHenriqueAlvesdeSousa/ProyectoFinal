@@ -8,9 +8,13 @@ package Views.Torneo;
 import UML.Jefe;
 import UML.Torneo;
 import Views.Jefe.vAllJefe;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +26,23 @@ public class vAllTorneo extends javax.swing.JFrame {
     ArrayList<Torneo> torneos;
     public vAllTorneo() {
         initComponents();
+        llenarTextArea();
+        this.setLocationRelativeTo(null);
+        this.setAlwaysOnTop(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+        Dimension d1 = new Dimension(1000,500);
+        Dimension d2 = new Dimension(900,400);
+        this.setSize(d1);
+
+        panelGeneral.setSize(d1);
+        panelGeneral.setPreferredSize(d1);
+        panelContenedor.setPreferredSize(d2);
+        panelContenedor.setSize(d2);
+        panelGeneral.setColorPrimario(Color.white);
+        panelGeneral.setColorSecundario(Color.orange);
+        panelGeneral.setLayout(null);
+        panelContenedor.setLocation(((d1.width)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
     }
 
     /**
@@ -43,6 +64,8 @@ public class vAllTorneo extends javax.swing.JFrame {
         tfFiltro = new org.edisoncor.gui.textField.TextFieldRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 500));
+        setMinimumSize(new java.awt.Dimension(1000, 500));
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
         labelRect2.setText("Ventana informacion torneos");
@@ -119,7 +142,7 @@ public class vAllTorneo extends javax.swing.JFrame {
             .addGroup(panelGeneralLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,8 +157,7 @@ public class vAllTorneo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(labelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

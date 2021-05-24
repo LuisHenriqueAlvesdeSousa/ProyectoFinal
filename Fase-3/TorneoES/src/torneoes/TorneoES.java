@@ -5,8 +5,11 @@ import BD.tablaJefes;
 import UML.Jefe;
 import UML.Perfil;
 import UML.Persona;
+import UML.Torneo;
 import Views.*;
 import Views.Jefe.*;
+import Views.Torneo.vAllTorneo;
+import Views.Torneo.vModTorneo;
 import java.sql.*;
 
 import Views.vLogin;
@@ -33,8 +36,8 @@ public class TorneoES {
             
             //vLogin l = new vLogin();
             //l.setVisible(true);
-            //vMainAdmin v = new vMainAdmin();
-            //v.setVisible(true);
+            vMainAdmin v = new vMainAdmin();
+            v.setVisible(true);
             
             //vCrearJefe v1 = new vCrearJefe();
             //v1.setVisible(true);
@@ -42,8 +45,8 @@ public class TorneoES {
            //ModJefe v2 = new vModJefe(23);
             //v2.setVisible(true);
             
-            vAllJefe v3 = new vAllJefe();
-            v3.setVisible(true);
+            //vAllJefe v3 = new vAllJefe();
+            //v3.setVisible(true);
 
         }
         catch(Exception e){
@@ -71,15 +74,39 @@ public class TorneoES {
         ventana.setVisible(true);
     }
     
+    public static void abrirVentanaAllJefe(){
+        Views.Jefe.vAllJefe ventana = new vAllJefe();
+        ventana.setVisible(true);
+    }
+
+    public static void abrirVentanaModTorneo(){
+        Views.Torneo.vModTorneo ventana = new vModTorneo();
+        ventana.setVisible(true);
+    }
+    
+    public static void abrirVentanaAllTorneo(){
+        Views.Torneo.vAllTorneo ventana = new vAllTorneo();
+        ventana.setVisible(true);
+    }
+    
     public static void abrirVentanaSeleccion(String titulo, String seleccion, String ventana){ //ventana es la ventana a la que se envia
         Views.vSelector vSeleccion = new vSelector(null, true, titulo, seleccion, ventana);
         vSeleccion.setVisible(true);
     }
     
+    
     public static void llenarComboBoxJefes(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
         ArrayList<Jefe> jefes = tablaJefes.allJefe();
         for(Jefe jefe : jefes){
             comboBox.addItem(jefe.getIdPersona() + ": " + jefe.getApellido());
+        }
+        
+    }
+    
+    public static void llenarComboBoxTorneos(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
+        ArrayList<Torneo> torneos = BD.tablaTorneos.allTorneos();
+        for(Torneo torneo : torneos){
+            comboBox.addItem(torneo.getIdTorneo() + ": " + torneo.getJornadas().get(0).getFecha().toString());
         }
         
     }

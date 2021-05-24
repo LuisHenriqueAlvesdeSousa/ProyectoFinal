@@ -44,16 +44,16 @@ public class vMainAdmin extends javax.swing.JFrame {
         bEditarEquipo = new org.edisoncor.gui.button.ButtonTask();
         bVerDatosEquipo = new org.edisoncor.gui.button.ButtonTask();
         bMostrarTrabajadores = new org.edisoncor.gui.button.ButtonTask();
-        panelGestionJefes = new javax.swing.JPanel();
-        bAnadirJefe = new org.edisoncor.gui.button.ButtonTask();
-        bEliminarJefe = new org.edisoncor.gui.button.ButtonTask();
-        bEditarJefe = new org.edisoncor.gui.button.ButtonTask();
-        bVerJefes = new org.edisoncor.gui.button.ButtonTask();
         panelGestionJugadores = new javax.swing.JPanel();
         bAnadirJugador = new org.edisoncor.gui.button.ButtonTask();
         bEliminarJugador = new org.edisoncor.gui.button.ButtonTask();
         bEditarJugador = new org.edisoncor.gui.button.ButtonTask();
         bVerJugador = new org.edisoncor.gui.button.ButtonTask();
+        panelGestionJefes = new javax.swing.JPanel();
+        bAnadirJefe = new org.edisoncor.gui.button.ButtonTask();
+        bEliminarJefe = new org.edisoncor.gui.button.ButtonTask();
+        bEditarJefe = new org.edisoncor.gui.button.ButtonTask();
+        bVerJefes = new org.edisoncor.gui.button.ButtonTask();
         panelTorneos = new javax.swing.JPanel();
         bIniciarTorneo = new org.edisoncor.gui.button.ButtonTask();
         bEliminarTorneo = new org.edisoncor.gui.button.ButtonTask();
@@ -70,23 +70,28 @@ public class vMainAdmin extends javax.swing.JFrame {
 
         panelPerfiles.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 50));
 
-        bAnadirUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoAñadir.png")); // NOI18N
+        bAnadirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoAñadir.png"))); // NOI18N
         bAnadirUsuario.setText("Añadir Usuario");
         bAnadirUsuario.setDescription(" ");
         panelPerfiles.add(bAnadirUsuario);
 
-        bEliminarUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEliminar.png")); // NOI18N
+        bEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
         bEliminarUsuario.setText("Eliminar Usuario");
         bEliminarUsuario.setDefaultCapable(false);
         bEliminarUsuario.setDescription(" ");
         panelPerfiles.add(bEliminarUsuario);
 
-        bEditarUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEditar.png")); // NOI18N
+        bEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
         bEditarUsuario.setText("Editar Usuario");
         bEditarUsuario.setDescription(" ");
+        bEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarUsuarioActionPerformed(evt);
+            }
+        });
         panelPerfiles.add(bEditarUsuario);
 
-        bVerListaUsuarios.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoBuscar.png")); // NOI18N
+        bVerListaUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
         bVerListaUsuarios.setText("Ver Lista Usarios");
         bVerListaUsuarios.setDescription(" ");
         panelPerfiles.add(bVerListaUsuarios);
@@ -97,12 +102,12 @@ public class vMainAdmin extends javax.swing.JFrame {
 
         panelGestionEquipos.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 30));
 
-        bAnadirEquipo.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEquipo.png")); // NOI18N
+        bAnadirEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoAñadir.png"))); // NOI18N
         bAnadirEquipo.setText("Añadir Equipo");
         bAnadirEquipo.setDescription(" ");
         panelGestionEquipos.add(bAnadirEquipo);
 
-        bEliminarEquipo.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEliminar.png")); // NOI18N
+        bEliminarEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
         bEliminarEquipo.setText("Eliminar Equipo");
         bEliminarEquipo.setAlignmentX(0.5F);
         bEliminarEquipo.setDefaultCapable(false);
@@ -112,7 +117,7 @@ public class vMainAdmin extends javax.swing.JFrame {
         bEliminarEquipo.setMargin(new java.awt.Insets(30, 50, 2, 14));
         panelGestionEquipos.add(bEliminarEquipo);
 
-        bEditarEquipo.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEditar.png")); // NOI18N
+        bEditarEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
         bEditarEquipo.setText("Editar Equipo");
         bEditarEquipo.setDescription(" ");
         bEditarEquipo.addActionListener(new java.awt.event.ActionListener() {
@@ -122,12 +127,12 @@ public class vMainAdmin extends javax.swing.JFrame {
         });
         panelGestionEquipos.add(bEditarEquipo);
 
-        bVerDatosEquipo.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoBuscar.png")); // NOI18N
+        bVerDatosEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
         bVerDatosEquipo.setText("Ver Datos Equipo");
         bVerDatosEquipo.setDescription(" ");
         panelGestionEquipos.add(bVerDatosEquipo);
 
-        bMostrarTrabajadores.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoBuscar.png")); // NOI18N
+        bMostrarTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEquipo.png"))); // NOI18N
         bMostrarTrabajadores.setText("Ver Trabajadores                    ");
         bMostrarTrabajadores.setDescription("Trabajadores de un equipo");
         bMostrarTrabajadores.addActionListener(new java.awt.event.ActionListener() {
@@ -139,9 +144,34 @@ public class vMainAdmin extends javax.swing.JFrame {
 
         tabEscuderia.addTab("Gestion Equipos                           ", panelGestionEquipos);
 
+        panelGestionJugadores.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 30));
+
+        bAnadirJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoAñadir.png"))); // NOI18N
+        bAnadirJugador.setText("Añadir Jugador");
+        bAnadirJugador.setDescription(" ");
+        panelGestionJugadores.add(bAnadirJugador);
+
+        bEliminarJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
+        bEliminarJugador.setText("Eliminar Jugador");
+        bEliminarJugador.setDefaultCapable(false);
+        bEliminarJugador.setDescription(" ");
+        panelGestionJugadores.add(bEliminarJugador);
+
+        bEditarJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
+        bEditarJugador.setText("Editar Jugador");
+        bEditarJugador.setDescription(" ");
+        panelGestionJugadores.add(bEditarJugador);
+
+        bVerJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
+        bVerJugador.setText("Ver Jugador");
+        bVerJugador.setDescription(" ");
+        panelGestionJugadores.add(bVerJugador);
+
+        tabEscuderia.addTab("     Gestion Jugadores     ", panelGestionJugadores);
+
         panelGestionJefes.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 30));
 
-        bAnadirJefe.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoAñadir.png")); // NOI18N
+        bAnadirJefe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoAñadir.png"))); // NOI18N
         bAnadirJefe.setText("Añadir Jefe");
         bAnadirJefe.setDescription(" ");
         bAnadirJefe.addActionListener(new java.awt.event.ActionListener() {
@@ -151,13 +181,18 @@ public class vMainAdmin extends javax.swing.JFrame {
         });
         panelGestionJefes.add(bAnadirJefe);
 
-        bEliminarJefe.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEliminar.png")); // NOI18N
+        bEliminarJefe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
         bEliminarJefe.setText("Eliminar Jefe");
         bEliminarJefe.setDefaultCapable(false);
         bEliminarJefe.setDescription(" ");
+        bEliminarJefe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarJefeActionPerformed(evt);
+            }
+        });
         panelGestionJefes.add(bEliminarJefe);
 
-        bEditarJefe.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEditar.png")); // NOI18N
+        bEditarJefe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
         bEditarJefe.setText("Editar Jefe");
         bEditarJefe.setDescription(" ");
         bEditarJefe.addActionListener(new java.awt.event.ActionListener() {
@@ -167,43 +202,23 @@ public class vMainAdmin extends javax.swing.JFrame {
         });
         panelGestionJefes.add(bEditarJefe);
 
-        bVerJefes.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoBuscar.png")); // NOI18N
+        bVerJefes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
         bVerJefes.setText("Ver Jefes");
         bVerJefes.setDescription(" ");
+        bVerJefes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerJefesActionPerformed(evt);
+            }
+        });
         panelGestionJefes.add(bVerJefes);
 
         tabEscuderia.addTab("Gestion Jefes                   ", panelGestionJefes);
-
-        panelGestionJugadores.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 30));
-
-        bAnadirJugador.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoAñadir.png")); // NOI18N
-        bAnadirJugador.setText("Añadir Jugador");
-        bAnadirJugador.setDescription(" ");
-        panelGestionJugadores.add(bAnadirJugador);
-
-        bEliminarJugador.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEliminar.png")); // NOI18N
-        bEliminarJugador.setText("Eliminar Jugador");
-        bEliminarJugador.setDefaultCapable(false);
-        bEliminarJugador.setDescription(" ");
-        panelGestionJugadores.add(bEliminarJugador);
-
-        bEditarJugador.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEditar.png")); // NOI18N
-        bEditarJugador.setText("Editar Jugador");
-        bEditarJugador.setDescription(" ");
-        panelGestionJugadores.add(bEditarJugador);
-
-        bVerJugador.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoBuscar.png")); // NOI18N
-        bVerJugador.setText("Ver Jugador");
-        bVerJugador.setDescription(" ");
-        panelGestionJugadores.add(bVerJugador);
-
-        tabEscuderia.addTab("     Gestion Jugadores     ", panelGestionJugadores);
 
         javax.swing.GroupLayout panelEscuderiaLayout = new javax.swing.GroupLayout(panelEscuderia);
         panelEscuderia.setLayout(panelEscuderiaLayout);
         panelEscuderiaLayout.setHorizontalGroup(
             panelEscuderiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabEscuderia, javax.swing.GroupLayout.PREFERRED_SIZE, 762, Short.MAX_VALUE)
+            .addComponent(tabEscuderia, javax.swing.GroupLayout.DEFAULT_SIZE, 1181, Short.MAX_VALUE)
         );
         panelEscuderiaLayout.setVerticalGroup(
             panelEscuderiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,25 +231,40 @@ public class vMainAdmin extends javax.swing.JFrame {
 
         panelTorneos.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 30));
 
-        bIniciarTorneo.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\añadir.png")); // NOI18N
+        bIniciarTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoInicio.png"))); // NOI18N
         bIniciarTorneo.setText("Iniciar Torneo");
         bIniciarTorneo.setDescription(" ");
         panelTorneos.add(bIniciarTorneo);
 
-        bEliminarTorneo.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEliminar.png")); // NOI18N
+        bEliminarTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
         bEliminarTorneo.setText("Eliminar Torneo");
         bEliminarTorneo.setDefaultCapable(false);
         bEliminarTorneo.setDescription(" ");
+        bEliminarTorneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarTorneoActionPerformed(evt);
+            }
+        });
         panelTorneos.add(bEliminarTorneo);
 
-        bAdministrarTorneo.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoEditar.png")); // NOI18N
+        bAdministrarTorneo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
         bAdministrarTorneo.setText("Administrar Torneo");
         bAdministrarTorneo.setDescription(" ");
+        bAdministrarTorneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAdministrarTorneoActionPerformed(evt);
+            }
+        });
         panelTorneos.add(bAdministrarTorneo);
 
-        bVerTorneos.setIcon(new javax.swing.ImageIcon("C:\\Users\\1GDAW06\\Desktop\\Archivos Proyecto\\imagenes\\iconoBuscar.png")); // NOI18N
+        bVerTorneos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
         bVerTorneos.setText("Ver Torneos");
         bVerTorneos.setDescription(" ");
+        bVerTorneos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerTorneosActionPerformed(evt);
+            }
+        });
         panelTorneos.add(bVerTorneos);
 
         tabGeneral.addTab("          TORNEOS          ", panelTorneos);
@@ -263,7 +293,7 @@ public class vMainAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
+            .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 1181, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +312,6 @@ public class vMainAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_bMostrarTrabajadoresActionPerformed
 
     private void bEditarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarEquipoActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_bEditarEquipoActionPerformed
 
     private void bAnadirJefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirJefeActionPerformed
@@ -292,6 +321,30 @@ public class vMainAdmin extends javax.swing.JFrame {
     private void bEditarJefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarJefeActionPerformed
         torneoes.TorneoES.abrirVentanaSeleccion("Selecciona jefe a modificar", "Jefe", "modjefe");
     }//GEN-LAST:event_bEditarJefeActionPerformed
+
+    private void bEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bEditarUsuarioActionPerformed
+
+    private void bEliminarJefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarJefeActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Seleccione jefe a eliminar", "Jefe:", "borrarjefe");
+    }//GEN-LAST:event_bEliminarJefeActionPerformed
+
+    private void bVerJefesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerJefesActionPerformed
+        torneoes.TorneoES.abrirVentanaAllJefe();
+    }//GEN-LAST:event_bVerJefesActionPerformed
+
+    private void bVerTorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerTorneosActionPerformed
+        torneoes.TorneoES.abrirVentanaAllTorneo();
+    }//GEN-LAST:event_bVerTorneosActionPerformed
+
+    private void bAdministrarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdministrarTorneoActionPerformed
+        torneoes.TorneoES.abrirVentanaModTorneo();
+    }//GEN-LAST:event_bAdministrarTorneoActionPerformed
+
+    private void bEliminarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarTorneoActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Seleccione torneo a eliminar", "Torneo:", "borrartorneo");
+    }//GEN-LAST:event_bEliminarTorneoActionPerformed
     
    
 

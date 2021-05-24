@@ -27,22 +27,22 @@ public class vAllJefe extends javax.swing.JFrame {
         initComponents();
         llenarTextArea();
         this.setLocationRelativeTo(null);
-            this.setAlwaysOnTop(true);
-            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
-            Dimension d1 = new Dimension(1000,500);
-            Dimension d2 = new Dimension(900,400);
-            this.setSize(d1);
-            
-            panelGeneral.setSize(d1);
-            panelGeneral.setPreferredSize(d1);
-            panelContenedor.setPreferredSize(d2);
-            panelContenedor.setSize(d2);
-            panelGeneral.setColorPrimario(Color.white);
-            panelGeneral.setColorSecundario(Color.orange);
-            panelGeneral.setLayout(null);
-            panelContenedor.setLocation(((d1.width)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
-            //taDatosJefes.disable();
+        this.setAlwaysOnTop(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+        Dimension d1 = new Dimension(1000,500);
+        Dimension d2 = new Dimension(900,400);
+        this.setSize(d1);
+
+        panelGeneral.setSize(d1);
+        panelGeneral.setPreferredSize(d1);
+        panelContenedor.setPreferredSize(d2);
+        panelContenedor.setSize(d2);
+        panelGeneral.setColorPrimario(Color.white);
+        panelGeneral.setColorSecundario(Color.orange);
+        panelGeneral.setLayout(null);
+        panelContenedor.setLocation(((d1.width)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
+        //taDatosJefes.disable();
             
     }
 
@@ -65,6 +65,9 @@ public class vAllJefe extends javax.swing.JFrame {
         tfFiltro = new org.edisoncor.gui.textField.TextFieldRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 500));
+        setMinimumSize(new java.awt.Dimension(1000, 500));
+        setResizable(false);
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
         labelRect2.setText("Ventana informacion jefes");
@@ -193,8 +196,11 @@ public class vAllJefe extends javax.swing.JFrame {
                 datosJefes+="\n";
             }
             taDatosJefes.setText(datosJefes);
+        }catch(java.lang.NullPointerException ex){
+            JOptionPane.showMessageDialog(this, "Ha ocurido un error relacionado con la base de datos");           
+            this.dispose();
         } catch (Exception ex) {
-            Logger.getLogger(vAllJefe.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error inseperado:" + ex.getMessage());
         }
     }
     

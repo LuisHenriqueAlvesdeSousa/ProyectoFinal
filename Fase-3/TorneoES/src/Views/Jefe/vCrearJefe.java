@@ -91,6 +91,8 @@ public class vCrearJefe extends javax.swing.JFrame {
         textFieldRectImage2.setText("textFieldRectImage2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 500));
+        setMinimumSize(new java.awt.Dimension(1000, 500));
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
         labelRect2.setText("Formulario nuevo jefe");

@@ -46,8 +46,7 @@ public class vModJefe extends javax.swing.JFrame {
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
             Dimension d1 = new Dimension(1000,500);
             Dimension d2 = new Dimension(900,400);
-            this.setSize(d1);
-            
+            this.setSize(d1);            
             panelGeneral.setSize(d1);
             panelGeneral.setPreferredSize(d1);
             panelContenedor.setPreferredSize(d2);
@@ -99,6 +98,8 @@ public class vModJefe extends javax.swing.JFrame {
         labelRect2 = new org.edisoncor.gui.label.LabelRect();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 500));
+        setMinimumSize(new java.awt.Dimension(1000, 500));
 
         panelGeneral.setColorPrimario(new java.awt.Color(255, 255, 255));
         panelGeneral.setColorSecundario(new java.awt.Color(255, 178, 97));

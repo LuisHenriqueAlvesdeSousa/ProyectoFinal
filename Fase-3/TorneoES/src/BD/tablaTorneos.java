@@ -46,6 +46,22 @@ public class tablaTorneos {
 
     }
     
+    public static void eliminarTorneo(int idTorneo)  throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        PreparedStatement ps = con.prepareStatement("DELETE FROM TORNEOS WHERE IDTORNEO=?");
+        ps.setInt(1, idTorneo);
+
+        int n = ps.executeUpdate();  
+        
+        if( n > 1)
+            throw new Exception("Se ha eliminado mas de un torneo");
+        
+        BaseDatos.desconectar();
+
+    }
+    
     public static void eliminarTorneo(Torneo t)  throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
