@@ -200,7 +200,7 @@ public class vCrearEquipo extends javax.swing.JFrame {
     catch(Exception e){
         JOptionPane.showMessageDialog(null, "Error: " + e.getClass() +  " , " + e.getMessage());
     }
-    }//GEN-LAST:event_bGuardarActionPerformed
+    }                                        
     public void validaciones() throws Exception{
         validarNombre();
         validarPais();
@@ -253,64 +253,7 @@ public class vCrearEquipo extends javax.swing.JFrame {
             throw new formatoNoValido();
         
         Integer.parseInt(tfIdEntrenador.getText());
-    }
-    catch(Exception e){
-        JOptionPane.showMessageDialog(null, "Error: " + e.getClass() +  " , " + e.getMessage());
-    }
     }//GEN-LAST:event_bGuardarActionPerformed
-    public void validaciones() throws Exception{
-        validarNombre();
-        validarPais();
-        validarPreparador();
-        validarJefe();
-        validarEntrenador();
-    }
-    
-    public void validarNombre() throws Exception{
-        if(tfNombre.getText().isEmpty())
-            throw new campoVacio();
-        
-        if(!tfNombre.getText().matches("[a-z A-Z 0-9]{4,}"))
-            throw new formatoNoValido();
-    }
-    
-    public void validarPais() throws Exception{
-        if(tfPais.getText().isEmpty())
-            throw new campoVacio();
-        
-        if(!tfPais.getText().matches("[a-z A-Z 0-9]{4,}"))
-            throw new formatoNoValido();
-    }
-    
-    public void validarPreparador() throws Exception{
-        if(tfIdPreparador.getText().isEmpty())
-            throw new campoVacio();
-        
-        if(tfIdPreparador.getText().length() > 4)
-            throw new formatoNoValido();
-        
-        Integer.parseInt(tfIdPreparador.getText());
-    }
-    
-    public void validarJefe() throws Exception{
-        if(tfIdJefe.getText().isEmpty())
-            throw new campoVacio();
-        
-        if(tfIdJefe.getText().length() > 4)
-            throw new formatoNoValido();
-        
-        Integer.parseInt(tfIdJefe.getText());
-    }
-    
-    public void validarEntrenador() throws Exception{
-        if(tfIdEntrenador.getText().isEmpty())
-            throw new campoVacio();
-        
-        if(tfIdEntrenador.getText().length() > 4)
-            throw new formatoNoValido();
-        
-        Integer.parseInt(tfIdEntrenador.getText());
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAction bGuardar;

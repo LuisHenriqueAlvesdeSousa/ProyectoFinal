@@ -17,7 +17,11 @@ import UML.PartidoJugado;
 import UML.Perfil;
 import UML.Preparador;
 import UML.Torneo;
+import Views.Equipo.vAllEquipo;
+import Views.Equipo.vCrearEquipo;
 import Views.Equipo.vModEquipo;
+import Views.Perfil.vAllPerfil;
+import Views.Perfil.vCrearPerfil;
 import Views.Perfil.vModPerfil;
 import Views.vLogin;
 import Views.vMainAdmin;
@@ -42,11 +46,24 @@ public class TorneoES {
     public static int screenHeight;
     public static int screenWidth;
     public static Perfil perfilActual;
+    public static Equipo equipoActual;
     
     public static void main(String[] args) {
         try{
+            perfilActual = new Perfil();
+            perfilActual.setIdPerfil(1);
+            
+            equipoActual = new Equipo();
+            equipoActual.setIdEquipo(1);
+            
             getDimension();
-            abrirVLogin();
+            //abrirVLogin();
+            //abrirVAllEquipo();
+            //abrirVCrearEquipo();
+            //abrirVModEquipo(equipoActual);
+            //abrirVAllPerfil();
+            //abrirVCrearPerfil();
+            //abrirVModPerfil(perfilActual);
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage() + e.getClass());
@@ -62,6 +79,36 @@ public class TorneoES {
     public static void abrirVLogin() throws Exception{
         vLogin l = new vLogin();
         l.setVisible(true);
+    }
+    
+    public static void abrirVAllEquipo() throws Exception{
+        vAllEquipo ae = new vAllEquipo();
+        ae.setVisible(true);
+    }
+    
+    public static void abrirVCrearEquipo() throws Exception{
+        vCrearEquipo ce = new vCrearEquipo();
+        ce.setVisible(true);
+    }
+    
+    public static void abrirVModEquipo(Equipo e) throws Exception{
+        vModEquipo me = new vModEquipo(e);
+        me.setVisible(true);
+    }
+    
+    public static void abrirVAllPerfil() throws Exception{
+        vAllPerfil ap = new vAllPerfil();
+        ap.setVisible(true);
+    }
+    
+    public static void abrirVCrearPerfil() throws Exception{
+        vCrearPerfil cp = new vCrearPerfil();
+        cp.setVisible(true);
+    }
+    
+    public static void abrirVModPerfil(Perfil p) throws Exception{
+        vModPerfil mp = new vModPerfil(p);
+        mp.setVisible(true);
     }
     
     public static boolean validarUsuario(String user, String pass) throws Exception{
@@ -144,16 +191,6 @@ public class TorneoES {
     public static void abrirVMainUser() throws Exception{
         vMainUser mu = new vMainUser();
         mu.setVisible(true);
-    }
-    
-    public static void abrirVModPerfil(Perfil p) throws Exception{
-        vModPerfil mp = new vModPerfil(p);
-        mp.setVisible(true);
-    }
-    
-    public static void abrirVModEquipo(Equipo e) throws Exception{
-        vModEquipo me = new vModEquipo(e);
-        me.setVisible(true);
     }
     
     public static Equipo obtenerEquipo(String id) throws Exception{
