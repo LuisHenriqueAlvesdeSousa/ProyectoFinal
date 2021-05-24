@@ -14,17 +14,20 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 1gdaw06
+ * Ventana que sirve como pasarela de preseleccion a otras ventanas o a la 
+ * eliminacion de entidades
+ * @author Equipo2
+ * @version 1.0
  */
 public class vSelector extends javax.swing.JDialog {
-
-    String label;
+    /**
+     * Ventana a la que se le redirigira despues de la selecion del objeto 
+     * mediante combobox
+     */
     String ventana;
     
     public vSelector(java.awt.Frame parent, boolean modal, String titulo, String label, String ventana) {
         super(parent, modal);
-        this.label = label;
         this.ventana = ventana;
         try {
             initComponents();

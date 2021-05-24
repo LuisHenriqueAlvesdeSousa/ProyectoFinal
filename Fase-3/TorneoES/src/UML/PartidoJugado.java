@@ -1,8 +1,23 @@
 package UML;
 
+/**
+ * Clase que representa el resultado de un equipo en un partido
+ * @author Equipo2
+ * @version 1.0
+ */
+
 public class PartidoJugado {
+    /**
+     * Partido al que pertenece el resultado    
+    */
     private Partido partido;
+    /**
+     * El equipo implicado
+     */
     private Equipo equipo;
+    /**
+     * Puntuacion del encuentro conseguida por el equipo
+     */
     private int puntuacion;
 
     public PartidoJugado(Partido partido, Equipo equipo, int puntuacion) {
