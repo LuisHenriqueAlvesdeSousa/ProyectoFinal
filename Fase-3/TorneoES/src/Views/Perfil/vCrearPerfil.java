@@ -114,7 +114,7 @@ public class vCrearPerfil extends javax.swing.JFrame {
         );
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
-        labelRect2.setText("Formulario nuevo jefe");
+        labelRect2.setText("Formulario nuevo Perfil");
         labelRect2.setColorDeBorde(new java.awt.Color(255, 153, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,7 +162,7 @@ public class vCrearPerfil extends javax.swing.JFrame {
         if(tfUsuario.getText().isEmpty())
             throw new campoVacio();
         
-        if(!tfUsuario.getText().matches("[a-z A-Z 0-9]{4,}"))
+        if(!tfUsuario.getText().matches("[a-zA-Z0-9]{4,}"))
             throw new formatoNoValido();
     }
     
@@ -170,7 +170,7 @@ public class vCrearPerfil extends javax.swing.JFrame {
         if(tfPass.getText().isEmpty())
             throw new campoVacio();
         
-        if(!tfPass.getText().matches("[a-z A-Z 0-9]{4,}"))
+        if(!tfPass.getText().matches("[a-zA-Z0-9]{4,}"))
             throw new formatoNoValido();
     }
     
@@ -178,8 +178,10 @@ public class vCrearPerfil extends javax.swing.JFrame {
         if(tfPrivilegio.getText().isEmpty())
             throw new campoVacio();
         
-        if(!tfPrivilegio.getText().toUpperCase().matches("ADMIN") || !tfPrivilegio.getText().toUpperCase().matches("USER"))
-            throw new formatoNoValido();
+        if(!tfPrivilegio.getText().toUpperCase().matches("ADMIN")){
+            if(!tfPrivilegio.getText().toUpperCase().matches("USER"))
+                throw new formatoNoValido();
+        }
         
         tfPrivilegio.setText(tfPrivilegio.getText().toUpperCase());
     }
