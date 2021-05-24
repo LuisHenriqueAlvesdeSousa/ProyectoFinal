@@ -182,6 +182,13 @@ public class vLogin extends javax.swing.JFrame {
         try{
             validaciones();
             if(torneoes.TorneoES.validarUsuario(tfUser.getText(), tfPass.getText())){
+                String priv = torneoes.TorneoES.obtenerPrivilegio();
+                if(priv.equals("ADMIN")){
+                    torneoes.TorneoES.abrirVMainAdmin();
+                }
+                else{
+                    torneoes.TorneoES.abrirVMainUser();
+                }
                 dispose();
             }
             else{
@@ -209,23 +216,18 @@ public class vLogin extends javax.swing.JFrame {
     private void validarUser() throws Exception{
         if(tfUser.getText().isEmpty())
             throw new errorLogin();
-            
-        Pattern pat = Pattern.compile("[a-zA-Z0-9]");
-        Matcher mat = pat.matcher(tfUser.getText());
-        if(!mat.matches())
+        
+        if(!tfUser.getText().matches("[a-z A-Z 0-9]{4,}"))
             throw new errorLogin();
     }
     
     private void validarPass() throws Exception{
         if(tfPass.getText().isEmpty())
             throw new errorLogin();
-            
-        Pattern pat = Pattern.compile("[a-zA-Z0-9]");
-        Matcher mat = pat.matcher(tfPass.getText());
-        if(!mat.matches())
+        
+        if(!tfPass.getText().matches("[a-z A-Z 0-9]{4,}"))
             throw new errorLogin();
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound bAceptar;
     private javax.swing.JLabel jLabel1;

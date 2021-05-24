@@ -92,8 +92,31 @@ public class tablaPartidosJugados {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM PARTIDOS_JUGADOS;");
+        PreparedStatement ps = con.prepareStatement("SELECT IDEQUIPO, IDPARTIDO, NVL(PUNTUACION, 0) FROM PARTIDOS_JUGADOS;");
         
+
+        ResultSet resultado = ps.executeQuery();
+        
+        ArrayList<PartidoJugado> partidos = new ArrayList(); 
+        while(resultado.next()){
+            PartidoJugado p = new PartidoJugado();
+            p.setEquipo(tablaEquipos.equipoByIdEquipo(resultado.getString("IDEQUIPO")));
+            p.setPartido(tablaPartidos.partidoById(resultado.getInt("IDPARTIDO")));
+            p.setPuntuacion(resultado.getInt("PUNTUACION"));
+            partidos.add(p);
+        }
+        
+        BaseDatos.desconectar();
+        
+        return partidos;
+    }
+    
+    public static ArrayList<PartidoJugado> allPartidosJugadosByIdPartido(int idPartido) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+         
+        PreparedStatement ps = con.prepareStatement("SELECT IDEQUIPO, IDPARTIDO, NVL(PUNTUACION, 0) FROM PARTIDOS_JUGADOS WHERE IDPARTIDO = ?;");
+        ps.setInt(1, idPartido);
 
         ResultSet resultado = ps.executeQuery();
         

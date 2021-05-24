@@ -11,6 +11,6 @@ package Excepciones.Java;
  */
 
 //Crear switch con todos los atributos
-public class campoVacio {
+public class campoVacio extends Exception{
     
 }

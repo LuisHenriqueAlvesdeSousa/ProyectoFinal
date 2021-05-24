@@ -34,10 +34,10 @@ begin
     );
 
     DBMS_XMLGEN.setRowSetTag(qryCtx, 'clasificacion');
-    DBMS_XMLGEN.setRowTag(qryCtx, 'ultima_jornada');
+    DBMS_XMLGEN.setRowTag(qryCtx, 'info');
 
     result := dbms_xmlgen.getxml(qryctx);
-    insert into clagenresult (resultset) values (result);
+    insert into clagenresult (resultset) values (result, sysdate);
 
     dbms_xmlgen.closecontext(qryctx);
 exception
