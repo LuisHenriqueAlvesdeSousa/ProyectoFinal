@@ -1,5 +1,6 @@
 package torneoes;
 
+import BD.procesosXML;
 import BD.tablaEquipos;
 import BD.tablaJornadas;
 import BD.tablaPartidos;
@@ -160,6 +161,9 @@ public class TorneoES {
                     }
                 }
             }
+        procesosXML.actualizarClasificacionGeneral();
+        procesosXML.actualizarTodasJornadas();
+        procesosXML.actualizarUltimaJornada();
     }
     
     public static void randomTorneo(String idTorneo) throws Exception{
@@ -177,6 +181,9 @@ public class TorneoES {
                     }
                 }
             }
+            procesosXML.actualizarClasificacionGeneral();
+            procesosXML.actualizarTodasJornadas();
+            procesosXML.actualizarUltimaJornada();
         }
     }
 }
