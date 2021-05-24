@@ -25,7 +25,7 @@ public class vAllJefe extends javax.swing.JFrame {
     
     public vAllJefe() {
         initComponents();
-        //llenarTextArea();
+        llenarTextArea();
         this.setLocationRelativeTo(null);
             this.setAlwaysOnTop(true);
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -199,13 +199,19 @@ public class vAllJefe extends javax.swing.JFrame {
     }
     
     private String filtarDatos(String cadena){
-        for(Jefe jefe : jefes){
+        String totalLineas = "";
+            for(Jefe jefe : jefes){
                 String linea=jefe.toString();
-                if(cadena.matches("(?i)(\\W^)(" + cadena + ")(\\W$)")){
-                    return linea;
+                if(linea.matches(".*" + cadena + ".*") || linea.matches(".*" + cadena.toUpperCase() + ".*")){
+                    totalLineas += linea + "\n";
                 }
-        }
-        return null;    
+            }
+            if(totalLineas!=""){
+                return totalLineas;
+            }
+            else{
+                return null;
+            }
     }
     /**
      * @param args the command line arguments
