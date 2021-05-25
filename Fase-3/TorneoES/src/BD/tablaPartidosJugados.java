@@ -1,6 +1,7 @@
 package BD;
 
 import UML.PartidoJugado;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -132,5 +133,23 @@ public class tablaPartidosJugados {
         BaseDatos.desconectar();
         
         return partidos;
+    }
+    
+    public static String top3() throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        CallableStatement cs = con.prepareCall("TOP_3_EQUIPOS");
+        
+        ResultSet resultado = cs.executeQuery();
+        
+        String top = ""; 
+        while(resultado.next()){
+            top += tablaEquipos.equipoByIdEquipo(resultado.getString("IDEQUIPO")).getNombre() + " : " + resultado.getString("PUNTUACION") + "\n";
+        }
+        
+        BaseDatos.desconectar();
+        
+        return top;
     }
 }

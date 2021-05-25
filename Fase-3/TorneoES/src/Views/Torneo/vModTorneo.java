@@ -23,7 +23,6 @@ public class vModTorneo extends javax.swing.JFrame {
         try {
             initComponents();
             torneoes.TorneoES.llenarComboBoxTorneos(cbTorneo);
-            this.setLocationRelativeTo(null);
         } catch (Exception ex) {
             Logger.getLogger(vModTorneo.class.getName()).log(Level.SEVERE, null, ex);
         }
