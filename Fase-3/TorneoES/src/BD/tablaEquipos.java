@@ -2,6 +2,7 @@ package BD;
 import java.sql.*;
 import UML.Equipo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class tablaEquipos {
     private static Connection con;
@@ -73,34 +74,38 @@ public class tablaEquipos {
         return equipoActual;
     }
     
-    public static ArrayList<Equipo> allEquipos () throws Exception{
+    public static ArrayList<Equipo> allEquipos() throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM EQUIPOS;";
+        String plantilla = "SELECT * FROM EQUIPOS";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
-        Equipo equipoActual = new Equipo();
+        
         ArrayList<Equipo> listaEquipos = new ArrayList();
         
-        if (resultado == null){
-            listaEquipos = null;
-            System.out.println("No se han encontrado equipos en la BD");
+
+        while(resultado.next()){
+            Equipo equipoActual = new Equipo();
+            equipoActual.setIdEquipo(resultado.getInt("IDEQUIPO"));
+            equipoActual.setNombre(resultado.getString("NOMBRE"));
+            equipoActual.setPais(resultado.getString("PAIS"));
+            equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getInt("IDJEFE")));
+            equipoActual.setPreparador(tablaPreparadores.preparadorByIdPreparador(resultado.getString("IDPREPARADOR")));
+            equipoActual.setEntrenador(tablaEntrenadores.entrenadorByIdEntrenador(resultado.getString("IDENTRENADOR")));
+            listaEquipos.add(equipoActual);
+        }
+        if(!listaEquipos.isEmpty()){
+            BaseDatos.desconectar();
+            return listaEquipos;
         }
         else{
-            while(resultado.next()){
-                equipoActual.setIdEquipo(resultado.getInt("IDEQUIPO"));
-                equipoActual.setNombre(resultado.getString("NOMBRE"));
-                equipoActual.setPais(resultado.getString("PAIS"));
-                equipoActual.setJefe(tablaJefes.JefeByIdJefe(resultado.getInt("IDJEFE")));
-                equipoActual.setPreparador(tablaPreparadores.preparadorByIdPreparador(resultado.getString("IDPREPARADOR")));
-                equipoActual.setEntrenador(tablaEntrenadores.entrenadorByIdEntrenador(resultado.getString("IDENTRENADOR")));
-            }
+            BaseDatos.desconectar();
+            JOptionPane.showMessageDialog(null, "No se han encontrado equipos en la BD");
+            return null;
         }
-        
-        BaseDatos.desconectar();
-        return listaEquipos;
+
     }
     
     public static void eliminarEquipo (String id) throws Exception{

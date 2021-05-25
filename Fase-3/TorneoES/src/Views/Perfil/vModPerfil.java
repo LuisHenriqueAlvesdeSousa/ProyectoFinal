@@ -21,7 +21,7 @@ public class vModPerfil extends javax.swing.JFrame {
      */
     public vModPerfil(Perfil p) throws Exception {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
         tfIdPerfil.setText(String.valueOf(p.getIdPerfil()));
         tfUsuario.setText(p.getUsuario());
         tfPass.setText(p.getPasswd());

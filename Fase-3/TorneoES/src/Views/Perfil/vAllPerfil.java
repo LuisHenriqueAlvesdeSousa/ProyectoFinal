@@ -193,7 +193,7 @@ public class vAllPerfil extends javax.swing.JFrame {
             perfiles = BD.tablaPerfiles.allPerfil();
             String datosJefes = "";
             for(Perfil perfil : perfiles){
-                datosJefes+=perfil.toString();
+                datosJefes+=perfil.getIdPerfil() + " " +  perfil.getUsuario() + " " + perfil.getPrivilegios();
                 datosJefes+="\n";
             }
             taDatosJefes.setText(datosJefes);
