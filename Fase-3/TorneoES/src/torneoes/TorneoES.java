@@ -159,6 +159,12 @@ public class TorneoES {
         BD.tablaJefes.crearJefe(jefeActual);
     }
     
+    public static void modJefe(int idPersona, String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad) throws Exception{
+        Jefe jefeActual = new Jefe(idPersona, dni, nombre, apellido, fechaNacimiento, sueldo, telefono, fechaContrato, fechaFinContrato, nacionalidad);
+        BD.tablaJefes.modJefe(jefeActual);
+    }
+    
+    
     public static void abrirVentanaCrearJefe(){
         Views.Jefe.vCrearJefe ventana = new vCrearJefe();
         ventana.setVisible(true);
@@ -282,6 +288,8 @@ public class TorneoES {
         }
         
     }
+    
+    
     
     
 }
