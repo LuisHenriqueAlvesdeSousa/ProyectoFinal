@@ -214,12 +214,7 @@ public class tablaPersonas {
         
         Persona personaActual = new Persona();
         
-        if(resultado == null){
-            personaActual = null;
-            System.out.println("Persona no encontrada.");
-        }
-        else{
-            resultado.next();
+        if(resultado.next()){
             personaActual.setIdPersona(resultado.getInt("IDPERSONA"));
             personaActual.setDni(resultado.getString("DNI"));
             personaActual.setNombre(resultado.getString("NOMBRE"));
@@ -236,10 +231,15 @@ public class tablaPersonas {
                         resultado.getString("NACIONALIDAD"));
                 
             System.out.println("Persona encontrada con exito.");
+            BaseDatos.desconectar();
+            return personaActual;
+        }
+        else{
+            BaseDatos.desconectar();
+            return null;
         }
         
-        BaseDatos.desconectar();
-        return personaActual;
+        
     }
     
     public static Persona PersonaByIdPersona(Persona p) throws Exception{
