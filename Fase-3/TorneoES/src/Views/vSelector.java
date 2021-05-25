@@ -225,8 +225,7 @@ public class vSelector extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(null, "Se ha borrado el jugador seleccionado");
                         break;
                     case "modjugador":
-                        Jugador jugadorActual = BD.tablaJugadores.consultaByIdPersona(id);
-                        torneoes.TorneoES.abrirVModJugador(jugadorActual);
+                        torneoes.TorneoES.abrirVModJugador(id);
                         JOptionPane.showMessageDialog(null, "Se ha modificado el jugador seleccionado");
                         break;
                 }

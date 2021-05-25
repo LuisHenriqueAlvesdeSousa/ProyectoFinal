@@ -23,7 +23,7 @@ import Views.Equipo.vAllEquipo;
 import Views.Equipo.vCrearEquipo;
 import Views.Equipo.vModEquipo;
 import Views.Jefe.*;
-import Views.Jugador.vAllJugador;
+import Views.Jugador.vAllJugadores;
 import Views.Jugador.vCrearJugador;
 import Views.Jugador.vModJugador;
 import Views.Perfil.vAllPerfil;
@@ -92,12 +92,12 @@ public class TorneoES {
     }
     
     public static void abrirVAllJugador() throws Exception{
-        vAllJugador ae = new vAllJugador();
+        vAllJugadores ae = new vAllJugadores();
         ae.setVisible(true);
     }
     
-    public static void abrirVModJugador() throws Exception{
-        vModJugador ae = new vModJugador();
+    public static void abrirVModJugador(int idJugador) throws Exception{
+        vModJugador ae = new vModJugador(idJugador);
         ae.setVisible(true);
     }
     
@@ -135,6 +135,12 @@ public class TorneoES {
         vModPerfil mp = new vModPerfil(p);
         mp.setVisible(true);
     }
+    
+    public static void abrirVAllJugadores(){
+        vAllJugadores cp = new vAllJugadores();
+        cp.setVisible(true);
+    }
+   
     
     public static boolean validarUsuario(String user, String pass) throws Exception{
         Perfil p = new Perfil();
@@ -182,6 +188,12 @@ public class TorneoES {
     public static void modJefe(int idPersona, String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad) throws Exception{
         Jefe jefeActual = new Jefe(idPersona, dni, nombre, apellido, fechaNacimiento, sueldo, telefono, fechaContrato, fechaFinContrato, nacionalidad);
         BD.tablaJefes.modJefe(jefeActual);
+    }
+    
+    public static void insertarJugador(String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad, String rol, String nickname, String idEquipo) throws Exception{
+        Equipo e = BD.tablaEquipos.equipoByIdEquipo(idEquipo);
+        Jugador jugador = new Jugador(rol, nickname, e, dni, nombre, apellido, fechaNacimiento, sueldo, telefono, fechaContrato, fechaFinContrato, nacionalidad);
+        BD.tablaJugadores.crearJugador(jugador);
     }
     
     

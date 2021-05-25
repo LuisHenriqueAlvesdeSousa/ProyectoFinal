@@ -449,10 +449,11 @@ public class vMainAdmin extends javax.swing.JFrame {
 
     private void bVerJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerJugadorActionPerformed
         try {
-            torneoes.TorneoES.abrirVCrearJugador();
+            torneoes.TorneoES.abrirVAllJugador();
         } catch (Exception ex) {
             Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
     }//GEN-LAST:event_bVerJugadorActionPerformed
     
    

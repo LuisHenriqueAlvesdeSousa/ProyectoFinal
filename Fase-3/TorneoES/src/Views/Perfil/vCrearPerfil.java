@@ -7,6 +7,10 @@ package Views.Perfil;
 
 import Excepciones.Java.campoVacio;
 import Excepciones.Java.formatoNoValido;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +24,22 @@ public class vCrearPerfil extends javax.swing.JFrame {
      */
     public vCrearPerfil() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setAlwaysOnTop(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension d1 = new Dimension(1000,500);
+        Dimension d2 = new Dimension(900,400);
+        this.setSize(d1);
+
+        panelGeneral.setSize(d1);
+        panelGeneral.setPreferredSize(d1);
+        panelContenedor.setPreferredSize(d2);
+        panelContenedor.setSize(d2);
+        panelGeneral.setColorPrimario(Color.white);
+        panelGeneral.setColorSecundario(Color.orange);
+        panelGeneral.setLayout(null);
+        panelContenedor.setLocation(((d1.width-100)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
     }
 
     /**
@@ -32,6 +52,7 @@ public class vCrearPerfil extends javax.swing.JFrame {
     private void initComponents() {
 
         panelGeneral = new org.edisoncor.gui.panel.Panel();
+        panelContenedor = new javax.swing.JPanel();
         bGuardar = new org.edisoncor.gui.button.ButtonAction();
         panelFormulario = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -46,6 +67,8 @@ public class vCrearPerfil extends javax.swing.JFrame {
 
         panelGeneral.setColorPrimario(new java.awt.Color(255, 255, 255));
         panelGeneral.setColorSecundario(new java.awt.Color(255, 178, 97));
+
+        panelContenedor.setOpaque(false);
 
         bGuardar.setText("Añadir");
         bGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,27 +110,45 @@ public class vCrearPerfil extends javax.swing.JFrame {
         tfPrivilegio.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfPrivilegio);
 
+        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
+        panelContenedor.setLayout(panelContenedorLayout);
+        panelContenedorLayout.setHorizontalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenedorLayout.createSequentialGroup()
+                .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelContenedorLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelContenedorLayout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
+        panelContenedorLayout.setVerticalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContenedorLayout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+
         javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
         panelGeneral.setLayout(panelGeneralLayout);
         panelGeneralLayout.setHorizontalGroup(
             panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGeneralLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(311, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneralLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addContainerGap()
+                .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         panelGeneralLayout.setVerticalGroup(
             panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGeneralLayout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
-                .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(371, 371, 371))
         );
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
@@ -128,11 +169,11 @@ public class vCrearPerfil extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(labelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 499, Short.MAX_VALUE))
+                .addGap(0, 504, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 527, Short.MAX_VALUE)))
         );
 
         pack();
@@ -189,6 +230,7 @@ public class vCrearPerfil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private org.edisoncor.gui.label.LabelRect labelRect2;
+    private javax.swing.JPanel panelContenedor;
     private javax.swing.JPanel panelFormulario;
     private org.edisoncor.gui.panel.Panel panelGeneral;
     private org.edisoncor.gui.textField.TextFieldRound tfPass;
