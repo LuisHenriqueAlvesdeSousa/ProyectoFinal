@@ -83,6 +83,54 @@ public class tablaJugadores {
         BaseDatos.desconectar();
     }
     
+    public static Jugador consultaByIdPersona (int idPersona) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "SELECT  P.IDPERSONA,"
+                                + " P.DNI,"
+                                + " P.NOMBRE,"
+                                + " P.APELLIDO,"
+                                + " P.FECHA_NACIMIENTO,"
+                                + " P.SUELDO,"
+                                + " P.TELEFONO,"
+                                + " P.FECHA_CONTRATO,"
+                                + " P.FECHA_FIN_CONTRATO,"
+                                + " P.NACIONALIDAD,"
+                                + " J.NICKNAME,"
+                                + " J.ROL,"
+                                + " J.IDEQUIPO"
+                            + "FROM PERSONAS P, JUGADOR J"
+                            + "WHERE P.IDPERSONA = T.IDPERSONA";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setInt(1, idPersona);
+        
+        ResultSet resultado = ps.executeQuery();
+        
+        Jugador jugadorActual = new Jugador();
+        jugadorActual.setIdPersona(resultado.getInt("P.IDPERSONA"));
+        jugadorActual.setDni(resultado.getString("P.DNI"));
+        jugadorActual.setNombre(resultado.getString("P.NOMBRE"));
+        jugadorActual.setApellido(resultado.getString("P.APELLIDO"));
+        jugadorActual.setFechaNacimiento(
+                        resultado.getDate("P.FECHA_NACIMIENTO").toLocalDate());
+        jugadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
+        jugadorActual.setTelefono(resultado.getString("P.TELEFONO"));
+        jugadorActual.setFechaContrato(
+                        resultado.getDate("P.FECHA_CONTRATO").toLocalDate());
+        jugadorActual.setFechaFinContrato(
+                        resultado.getDate("P.FECHA_FIN_CONTRATO").toLocalDate());
+        jugadorActual.setNacionalidad(
+                        resultado.getString("P.NACIONALIDAD"));
+        
+        jugadorActual.setNickname(resultado.getString("J.NICKNAME"));
+        jugadorActual.setRol(resultado.getString("J.ROL"));
+        jugadorActual.setEquipo(tablaEquipos.equipoByIdEquipo(resultado.getString("J.IDEQUIPO")));
+        
+        BaseDatos.desconectar();
+        return jugadorActual;
+    }
+    
     public static Jugador consultaByIdPersona (Jugador jugador) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();

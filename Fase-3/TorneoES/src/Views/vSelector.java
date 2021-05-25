@@ -6,6 +6,7 @@
 package Views;
 
 import UML.Equipo;
+import UML.Jugador;
 import UML.Perfil;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -72,6 +73,9 @@ public class vSelector extends javax.swing.JDialog {
                     torneoes.TorneoES.llenarComboBoxEquipos(cbSeleccion);
                     break;
                 case "borrarjugador":
+                    torneoes.TorneoES.llenarComboBoxJugadores(cbSeleccion);
+                    break;
+                case "modjugador":
                     torneoes.TorneoES.llenarComboBoxJugadores(cbSeleccion);
                     break;
                     
@@ -219,6 +223,11 @@ public class vSelector extends javax.swing.JDialog {
                     case "borrarjugador":
                         BD.tablaJugadores.eliminarJugador(id);
                         JOptionPane.showMessageDialog(null, "Se ha borrado el jugador seleccionado");
+                        break;
+                    case "modjugador":
+                        Jugador jugadorActual = BD.tablaJugadores.consultaByIdPersona(id);
+                        torneoes.TorneoES.abrirVModJugador(jugadorActual);
+                        JOptionPane.showMessageDialog(null, "Se ha modificado el jugador seleccionado");
                         break;
                 }
             }

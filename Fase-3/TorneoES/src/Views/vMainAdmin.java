@@ -192,16 +192,31 @@ public class vMainAdmin extends javax.swing.JFrame {
         bEliminarJugador.setText("Eliminar Jugador");
         bEliminarJugador.setDefaultCapable(false);
         bEliminarJugador.setDescription(" ");
+        bEliminarJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarJugadorActionPerformed(evt);
+            }
+        });
         panelGestionJugadores.add(bEliminarJugador);
 
         bEditarJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
         bEditarJugador.setText("Editar Jugador");
         bEditarJugador.setDescription(" ");
+        bEditarJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarJugadorActionPerformed(evt);
+            }
+        });
         panelGestionJugadores.add(bEditarJugador);
 
         bVerJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
         bVerJugador.setText("Ver Jugador");
         bVerJugador.setDescription(" ");
+        bVerJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerJugadorActionPerformed(evt);
+            }
+        });
         panelGestionJugadores.add(bVerJugador);
 
         tabEscuderia.addTab("     Gestion Jugadores     ", panelGestionJugadores);
@@ -423,6 +438,22 @@ public class vMainAdmin extends javax.swing.JFrame {
             Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bAnadirJugadorActionPerformed
+
+    private void bEliminarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarJugadorActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Seleccione jugador a eliminar", "Jugador: ", "borrarjugador");
+    }//GEN-LAST:event_bEliminarJugadorActionPerformed
+
+    private void bEditarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarJugadorActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Seleccione jugador a modificar", "Jugador: ", "modjugador");
+    }//GEN-LAST:event_bEditarJugadorActionPerformed
+
+    private void bVerJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerJugadorActionPerformed
+        try {
+            torneoes.TorneoES.abrirVCrearJugador();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bVerJugadorActionPerformed
     
    
 

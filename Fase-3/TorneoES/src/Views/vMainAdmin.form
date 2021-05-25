@@ -260,6 +260,9 @@
                         <Property name="defaultCapable" type="boolean" value="false"/>
                         <Property name="description" type="java.lang.String" value=" "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEliminarJugadorActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="org.edisoncor.gui.button.ButtonTask" name="bEditarJugador">
                       <Properties>
@@ -269,6 +272,9 @@
                         <Property name="text" type="java.lang.String" value="Editar Jugador"/>
                         <Property name="description" type="java.lang.String" value=" "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEditarJugadorActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="org.edisoncor.gui.button.ButtonTask" name="bVerJugador">
                       <Properties>
@@ -278,6 +284,9 @@
                         <Property name="text" type="java.lang.String" value="Ver Jugador"/>
                         <Property name="description" type="java.lang.String" value=" "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bVerJugadorActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
