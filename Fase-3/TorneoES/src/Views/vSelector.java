@@ -5,6 +5,8 @@
  */
 package Views;
 
+import UML.Equipo;
+import UML.Perfil;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -183,7 +185,21 @@ public class vSelector extends javax.swing.JDialog {
                 case "borrartorneo":
                     BD.tablaTorneos.eliminarTorneo(id);
                     JOptionPane.showMessageDialog(null, "Se ha eliminado el torneo seleccionado");
-                    
+                case "modequipo":
+                    Equipo equipoActual = torneoes.TorneoES.obtenerEquipo(String.valueOf(id));
+                    torneoes.TorneoES.abrirVModEquipo(equipoActual);
+                    break;
+                case "borrarequipo":
+                    BD.tablaEquipos.eliminarEquipo(String.valueOf(id));
+                    JOptionPane.showMessageDialog(null, "Se ha borrado el equipo seleccionado");
+                case "modperfil":
+                    Perfil perfilActual = torneoes.TorneoES.obtenerPerfil(String.valueOf(id));
+                    torneoes.TorneoES.abrirVModPerfil(perfilActual);
+                    break;
+                case "borrarperfil":
+                    BD.tablaPerfiles.eliminarPerfil(String.valueOf(id));
+                    JOptionPane.showMessageDialog(null, "Se ha borrado el perfil seleccionado");
+                    break;
             }
             this.dispose();
         } catch (Exception ex) {
@@ -211,18 +227,3 @@ public class vSelector extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 }
 
-                case "modequipo":
-                    Equipo equipoActual = torneoes.TorneoES.obtenerEquipo(String.valueOf(id));
-                    torneoes.TorneoES.abrirVModEquipo(equipoActual);
-                    break;
-                case "borrarequipo":
-                    BD.tablaEquipos.eliminarEquipo(String.valueOf(id));
-                    JOptionPane.showMessageDialog(null, "Se ha borrado el equipo seleccionado");
-                case "modperfil":
-                    Perfil perfilActual = torneoes.TorneoES.obtenerPerfil(String.valueOf(id));
-                    break;
-                    torneoes.TorneoES.abrirVModPerfil(perfilActual);
-                case "borrarperfil":
-                    BD.tablaPerfiles.eliminarPerfil(String.valueOf(id));
-                    JOptionPane.showMessageDialog(null, "Se ha borrado el perfil seleccionado");
-                    break;

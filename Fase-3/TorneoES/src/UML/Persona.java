@@ -33,6 +33,18 @@ public class Persona {
         this.fechaFinContrato = fechaFinContrato;
         this.nacionalidad = nacionalidad;
     }
+    
+    public Persona(String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.sueldo = sueldo;
+        this.telefono = telefono;
+        this.fechaContrato = fechaContrato;
+        this.fechaFinContrato = fechaFinContrato;
+        this.nacionalidad = nacionalidad;
+    }
 
     public int getIdPersona() {
         return idPersona;

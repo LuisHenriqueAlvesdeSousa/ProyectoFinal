@@ -2,6 +2,7 @@ package torneoes;
 
 import BD.procesosXML;
 import BD.tablaEquipos;
+import BD.tablaJefes;
 import BD.tablaJornadas;
 import BD.tablaPartidos;
 import BD.tablaPartidosJugados;
@@ -20,9 +21,11 @@ import UML.Torneo;
 import Views.Equipo.vAllEquipo;
 import Views.Equipo.vCrearEquipo;
 import Views.Equipo.vModEquipo;
+import Views.Jefe.*;
 import Views.Perfil.vAllPerfil;
 import Views.Perfil.vCrearPerfil;
 import Views.Perfil.vModPerfil;
+import Views.Torneo.*;
 import Views.vLogin;
 import Views.vMainAdmin;
 import Views.vMainUser;
@@ -32,6 +35,7 @@ import java.util.ArrayList;
 
 
 import Views.vLogin;
+import Views.vSelector;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.time.LocalDate;
@@ -149,57 +153,6 @@ public class TorneoES {
         Equipo e = new Equipo(Integer.parseInt(idEquipo), nombre, pais);
     }
     
-    public static void getDimension() throws Exception{
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
-        screenHeight = screenSize.height;
-        screenWidth = screenSize.width;
-    }
-    
-    public static void abrirVLogin() throws Exception{
-        vLogin l = new vLogin();
-        l.setVisible(true);
-    }
-    
-    public static void abrirVAllEquipo() throws Exception{
-        vAllEquipo ae = new vAllEquipo();
-        ae.setVisible(true);
-    }
-    
-    public static void abrirVCrearEquipo() throws Exception{
-        vCrearEquipo ce = new vCrearEquipo();
-        ce.setVisible(true);
-    }
-    
-    public static void abrirVModEquipo(Equipo e) throws Exception{
-        vModEquipo me = new vModEquipo(e);
-        me.setVisible(true);
-    }
-    
-    public static void abrirVAllPerfil() throws Exception{
-        vAllPerfil ap = new vAllPerfil();
-        ap.setVisible(true);
-    }
-    
-    public static void abrirVCrearPerfil() throws Exception{
-        vCrearPerfil cp = new vCrearPerfil();
-        cp.setVisible(true);
-    }
-    
-    public static void abrirVModPerfil(Perfil p) throws Exception{
-        vModPerfil mp = new vModPerfil(p);
-        mp.setVisible(true);
-    }
-    
-    public static boolean validarUsuario(String user, String pass) throws Exception{
-        Perfil p = new Perfil();
-        p.setUsuario(user);
-        p.setPasswd(pass);
-        Perfil perfilActual = validarLogin(p);
-        if(perfilActual == null){
-            return false;
-        }
-        return true;
-    }
     
     public static void insertarJefe(String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad) throws Exception{
         Jefe jefeActual = new Jefe(dni, nombre, apellido, fechaNacimiento, sueldo, telefono, fechaContrato, fechaFinContrato, nacionalidad);
@@ -242,9 +195,6 @@ public class TorneoES {
         for(Jefe jefe : jefes){
             comboBox.addItem(jefe.getIdPersona() + ": " + jefe.getApellido());
         }
-        
-        tablaEquipos.modNombreEquipo(e);
-        tablaEquipos.modPaisEquipo(e);
     }
     
     public static void modificarPerfil(String idPerfil, String usuario, String pass) throws Exception{
@@ -333,116 +283,5 @@ public class TorneoES {
         
     }
     
-    public static boolean validarUsuario(String user, String pass) throws Exception{
-        Perfil p = new Perfil();
-        p.setUsuario(user);
-    }
     
-    public static String obtenerPrivilegio() throws Exception{
-        return perfilActual.getPrivilegios();
-    }
-    
-    public static void abrirVMainAdmin() throws Exception{
-        vMainAdmin ma = new vMainAdmin();
-        ma.setVisible(true);
-    }
-    
-    public static void abrirVMainUser() throws Exception{
-        vMainUser mu = new vMainUser();
-        mu.setVisible(true);
-    }
-    
-    public static Equipo obtenerEquipo(String id) throws Exception{
-        return tablaEquipos.equipoByIdEquipo(id);
-    }
-    
-    public static Perfil obtenerPerfil(String id) throws Exception{
-        return tablaPerfiles.PerfilByIdPerfil(id);
-    }
-    
-    public static void modificarEquipo(String idEquipo, String nombre, String pais) throws Exception{
-        Equipo e = new Equipo(Integer.parseInt(idEquipo), nombre, pais);
-        
-        tablaEquipos.modNombreEquipo(e);
-        tablaEquipos.modPaisEquipo(e);
-    }
-    
-    public static void modificarPerfil(String idPerfil, String usuario, String pass) throws Exception{
-        Perfil p = new Perfil();
-        p.setIdPerfil(Integer.parseInt(idPerfil));
-        p.setUsuario(usuario);
-        p.setPasswd(pass);
-        
-        tablaPerfiles.modPassPerfil(p);
-        tablaPerfiles.modUsuarioPerfil(p);
-    }
-    
-    public static void guardarEquipo (String nombre, String pais, String idPreparador, String idJefe, String idEntrenador) throws Exception{
-        Equipo equipoActual = new Equipo();
-        equipoActual.setNombre(nombre);
-        equipoActual.setPais(pais);
-        Preparador p = new Preparador();
-        p.setIdPersona(Integer.parseInt(idPreparador));
-        equipoActual.setPreparador(p);
-        Jefe j = new Jefe();
-        j.setIdPersona(Integer.parseInt(idJefe));
-        equipoActual.setJefe(j);
-        Entrenador e = new Entrenador();
-        e.setIdPersona(Integer.parseInt(idEntrenador));
-        
-        tablaEquipos.crearEquipo(equipoActual);
-    }
-    
-    public static void guardarPerfil (String usuario, String pass, String privilegio) throws Exception{
-        Perfil p = new Perfil();
-        p.setUsuario(usuario);
-        p.setPasswd(pass);
-        if(privilegio.matches("ADMIN")){
-            p.setPrivilegiosAdmin();
-        }
-        else{
-            p.setPrivilegiosUser();
-        }
-        
-        tablaPerfiles.crearPerfil(p);
-    }
-    
-    public static void randomJornada(String idJornada) throws Exception{
-        ArrayList<Partido> listaPartidos = tablaPartidos.partidosByIdJornada(Integer.parseInt(idJornada));
-            
-            for(int y = 0; y < listaPartidos.size(); y++){
-                ArrayList<PartidoJugado> listaPartidosJugados = tablaPartidosJugados.allPartidosJugadosByIdPartido(listaPartidos.get(y).getIdPartido());
-                
-                for(int z = 0; z < listaPartidosJugados.size(); z++){
-                    if(listaPartidosJugados.get(z).getPuntuacion() == 0){
-                        listaPartidosJugados.get(z).setPuntuacion((int) Math.random()* 1000);
-                        tablaPartidosJugados.modPartidoJugado(listaPartidosJugados.get(z));
-                    }
-                }
-            }
-        procesosXML.actualizarClasificacionGeneral();
-        procesosXML.actualizarTodasJornadas();
-        procesosXML.actualizarUltimaJornada();
-    }
-    
-    public static void randomTorneo(String idTorneo) throws Exception{
-        ArrayList<Jornada> listaJornadas = tablaJornadas.allJornadasByIdTorneo(idTorneo);
-        for(int x = 0; x < listaJornadas.size(); x++){
-            ArrayList<Partido> listaPartidos = tablaPartidos.partidosByIdJornada(listaJornadas.get(x).getIdJornada());
-            
-            for(int y = 0; y < listaPartidos.size(); y++){
-                ArrayList<PartidoJugado> listaPartidosJugados = tablaPartidosJugados.allPartidosJugadosByIdPartido(listaPartidos.get(y).getIdPartido());
-                
-                for(int z = 0; z < listaPartidosJugados.size(); z++){
-                    if(listaPartidosJugados.get(z).getPuntuacion() == 0){
-                        listaPartidosJugados.get(z).setPuntuacion((int) Math.random()* 1000);
-                        tablaPartidosJugados.modPartidoJugado(listaPartidosJugados.get(z));
-                    }
-                }
-            }
-            procesosXML.actualizarClasificacionGeneral();
-            procesosXML.actualizarTodasJornadas();
-            procesosXML.actualizarUltimaJornada();
-        }
-    }
 }

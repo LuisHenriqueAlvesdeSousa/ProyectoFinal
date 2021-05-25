@@ -12,6 +12,14 @@ public class Partido {
     public Partido() {
     }
 
+    public Partido(int idPartido, LocalTime hora, Jornada jornada) {
+        this.idPartido = idPartido;
+        this.hora = hora;
+        this.jornada = jornada;
+    }
+    
+    
+
     public Partido(LocalTime hora, Jornada jornada) {
         this.hora = hora;
         this.jornada = jornada;
@@ -41,11 +49,4 @@ public class Partido {
         this.jornada = jornada;
     }
 
-    
-    
-   
-    public Partido(LocalTime hora, Jornada jornada) {
-        this.hora = hora;
-        this.jornada = jornada;
-    }
 }
