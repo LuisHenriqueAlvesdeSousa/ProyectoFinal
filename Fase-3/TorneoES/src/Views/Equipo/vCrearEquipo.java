@@ -47,7 +47,7 @@ public class vCrearEquipo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bGuardar = new org.edisoncor.gui.button.ButtonAction();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
         labelRect2.setText("Formulario nuevo Equipo");
@@ -61,7 +61,6 @@ public class vCrearEquipo extends javax.swing.JFrame {
         panelFormulario.setOpaque(false);
         panelFormulario.setLayout(new java.awt.GridLayout(5, 4, 30, 25));
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Pais");
         panelFormulario.add(jLabel3);
@@ -72,7 +71,6 @@ public class vCrearEquipo extends javax.swing.JFrame {
         tfPais.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfPais);
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("ID Jefe");
         panelFormulario.add(jLabel4);
@@ -83,7 +81,6 @@ public class vCrearEquipo extends javax.swing.JFrame {
         tfIdJefe.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfIdJefe);
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("ID Preparador");
         panelFormulario.add(jLabel5);
@@ -94,7 +91,6 @@ public class vCrearEquipo extends javax.swing.JFrame {
         tfIdPreparador.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfIdPreparador);
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("ID Entrenador");
         panelFormulario.add(jLabel6);
@@ -111,7 +107,6 @@ public class vCrearEquipo extends javax.swing.JFrame {
         tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre");
 

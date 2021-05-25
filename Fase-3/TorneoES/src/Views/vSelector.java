@@ -35,7 +35,6 @@ public class vSelector extends javax.swing.JDialog {
             initComponents();
             personalizarVentana(titulo, label);
             this.setLocationRelativeTo(null);
-            this.setAlwaysOnTop(true);
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
             Dimension d1 = new Dimension(450,200);
@@ -71,6 +70,9 @@ public class vSelector extends javax.swing.JDialog {
                     break;
                 case "modequipo":
                     torneoes.TorneoES.llenarComboBoxEquipos(cbSeleccion);
+                    break;
+                case "borrarjugador":
+                    torneoes.TorneoES.llenarComboBoxJugadores(cbSeleccion);
                     break;
                     
             }
@@ -187,36 +189,44 @@ public class vSelector extends javax.swing.JDialog {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try {
             String seleccionado = String.valueOf(cbSeleccion.getSelectedItem());
-            int id = Integer.parseInt(seleccionado.substring(0, seleccionado.indexOf(":")));
-            switch(ventana){
-                case "modjefe":
-                    torneoes.TorneoES.abrirVentanaModJefe(id);
-                    break;
-                case "borrarjefe":
-                    BD.tablaJefes.eliminarJefe(id);
-                    JOptionPane.showMessageDialog(null, "Se ha eliminado el jefe seleccionado");
-                case "borrartorneo":
-                    BD.tablaTorneos.eliminarTorneo(id);
-                    JOptionPane.showMessageDialog(null, "Se ha eliminado el torneo seleccionado");
-                case "modequipo":
-                    Equipo equipoActual = torneoes.TorneoES.obtenerEquipo(String.valueOf(id));
-                    torneoes.TorneoES.abrirVModEquipo(equipoActual);
-                    break;
-                case "borrarequipo":
-                    BD.tablaEquipos.eliminarEquipo(String.valueOf(id));
-                    JOptionPane.showMessageDialog(null, "Se ha borrado el equipo seleccionado");
-                case "modperfil":
-                    Perfil perfilActual = torneoes.TorneoES.obtenerPerfil(String.valueOf(id));
-                    torneoes.TorneoES.abrirVModPerfil(perfilActual);
-                    break;
-                case "borrarperfil":
-                    BD.tablaPerfiles.eliminarPerfil(String.valueOf(id));
-                    JOptionPane.showMessageDialog(null, "Se ha borrado el perfil seleccionado");
-                    break;
-
-               
+            if(seleccionado!="null"){
+                int id = Integer.parseInt(seleccionado.substring(0, seleccionado.indexOf(":")));
+                switch(ventana){
+                    case "modjefe":
+                        torneoes.TorneoES.abrirVentanaModJefe(id);
+                        break;
+                    case "borrarjefe":
+                        BD.tablaJefes.eliminarJefe(id);
+                        JOptionPane.showMessageDialog(null, "Se ha eliminado el jefe seleccionado");
+                    case "borrartorneo":
+                        BD.tablaTorneos.eliminarTorneo(id);
+                        JOptionPane.showMessageDialog(null, "Se ha eliminado el torneo seleccionado");
+                    case "modequipo":
+                        Equipo equipoActual = torneoes.TorneoES.obtenerEquipo(String.valueOf(id));
+                        torneoes.TorneoES.abrirVModEquipo(equipoActual);
+                        break;
+                    case "borrarequipo":
+                        BD.tablaEquipos.eliminarEquipo(String.valueOf(id));
+                        JOptionPane.showMessageDialog(null, "Se ha borrado el equipo seleccionado");
+                    case "modperfil":
+                        Perfil perfilActual = torneoes.TorneoES.obtenerPerfil(String.valueOf(id));
+                        torneoes.TorneoES.abrirVModPerfil(perfilActual);
+                        break;
+                    case "borrarperfil":
+                        BD.tablaPerfiles.eliminarPerfil(String.valueOf(id));
+                        JOptionPane.showMessageDialog(null, "Se ha borrado el perfil seleccionado");
+                        break;
+                    case "borrarjugador":
+                        BD.tablaJugadores.eliminarJugador(id);
+                        JOptionPane.showMessageDialog(null, "Se ha borrado el jugador seleccionado");
+                        break;
+                }
             }
-            this.dispose();
+            else{
+                JOptionPane.showMessageDialog(null, "Problemas con la BD");       
+                this.dispose();        
+            }
+            
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
         }

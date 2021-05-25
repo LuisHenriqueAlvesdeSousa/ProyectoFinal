@@ -13,6 +13,7 @@ import UML.Entrenador;
 import UML.Equipo;
 import UML.Jefe;
 import UML.Jornada;
+import UML.Jugador;
 import UML.Partido;
 import UML.PartidoJugado;
 import UML.Perfil;
@@ -22,6 +23,9 @@ import Views.Equipo.vAllEquipo;
 import Views.Equipo.vCrearEquipo;
 import Views.Equipo.vModEquipo;
 import Views.Jefe.*;
+import Views.Jugador.vAllJugador;
+import Views.Jugador.vCrearJugador;
+import Views.Jugador.vModJugador;
 import Views.Perfil.vAllPerfil;
 import Views.Perfil.vCrearPerfil;
 import Views.Perfil.vModPerfil;
@@ -87,7 +91,22 @@ public class TorneoES {
         l.setVisible(true);
     }
     
-    public static void abrirVAllEquipo(){
+    public static void abrirVAllJugador() throws Exception{
+        vAllJugador ae = new vAllJugador();
+        ae.setVisible(true);
+    }
+    
+    public static void abrirVModJugador() throws Exception{
+        vModJugador ae = new vModJugador();
+        ae.setVisible(true);
+    }
+    
+    public static void abrirVCrearJugador() throws Exception{
+        vCrearJugador ae = new vCrearJugador();
+        ae.setVisible(true);
+    }
+    
+    public static void abrirVAllEquipo() throws Exception{
         vAllEquipo ae = new vAllEquipo();
         ae.setVisible(true);
     }
@@ -201,6 +220,13 @@ public class TorneoES {
         ArrayList<Jefe> jefes = tablaJefes.allJefe();
         for(Jefe jefe : jefes){
             comboBox.addItem(jefe.getIdPersona() + ": " + jefe.getApellido());
+        }
+    }
+    
+    public static void llenarComboBoxJugadores(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
+        ArrayList<Jugador> jugadores = BD.tablaJugadores.allJugador();
+        for(Jugador jugador : jugadores){
+            comboBox.addItem(jugador.getIdPersona() + ": " + jugador.getApellido());
         }
     }
     

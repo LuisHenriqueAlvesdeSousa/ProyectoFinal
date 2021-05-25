@@ -5,7 +5,7 @@
  */
 package Views.Perfil;
 
-import BD.tablaPerfiles;
+import Views.Jefe.*;
 import UML.Jefe;
 import UML.Perfil;
 import java.awt.Color;
@@ -23,31 +23,29 @@ import javax.swing.JOptionPane;
  */
 public class vAllPerfil extends javax.swing.JFrame {
 
-    ArrayList<Perfil> perfiles;
+    private static ArrayList<Perfil> perfiles;
     
-    public vAllPerfil(){
-        try{
-            llenarTextArea();
-            this.setLocationRelativeTo(null);
-            this.setAlwaysOnTop(true);
-            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
-            Dimension d1 = new Dimension(1000,500);
-            Dimension d2 = new Dimension(900,400);
-            this.setSize(d1);
+    public vAllPerfil() {
+        initComponents();
+        llenarTextArea();
+        this.setLocationRelativeTo(null);
+        this.setAlwaysOnTop(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+        Dimension d1 = new Dimension(1000,500);
+        Dimension d2 = new Dimension(900,400);
+        this.setSize(d1);
 
-            panelGeneral3.setSize(d1);
-            panelGeneral3.setPreferredSize(d1);
-            panelContenedor3.setPreferredSize(d2);
-            panelContenedor3.setSize(d2);
-            panelGeneral3.setColorPrimario(Color.white);
-            panelGeneral3.setColorSecundario(Color.orange);
-            panelGeneral3.setLayout(null);
-            panelContenedor3.setLocation(((d1.width)/2)-(panelContenedor3.getWidth()/2), (d1.height/2)-(panelContenedor3.getHeight()/2));
-        }catch(Exception ex){
-           JOptionPane.showMessageDialog(this, "Ha habido un problema al intentar cargar los perfiles der la base de datos.\n"
-                   + "Comprueba la conexion a la BD.");
-        }
+        panelGeneral.setSize(d1);
+        panelGeneral.setPreferredSize(d1);
+        panelContenedor.setPreferredSize(d2);
+        panelContenedor.setSize(d2);
+        panelGeneral.setColorPrimario(Color.white);
+        panelGeneral.setColorSecundario(Color.orange);
+        panelGeneral.setLayout(null);
+        panelContenedor.setLocation(((d1.width)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
+        //taDatosJefes.disable();
+            
     }
 
     /**
@@ -59,119 +57,122 @@ public class vAllPerfil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelGeneral3 = new org.edisoncor.gui.panel.Panel();
-        panelContenedor3 = new javax.swing.JPanel();
-        panelDatos3 = new javax.swing.JScrollPane();
-        taDatosJefes3 = new javax.swing.JTextArea();
-        bFiltrar3 = new org.edisoncor.gui.button.ButtonAction();
-        bBuscar3 = new org.edisoncor.gui.button.ButtonAction();
-        tfFiltro3 = new org.edisoncor.gui.textField.TextFieldRound();
         labelRect2 = new org.edisoncor.gui.label.LabelRect();
+        panelGeneral = new org.edisoncor.gui.panel.Panel();
+        panelContenedor = new javax.swing.JPanel();
+        panelDatos = new javax.swing.JScrollPane();
+        taDatosJefes = new javax.swing.JTextArea();
+        bFiltrar = new org.edisoncor.gui.button.ButtonAction();
+        bBuscar = new org.edisoncor.gui.button.ButtonAction();
+        tfFiltro = new org.edisoncor.gui.textField.TextFieldRound();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        panelGeneral3.setColorPrimario(new java.awt.Color(255, 255, 255));
-        panelGeneral3.setColorSecundario(new java.awt.Color(255, 178, 97));
-
-        panelContenedor3.setMaximumSize(new java.awt.Dimension(400, 400));
-        panelContenedor3.setOpaque(false);
-
-        taDatosJefes3.setColumns(20);
-        taDatosJefes3.setRows(5);
-        panelDatos3.setViewportView(taDatosJefes3);
-
-        bFiltrar3.setText("Filtrar");
-        bFiltrar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bFiltrar3ActionPerformed(evt);
-            }
-        });
-
-        bBuscar3.setText("Buscar");
-        bBuscar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bBuscar3ActionPerformed(evt);
-            }
-        });
-
-        tfFiltro3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tfFiltro3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        tfFiltro3.setCaretColor(new java.awt.Color(255, 204, 102));
-        tfFiltro3.setDisabledTextColor(new java.awt.Color(255, 204, 153));
-        tfFiltro3.setSelectionColor(new java.awt.Color(255, 153, 102));
-
-        javax.swing.GroupLayout panelContenedor3Layout = new javax.swing.GroupLayout(panelContenedor3);
-        panelContenedor3.setLayout(panelContenedor3Layout);
-        panelContenedor3Layout.setHorizontalGroup(
-            panelContenedor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContenedor3Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(bFiltrar3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tfFiltro3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(bBuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
-            .addComponent(panelDatos3)
-        );
-        panelContenedor3Layout.setVerticalGroup(
-            panelContenedor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContenedor3Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(panelDatos3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(panelContenedor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bFiltrar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelContenedor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bBuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfFiltro3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        javax.swing.GroupLayout panelGeneral3Layout = new javax.swing.GroupLayout(panelGeneral3);
-        panelGeneral3.setLayout(panelGeneral3Layout);
-        panelGeneral3Layout.setHorizontalGroup(
-            panelGeneral3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneral3Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addComponent(panelContenedor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-        );
-        panelGeneral3Layout.setVerticalGroup(
-            panelGeneral3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGeneral3Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(panelContenedor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1000, 500));
+        setResizable(false);
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
-        labelRect2.setText("Ventana informacion jefes");
+        labelRect2.setText("Ventana informacion perfiles");
         labelRect2.setColorDeBorde(new java.awt.Color(255, 153, 51));
+
+        panelGeneral.setColorPrimario(new java.awt.Color(255, 255, 255));
+        panelGeneral.setColorSecundario(new java.awt.Color(255, 178, 97));
+
+        panelContenedor.setMaximumSize(new java.awt.Dimension(400, 400));
+        panelContenedor.setOpaque(false);
+
+        taDatosJefes.setColumns(20);
+        taDatosJefes.setRows(5);
+        panelDatos.setViewportView(taDatosJefes);
+
+        bFiltrar.setText("Filtrar");
+        bFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bFiltrarActionPerformed(evt);
+            }
+        });
+
+        bBuscar.setText("Buscar");
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarActionPerformed(evt);
+            }
+        });
+
+        tfFiltro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfFiltro.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tfFiltro.setCaretColor(new java.awt.Color(255, 204, 102));
+        tfFiltro.setDisabledTextColor(new java.awt.Color(255, 204, 153));
+        tfFiltro.setSelectionColor(new java.awt.Color(255, 153, 102));
+
+        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
+        panelContenedor.setLayout(panelContenedorLayout);
+        panelContenedorLayout.setHorizontalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenedorLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(bFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
+            .addComponent(panelDatos)
+        );
+        panelContenedorLayout.setVerticalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenedorLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(panelDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
+        panelGeneral.setLayout(panelGeneralLayout);
+        panelGeneralLayout.setHorizontalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneralLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+        panelGeneralLayout.setVerticalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneralLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelRect2, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
-            .addComponent(panelGeneral3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelRect2, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)
+            .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(labelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelGeneral3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bFiltrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrar3ActionPerformed
+    private void bFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrarActionPerformed
         String filtro = tfFiltro.getText();
         if(!filtro.isEmpty()){
             String datosJefe = filtarDatos(filtro);
             if(datosJefe!=null){
-                taDatosJefes3.setText(datosJefe);
+                taDatosJefes.setText(datosJefe);
             }
             else{
                 JOptionPane.showMessageDialog(this, "No se han encontrado jefes relacionados con el filtro introducido.");
@@ -180,12 +181,13 @@ public class vAllPerfil extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this, "Introduce un filtro sobre el que buscar.");
         }
-    }//GEN-LAST:event_bFiltrar3ActionPerformed
+    }//GEN-LAST:event_bFiltrarActionPerformed
 
-    private void bBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscar3ActionPerformed
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         llenarTextArea();
-    }//GEN-LAST:event_bBuscar3ActionPerformed
-
+    }//GEN-LAST:event_bBuscarActionPerformed
+    
+    
     private void llenarTextArea(){
         try {
             perfiles = BD.tablaPerfiles.allPerfil();
@@ -194,7 +196,7 @@ public class vAllPerfil extends javax.swing.JFrame {
                 datosJefes+=perfil.toString();
                 datosJefes+="\n";
             }
-            taDatosJefes3.setText(datosJefes);
+            taDatosJefes.setText(datosJefes);
         }catch(java.lang.NullPointerException ex){
             JOptionPane.showMessageDialog(this, "Ha ocurido un error relacionado con la base de datos");           
             this.dispose();
@@ -218,37 +220,50 @@ public class vAllPerfil extends javax.swing.JFrame {
                 return null;
             }
     }
-    
-    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new vAllPerfil().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAction bBuscar;
-    private org.edisoncor.gui.button.ButtonAction bBuscar1;
-    private org.edisoncor.gui.button.ButtonAction bBuscar2;
-    private org.edisoncor.gui.button.ButtonAction bBuscar3;
     private org.edisoncor.gui.button.ButtonAction bFiltrar;
-    private org.edisoncor.gui.button.ButtonAction bFiltrar1;
-    private org.edisoncor.gui.button.ButtonAction bFiltrar2;
-    private org.edisoncor.gui.button.ButtonAction bFiltrar3;
     private org.edisoncor.gui.label.LabelRect labelRect2;
     private javax.swing.JPanel panelContenedor;
-    private javax.swing.JPanel panelContenedor1;
-    private javax.swing.JPanel panelContenedor2;
-    private javax.swing.JPanel panelContenedor3;
     private javax.swing.JScrollPane panelDatos;
-    private javax.swing.JScrollPane panelDatos1;
-    private javax.swing.JScrollPane panelDatos2;
-    private javax.swing.JScrollPane panelDatos3;
     private org.edisoncor.gui.panel.Panel panelGeneral;
-    private org.edisoncor.gui.panel.Panel panelGeneral1;
-    private org.edisoncor.gui.panel.Panel panelGeneral2;
-    private org.edisoncor.gui.panel.Panel panelGeneral3;
     private javax.swing.JTextArea taDatosJefes;
-    private javax.swing.JTextArea taDatosJefes1;
-    private javax.swing.JTextArea taDatosJefes2;
-    private javax.swing.JTextArea taDatosJefes3;
     private org.edisoncor.gui.textField.TextFieldRound tfFiltro;
-    private org.edisoncor.gui.textField.TextFieldRound tfFiltro1;
-    private org.edisoncor.gui.textField.TextFieldRound tfFiltro2;
-    private org.edisoncor.gui.textField.TextFieldRound tfFiltro3;
     // End of variables declaration//GEN-END:variables
 }

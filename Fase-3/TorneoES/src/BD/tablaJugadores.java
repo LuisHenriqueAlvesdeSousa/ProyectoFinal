@@ -49,6 +49,23 @@ public class tablaJugadores {
         BaseDatos.desconectar();
     }
     
+    public static void eliminarJugador(int idPersona) throws Exception{
+        BaseDatos.conectar();
+        con = BaseDatos.getCon();
+        
+        String plantilla = "DELETE FROM JUGADORES WHERE IDPERSONA=?;";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setInt(1, idPersona);
+        
+        int n = ps.executeUpdate();
+        
+        if (n!=1)
+            throw new Exception("Error, se ha eliminado más de un jugador");
+            
+        System.out.println("Jugador eliminado con exito");
+        BaseDatos.desconectar();
+    }
+    
     public static void eliminarJugador(Jugador jugador) throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
@@ -114,7 +131,7 @@ public class tablaJugadores {
         return jugadorActual;
     }
         
-    public static ArrayList<Jugador> allJugador (Jugador jugador) throws Exception{
+    public static ArrayList<Jugador> allJugador () throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -136,7 +153,7 @@ public class tablaJugadores {
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
-        Jugador jugadorActual = new Jugador();
+        
         ArrayList<Jugador> listaJugadores = new ArrayList();
         
         if(resultado == null){
@@ -145,6 +162,7 @@ public class tablaJugadores {
         }
         else{
             while(resultado.next()){
+                Jugador jugadorActual = new Jugador();
                 jugadorActual.setIdPersona(resultado.getInt("P.IDPERSONA"));
                 jugadorActual.setDni(resultado.getString("P.DNI"));
                 jugadorActual.setNombre(resultado.getString("P.NOMBRE"));

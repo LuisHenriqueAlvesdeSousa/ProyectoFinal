@@ -58,7 +58,7 @@ public class vModEquipo extends javax.swing.JFrame {
         bActualizar = new org.edisoncor.gui.button.ButtonAction();
         labelRect2 = new org.edisoncor.gui.label.LabelRect();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Actualizar.setColorPrimario(new java.awt.Color(255, 255, 255));
         Actualizar.setColorSecundario(new java.awt.Color(255, 178, 97));
@@ -70,7 +70,6 @@ public class vModEquipo extends javax.swing.JFrame {
         panelFormulario.setOpaque(false);
         panelFormulario.setLayout(new java.awt.GridLayout(5, 4, 30, 25));
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("ID Equipo");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -83,7 +82,6 @@ public class vModEquipo extends javax.swing.JFrame {
         tfIdEquipo.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfIdEquipo);
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Pais");
         panelFormulario.add(jLabel3);
@@ -94,7 +92,6 @@ public class vModEquipo extends javax.swing.JFrame {
         tfPais.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfPais);
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("ID Jefe");
         panelFormulario.add(jLabel4);
@@ -106,7 +103,6 @@ public class vModEquipo extends javax.swing.JFrame {
         tfIdJefe.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfIdJefe);
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("ID Preparador");
         panelFormulario.add(jLabel5);
@@ -118,7 +114,6 @@ public class vModEquipo extends javax.swing.JFrame {
         tfIdPreparador.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfIdPreparador);
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("ID Entrenador");
         panelFormulario.add(jLabel6);
@@ -136,7 +131,6 @@ public class vModEquipo extends javax.swing.JFrame {
         tfNombre.setDisabledTextColor(new java.awt.Color(255, 204, 153));
         tfNombre.setSelectionColor(new java.awt.Color(255, 153, 102));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre");
 

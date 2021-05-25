@@ -181,6 +181,11 @@ public class vMainAdmin extends javax.swing.JFrame {
         bAnadirJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoAñadir.png"))); // NOI18N
         bAnadirJugador.setText("Añadir Jugador");
         bAnadirJugador.setDescription(" ");
+        bAnadirJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnadirJugadorActionPerformed(evt);
+            }
+        });
         panelGestionJugadores.add(bAnadirJugador);
 
         bEliminarJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
@@ -404,8 +409,20 @@ public class vMainAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_bEliminarEquipoActionPerformed
 
     private void bVerDatosEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerDatosEquipoActionPerformed
-        torneoes.TorneoES.abrirVAllEquipo();
+        try {
+            torneoes.TorneoES.abrirVAllEquipo();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bVerDatosEquipoActionPerformed
+
+    private void bAnadirJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirJugadorActionPerformed
+        try {
+            torneoes.TorneoES.abrirVCrearJugador();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bAnadirJugadorActionPerformed
     
    
 

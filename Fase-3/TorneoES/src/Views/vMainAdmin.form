@@ -247,6 +247,9 @@
                         <Property name="text" type="java.lang.String" value="A&#xf1;adir Jugador"/>
                         <Property name="description" type="java.lang.String" value=" "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAnadirJugadorActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarJugador">
                       <Properties>
