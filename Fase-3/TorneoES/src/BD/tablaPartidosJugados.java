@@ -92,7 +92,7 @@ public class tablaPartidosJugados {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT IDEQUIPO, IDPARTIDO, NVL(PUNTUACION, 0) FROM PARTIDOS_JUGADOS;");
+        PreparedStatement ps = con.prepareStatement("SELECT IDEQUIPO, IDPARTIDO, NVL(PUNTUACION, 0) FROM PARTIDOS_JUGADOS");
         
 
         ResultSet resultado = ps.executeQuery();
@@ -115,7 +115,7 @@ public class tablaPartidosJugados {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
          
-        PreparedStatement ps = con.prepareStatement("SELECT IDEQUIPO, IDPARTIDO, NVL(PUNTUACION, 0) FROM PARTIDOS_JUGADOS WHERE IDPARTIDO = ?;");
+        PreparedStatement ps = con.prepareStatement("SELECT IDEQUIPO, IDPARTIDO, NVL(PUNTUACION, 0) FROM PARTIDOS_JUGADOS WHERE IDPARTIDO = ?");
         ps.setInt(1, idPartido);
 
         ResultSet resultado = ps.executeQuery();

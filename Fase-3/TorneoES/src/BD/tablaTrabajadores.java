@@ -47,7 +47,7 @@ public class tablaTrabajadores {
                                                 + " IDPERSONA = ?,"
                                                 + " OFICIO = ?,"
                                                 + " IDEQUIPO = ? "
-                          + "WHERE IDPERSONA = ?;";
+                          + "WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, t.getIdPersona());
         ps.setString(2, t.getOficio());
@@ -68,7 +68,7 @@ public class tablaTrabajadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM TRABAJADORES WHERE IDPERSONA = ?;";
+        String plantilla = "DELETE FROM TRABAJADORES WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, t.getIdPersona());
         
@@ -90,16 +90,16 @@ public class tablaTrabajadores {
                                 + " P.DNI,"
                                 + " P.NOMBRE,"
                                 + " P.APELLIDO,"
-                                + " P.FECHANACIMIENTO,"
+                                + " P.FECHA_NACIMIENTO,"
                                 + " P.SUELDO,"
                                 + " P.TELEFONO,"
-                                + " P.FECHACONTRATO,"
-                                + " P.FECHAFINCONTRATO,"
+                                + " P.FECHA_CONTRATO,"
+                                + " P.FECHA_FIN_CONTRATO,"
                                 + " P.NACIONALIDAD,"
                                 + " T.OFICIO,"
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA";
         PreparedStatement ps = con.prepareStatement(plantilla);
         
         ResultSet resultado = ps.executeQuery();
@@ -118,13 +118,13 @@ public class tablaTrabajadores {
                 trabajadorActual.setNombre(resultado.getString("P.NOMBRE"));
                 trabajadorActual.setApellido(resultado.getString("P.APELLIDO"));
                 trabajadorActual.setFechaNacimiento(
-                        resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("P.FECHA_NACIMIENTO").toLocalDate());
                 trabajadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
                 trabajadorActual.setTelefono(resultado.getString("P.TELEFONO"));
                 trabajadorActual.setFechaContrato(
-                        resultado.getDate("P.FECHACONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_CONTRATO").toLocalDate());
                 trabajadorActual.setFechaFinContrato(
-                        resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_FIN_CONTRATO").toLocalDate());
                 trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
                 trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
@@ -147,17 +147,17 @@ public class tablaTrabajadores {
                                 + " P.DNI,"
                                 + " P.NOMBRE,"
                                 + " P.APELLIDO,"
-                                + " P.FECHANACIMIENTO,"
+                                + " P.FECHA_NACIMIENTO,"
                                 + " P.SUELDO,"
                                 + " P.TELEFONO,"
-                                + " P.FECHACONTRATO,"
-                                + " P.FECHAFINCONTRATO,"
+                                + " P.FECHA_CONTRATO,"
+                                + " P.FECHA_FIN_CONTRATO,"
                                 + " P.NACIONALIDAD,"
                                 + " T.OFICIO,"
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
                             + "WHERE P.IDPERSONA = T.IDPERSONA"
-                            + "AND P.DNI = ?;";
+                            + "AND P.DNI = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, p.getDni());
         
@@ -176,13 +176,13 @@ public class tablaTrabajadores {
             trabajadorActual.setNombre(resultado.getString("P.NOMBRE"));
             trabajadorActual.setApellido(resultado.getString("P.APELLIDO"));
             trabajadorActual.setFechaNacimiento(
-                        resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("P.FECHA_NACIMIENTO").toLocalDate());
             trabajadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
             trabajadorActual.setTelefono(resultado.getString("P.TELEFONO"));
             trabajadorActual.setFechaContrato(
-                        resultado.getDate("P.FECHACONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_CONTRATO").toLocalDate());
             trabajadorActual.setFechaFinContrato(
-                        resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_FIN_CONTRATO").toLocalDate());
             trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
             trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
@@ -204,17 +204,17 @@ public class tablaTrabajadores {
                                 + " P.DNI,"
                                 + " P.NOMBRE,"
                                 + " P.APELLIDO,"
-                                + " P.FECHANACIMIENTO,"
+                                + " P.FECHA_NACIMIENTO,"
                                 + " P.SUELDO,"
                                 + " P.TELEFONO,"
-                                + " P.FECHACONTRATO,"
-                                + " P.FECHAFINCONTRATO,"
+                                + " P.FECHA_CONTRATO,"
+                                + " P.FECHA_FIN_CONTRATO,"
                                 + " P.NACIONALIDAD,"
                                 + " T.OFICIO,"
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
                             + "WHERE P.IDPERSONA = T.IDPERSONA"
-                            + "AND P.IDPERSONA = ?;";
+                            + "AND P.IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, idTrabajador);
         
@@ -233,13 +233,13 @@ public class tablaTrabajadores {
             trabajadorActual.setNombre(resultado.getString("P.NOMBRE"));
             trabajadorActual.setApellido(resultado.getString("P.APELLIDO"));
             trabajadorActual.setFechaNacimiento(
-                        resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("P.FECHA_NACIMIENTO").toLocalDate());
             trabajadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
             trabajadorActual.setTelefono(resultado.getString("P.TELEFONO"));
             trabajadorActual.setFechaContrato(
-                        resultado.getDate("P.FECHACONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_CONTRATO").toLocalDate());
             trabajadorActual.setFechaFinContrato(
-                        resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_FIN_CONTRATO").toLocalDate());
             trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
             trabajadorActual.setOficio(resultado.getString("T.OFICIO"));
@@ -261,17 +261,17 @@ public class tablaTrabajadores {
                                 + " P.DNI,"
                                 + " P.NOMBRE,"
                                 + " P.APELLIDO,"
-                                + " P.FECHANACIMIENTO,"
+                                + " P.FECHA_NACIMIENTO,"
                                 + " P.SUELDO,"
                                 + " P.TELEFONO,"
-                                + " P.FECHACONTRATO,"
-                                + " P.FECHAFINCONTRATO,"
+                                + " P.FECHA_CONTRATO,"
+                                + " P.FECHA_FIN_CONTRATO,"
                                 + " P.NACIONALIDAD,"
                                 + " T.OFICIO,"
                                 + " T.IDEQUIPO"
                             + "FROM PERSONAS P, TRABAJADORES T"
                             + "WHERE P.IDPERSONA = T.IDPERSONA"
-                            + "AND P.IDPERSONA = ?;";
+                            + "AND P.IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, p.getIdPersona());
         
@@ -290,13 +290,13 @@ public class tablaTrabajadores {
             trabajadorActual.setNombre(resultado.getString("P.NOMBRE"));
             trabajadorActual.setApellido(resultado.getString("P.APELLIDO"));
             trabajadorActual.setFechaNacimiento(
-                        resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("P.FECHA_NACIMIENTO").toLocalDate());
             trabajadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
             trabajadorActual.setTelefono(resultado.getString("P.TELEFONO"));
             trabajadorActual.setFechaContrato(
-                        resultado.getDate("P.FECHACONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_CONTRATO").toLocalDate());
             trabajadorActual.setFechaFinContrato(
-                        resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_FIN_CONTRATO").toLocalDate());
             trabajadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
             trabajadorActual.setOficio(resultado.getString("T.OFICIO"));

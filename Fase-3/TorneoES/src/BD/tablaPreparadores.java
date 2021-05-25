@@ -20,7 +20,7 @@ public class tablaPreparadores {
         con = BaseDatos.getCon();
         
         tablaPersonas.crearPersona(e);
-        PreparedStatement ps = con.prepareStatement("INSERT INTO PREPARADORES (IDPERSONA) VALUES (?);");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO PREPARADORES (IDPERSONA) VALUES (?)");
         ps.setInt(1, e.getIdPersona());
 
         
@@ -38,7 +38,7 @@ public class tablaPreparadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("DELETE FROM PREPARADORES WHERE IDPERSONA=?;");
+        PreparedStatement ps = con.prepareStatement("DELETE FROM PREPARADORES WHERE IDPERSONA=?");
         ps.setInt(1, e.getIdPersona());
 
 
@@ -84,7 +84,7 @@ public class tablaPreparadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM PREPARADORES;");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM PREPARADORES");
 
         ResultSet resultado = ps.executeQuery();
 

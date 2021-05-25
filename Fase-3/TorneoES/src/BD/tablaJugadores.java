@@ -34,7 +34,7 @@ public class tablaJugadores {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "UPDATE JUGADORES SET NICKNAME=? WHERE IDPERSONA=?;";
+        String plantilla = "UPDATE JUGADORES SET NICKNAME=? WHERE IDPERSONA=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, jugador.getNickname());
         ps.setInt(2, jugador.getIdPersona());
@@ -74,17 +74,17 @@ public class tablaJugadores {
                                 + " P.DNI,"
                                 + " P.NOMBRE,"
                                 + " P.APELLIDO,"
-                                + " P.FECHANACIMIENTO,"
+                                + " P.FECHA_NACIMIENTO,"
                                 + " P.SUELDO,"
                                 + " P.TELEFONO,"
-                                + " P.FECHACONTRATO,"
-                                + " P.FECHAFINCONTRATO,"
+                                + " P.FECHA_CONTRATO,"
+                                + " P.FECHA_FIN_CONTRATO,"
                                 + " P.NACIONALIDAD,"
                                 + " J.NICKNAME,"
                                 + " J.ROL,"
                                 + " J.IDEQUIPO"
                             + "FROM PERSONAS P, JUGADOR J"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, jugador.getIdPersona());
         
@@ -96,13 +96,13 @@ public class tablaJugadores {
         jugadorActual.setNombre(resultado.getString("P.NOMBRE"));
         jugadorActual.setApellido(resultado.getString("P.APELLIDO"));
         jugadorActual.setFechaNacimiento(
-                        resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+                        resultado.getDate("P.FECHA_NACIMIENTO").toLocalDate());
         jugadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
         jugadorActual.setTelefono(resultado.getString("P.TELEFONO"));
         jugadorActual.setFechaContrato(
-                        resultado.getDate("P.FECHACONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_CONTRATO").toLocalDate());
         jugadorActual.setFechaFinContrato(
-                        resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("P.FECHA_FIN_CONTRATO").toLocalDate());
         jugadorActual.setNacionalidad(
                         resultado.getString("P.NACIONALIDAD"));
         
@@ -122,17 +122,17 @@ public class tablaJugadores {
                                 + " P.DNI,"
                                 + " P.NOMBRE,"
                                 + " P.APELLIDO,"
-                                + " P.FECHANACIMIENTO,"
+                                + " P.FECHA_NACIMIENTO,"
                                 + " P.SUELDO,"
                                 + " P.TELEFONO,"
-                                + " P.FECHACONTRATO,"
-                                + " P.FECHAFINCONTRATO,"
+                                + " P.FECHA_CONTRATO,"
+                                + " P.FECHA_FIN_CONTRATO,"
                                 + " P.NACIONALIDAD,"
                                 + " J.NICKNAME,"
                                 + " J.ROL,"
                                 + " J.IDEQUIPO"
                             + "FROM PERSONAS P, JUGADOR J"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA;";
+                            + "WHERE P.IDPERSONA = T.IDPERSONA";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
@@ -150,13 +150,13 @@ public class tablaJugadores {
                 jugadorActual.setNombre(resultado.getString("P.NOMBRE"));
                 jugadorActual.setApellido(resultado.getString("P.APELLIDO"));
                 jugadorActual.setFechaNacimiento(
-                                resultado.getDate("P.FECHANACIMIENTO").toLocalDate());
+                                resultado.getDate("P.FECHA_NACIMIENTO").toLocalDate());
                 jugadorActual.setSueldo(resultado.getDouble("P.SUELDO"));
                 jugadorActual.setTelefono(resultado.getString("P.TELEFONO"));
                 jugadorActual.setFechaContrato(
-                                resultado.getDate("P.FECHACONTRATO").toLocalDate());
+                                resultado.getDate("P.FECHA_CONTRATO").toLocalDate());
                 jugadorActual.setFechaFinContrato(
-                                resultado.getDate("P.FECHAFINCONTRATO").toLocalDate());
+                                resultado.getDate("P.FECHA_FIN_CONTRATO").toLocalDate());
                 jugadorActual.setNacionalidad(
                                 resultado.getString("P.NACIONALIDAD"));
 

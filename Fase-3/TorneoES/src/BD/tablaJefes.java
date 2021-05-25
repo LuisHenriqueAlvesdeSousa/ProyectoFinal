@@ -21,7 +21,7 @@ public class tablaJefes {
         tablaPersonas.crearPersona(j);
         Persona personaActual = tablaPersonas.PersonaByDni(j);
         int id = personaActual.getIdPersona();
-        String plantilla = "INSERT INTO JEFES (IDPERSONA) VALUES (?);";
+        String plantilla = "INSERT INTO JEFES (IDPERSONA) VALUES (?)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, id);
         
@@ -43,7 +43,7 @@ public class tablaJefes {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM JEFES WHERE IDPERSONA = ?;";
+        String plantilla = "DELETE FROM JEFES WHERE IDPERSONA = ?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, j.getIdPersona());
         
@@ -66,7 +66,7 @@ public class tablaJefes {
         String plantilla = "SELECT * "
                             + "FROM PERSONAS "
                             + "WHERE IDPERSONA IN (SELECT * "
-                                                + "FROM JEFES);";
+                                                + "FROM JEFES)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         
         ResultSet resultado = ps.executeQuery();
@@ -89,9 +89,9 @@ public class tablaJefes {
                 jefeActual.setSueldo(resultado.getDouble("SUELDO"));
                 jefeActual.setTelefono(resultado.getString("TELEFONO"));
                 jefeActual.setFechaContrato(
-                        resultado.getDate("FECHACONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_CONTRATO").toLocalDate());
                 jefeActual.setFechaFinContrato(
-                        resultado.getDate("FECHAFINCONTRATO").toLocalDate());
+                        resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
                 jefeActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
                 listaJefes.add(jefeActual);

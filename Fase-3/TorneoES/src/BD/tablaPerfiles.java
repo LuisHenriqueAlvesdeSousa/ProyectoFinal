@@ -11,7 +11,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "INSERT INTO PERFILES VALUES (?,?,?,?);";
+        String plantilla = "INSERT INTO PERFILES VALUES (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, perfil.getIdPerfil());
         ps.setString(2, perfil.getUsuario());
@@ -31,7 +31,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM EQUIPOS WHERE IDEQUIPO=?;";
+        String plantilla = "DELETE FROM EQUIPOS WHERE IDEQUIPO=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, id);
         
@@ -46,7 +46,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "DELETE FROM EQUIPOS WHERE IDEQUIPO=?;";
+        String plantilla = "DELETE FROM EQUIPOS WHERE IDEQUIPO=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, perfil.getIdPerfil());
         
@@ -61,7 +61,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERFILES WHERE USER=? AND PASSWD=?;";
+        String plantilla = "SELECT * FROM PERFILES WHERE USER=? AND PASSWD=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, perfil.getUsuario());
         ps.setString(2, perfil.getPasswd());
@@ -92,7 +92,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERFILES WHERE IDPERFIL=?;";
+        String plantilla = "SELECT * FROM PERFILES WHERE IDPERFIL=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, id);
         
@@ -117,7 +117,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERFILES WHERE IDPERFIL=?;";
+        String plantilla = "SELECT * FROM PERFILES WHERE IDPERFIL=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setInt(1, perfil.getIdPerfil());
         
@@ -175,7 +175,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "UPDATE PERFILES SET USUARIO=? WHERE IDPERFIL=?;";
+        String plantilla = "UPDATE PERFILES SET USUARIO=? WHERE IDPERFIL=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, perfil.getUsuario());
         ps.setInt(2, perfil.getIdPerfil());
@@ -194,7 +194,7 @@ public class tablaPerfiles {
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "UPDATE PERFILES SET PASSWD=? WHERE IDPERFIL=?;";
+        String plantilla = "UPDATE PERFILES SET PASSWD=? WHERE IDPERFIL=?";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, perfil.getPasswd());
         ps.setInt(2, perfil.getIdPerfil());
