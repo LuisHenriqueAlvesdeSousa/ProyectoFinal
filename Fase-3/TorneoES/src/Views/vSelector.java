@@ -210,3 +210,19 @@ public class vSelector extends javax.swing.JDialog {
     private org.edisoncor.gui.panel.Panel panelGeneral;
     // End of variables declaration//GEN-END:variables
 }
+
+                case "modequipo":
+                    Equipo equipoActual = torneoes.TorneoES.obtenerEquipo(String.valueOf(id));
+                    torneoes.TorneoES.abrirVModEquipo(equipoActual);
+                    break;
+                case "borrarequipo":
+                    BD.tablaEquipos.eliminarEquipo(String.valueOf(id));
+                    JOptionPane.showMessageDialog(null, "Se ha borrado el equipo seleccionado");
+                case "modperfil":
+                    Perfil perfilActual = torneoes.TorneoES.obtenerPerfil(String.valueOf(id));
+                    break;
+                    torneoes.TorneoES.abrirVModPerfil(perfilActual);
+                case "borrarperfil":
+                    BD.tablaPerfiles.eliminarPerfil(String.valueOf(id));
+                    JOptionPane.showMessageDialog(null, "Se ha borrado el perfil seleccionado");
+                    break;
