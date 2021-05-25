@@ -51,7 +51,7 @@ public class vModPerfil extends javax.swing.JFrame {
         bActualizar = new org.edisoncor.gui.button.ButtonAction();
         labelRect2 = new org.edisoncor.gui.label.LabelRect();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panelGeneral.setColorPrimario(new java.awt.Color(255, 255, 255));
         panelGeneral.setColorSecundario(new java.awt.Color(255, 178, 97));
@@ -61,7 +61,6 @@ public class vModPerfil extends javax.swing.JFrame {
         panelFormulario.setOpaque(false);
         panelFormulario.setLayout(new java.awt.GridLayout(5, 4, 30, 25));
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("ID Perfil");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -75,7 +74,6 @@ public class vModPerfil extends javax.swing.JFrame {
         tfIdPerfil.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfIdPerfil);
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Usuario");
         panelFormulario.add(jLabel2);
@@ -86,7 +84,6 @@ public class vModPerfil extends javax.swing.JFrame {
         tfUsuario.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfUsuario);
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Contraseña");
         panelFormulario.add(jLabel3);
@@ -97,7 +94,6 @@ public class vModPerfil extends javax.swing.JFrame {
         tfPass.setSelectionColor(new java.awt.Color(255, 153, 102));
         panelFormulario.add(tfPass);
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Privilegio");
         panelFormulario.add(jLabel5);

@@ -69,6 +69,7 @@ public class TorneoES {
             //abrirVAllPerfil();
             //abrirVCrearPerfil();
             //abrirVModPerfil(perfilActual);
+            torneoes.TorneoES.abrirVMainAdmin();
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage() + e.getClass());
@@ -81,17 +82,17 @@ public class TorneoES {
         screenWidth = screenSize.width;
     }
     
-    public static void abrirVLogin() throws Exception{
+    public static void abrirVLogin(){
         vLogin l = new vLogin();
         l.setVisible(true);
     }
     
-    public static void abrirVAllEquipo() throws Exception{
+    public static void abrirVAllEquipo(){
         vAllEquipo ae = new vAllEquipo();
         ae.setVisible(true);
     }
     
-    public static void abrirVCrearEquipo() throws Exception{
+    public static void abrirVCrearEquipo(){
         vCrearEquipo ce = new vCrearEquipo();
         ce.setVisible(true);
     }
@@ -106,7 +107,7 @@ public class TorneoES {
         ap.setVisible(true);
     }
     
-    public static void abrirVCrearPerfil() throws Exception{
+    public static void abrirVCrearPerfil(){
         vCrearPerfil cp = new vCrearPerfil();
         cp.setVisible(true);
     }
@@ -203,6 +204,29 @@ public class TorneoES {
         }
     }
     
+    public static void llenarComboBoxEquipos(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
+        ArrayList<Equipo> equipos = BD.tablaEquipos.allEquipos();
+        for(Equipo equipo : equipos){
+            comboBox.addItem(equipo.getIdEquipo() + ": " + equipo.getNombre());
+        }
+    }
+    
+    public static void llenarComboBoxTorneos(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
+        ArrayList<Torneo> torneos = BD.tablaTorneos.allTorneos();
+        for(Torneo torneo : torneos){
+            comboBox.addItem(torneo.getIdTorneo() + ": " + torneo.getEstado());
+        }
+        
+    }
+    
+    public static void llenarComboBoxPerfiles(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
+        ArrayList<Perfil> perfiles = BD.tablaPerfiles.allPerfil();
+        for(Perfil perfil : perfiles){
+            comboBox.addItem(perfil.getIdPerfil() + ": " + perfil.getUsuario());
+        }
+        
+    }
+    
     public static void modificarPerfil(String idPerfil, String usuario, String pass) throws Exception{
         Perfil p = new Perfil();
         p.setIdPerfil(Integer.parseInt(idPerfil));
@@ -281,13 +305,7 @@ public class TorneoES {
             procesosXML.actualizarUltimaJornada();
         }
     }
-    public static void llenarComboBoxTorneos(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
-        ArrayList<Torneo> torneos = BD.tablaTorneos.allTorneos();
-        for(Torneo torneo : torneos){
-            comboBox.addItem(torneo.getIdTorneo() + ": " + torneo.getJornadas().get(0).getFecha().toString());
-        }
-        
-    }
+    
     
     
     

@@ -3,6 +3,7 @@ import java.sql.*;
 import UML.Perfil;
 import BD.BaseDatos;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class tablaPerfiles {
     private static Connection con;
@@ -77,7 +78,7 @@ public class tablaPerfiles {
             perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
             perfilActual.setUsuario(resultado.getString("USUARIO"));
             perfilActual.setPasswd(resultado.getString("PASSWD"));
-            if(resultado.getString("PRIVILEGIOS").equalsIgnoreCase("ADMIN")){
+            if(resultado.getString("PRIVILEGIO").equalsIgnoreCase("ADMIN")){
                 perfilActual.setPrivilegiosAdmin();
             }
             else{
@@ -97,20 +98,24 @@ public class tablaPerfiles {
         ps.setString(1, id);
         
         ResultSet resultado = ps.executeQuery();
-        
-        Perfil perfilActual = new Perfil();
-        perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
-        perfilActual.setUsuario(resultado.getString("USUARIO"));
-        perfilActual.setPasswd(resultado.getString("PASSWD"));
-        if(resultado.getString("PRIVILEGIOS").equalsIgnoreCase("ADMIN")){
-            perfilActual.setPrivilegiosAdmin();
+        if(resultado.next()){
+            Perfil perfilActual = new Perfil();
+            perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
+            perfilActual.setUsuario(resultado.getString("USUARIO"));
+            perfilActual.setPasswd(resultado.getString("PASSWD"));
+            if(resultado.getString("PRIVILEGIO").equalsIgnoreCase("ADMIN")){
+                perfilActual.setPrivilegiosAdmin();
+            }
+            else{
+                perfilActual.setPrivilegiosUser();
+            }
+            BaseDatos.desconectar();
+            return perfilActual;
         }
         else{
-            perfilActual.setPrivilegiosUser();
+            return null;
         }
         
-        BaseDatos.desconectar();
-        return perfilActual;
     }
     
     public static Perfil PerfilByIdPerfil (Perfil perfil) throws Exception{
@@ -122,53 +127,62 @@ public class tablaPerfiles {
         ps.setInt(1, perfil.getIdPerfil());
         
         ResultSet resultado = ps.executeQuery();
-        
-        Perfil perfilActual = new Perfil();
-        perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
-        perfilActual.setUsuario(resultado.getString("USUARIO"));
-        perfilActual.setPasswd(resultado.getString("PASSWD"));
-        if(resultado.getString("PRIVILEGIOS").equalsIgnoreCase("ADMIN")){
-            perfilActual.setPrivilegiosAdmin();
+         if(resultado.next()){
+            Perfil perfilActual = new Perfil();
+            perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
+            perfilActual.setUsuario(resultado.getString("USUARIO"));
+            perfilActual.setPasswd(resultado.getString("PASSWD"));
+            if(resultado.getString("PRIVILEGIO").equalsIgnoreCase("ADMIN")){
+                perfilActual.setPrivilegiosAdmin();
+            }
+            else{
+                perfilActual.setPrivilegiosUser();
+            }
+            BaseDatos.desconectar();
+            return perfilActual;
         }
         else{
-            perfilActual.setPrivilegiosUser();
+            BaseDatos.desconectar();
+            return null;
         }
-        
-        BaseDatos.desconectar();
-        return perfilActual;
     }
     
-    public static ArrayList<Perfil> allPerfil () throws Exception{
+    public static ArrayList<Perfil> allPerfil() throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
-        String plantilla = "SELECT * FROM PERFILES;";
+        String plantilla = "SELECT * FROM PERFILES";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         
-        Perfil perfilActual = new Perfil();
+        
         ArrayList<Perfil> listaPerfiles = new ArrayList();
         
-        if(resultado == null){
-            listaPerfiles = null;
-            System.out.println("No hay perfiles creados en la BD");
+        while(resultado.next()){
+            Perfil perfilActual = new Perfil();
+            perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
+            perfilActual.setUsuario(resultado.getString("USUARIO"));
+            perfilActual.setPasswd(resultado.getString("PASSWD"));
+            if(resultado.getString("PRIVILEGIO").equalsIgnoreCase("ADMIN")){
+                perfilActual.setPrivilegiosAdmin();
+            }
+            else{
+                perfilActual.setPrivilegiosUser();
+            }
+            listaPerfiles.add(perfilActual);
+        }
+        if(!listaPerfiles.isEmpty()){
+            BaseDatos.desconectar();
+            return listaPerfiles;
         }
         else{
-            while(resultado.next()){
-                perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
-                perfilActual.setUsuario(resultado.getString("USUARIO"));
-                perfilActual.setPasswd(resultado.getString("PASSWD"));
-                if(resultado.getString("PRIVILEGIOS").equalsIgnoreCase("ADMIN")){
-                    perfilActual.setPrivilegiosAdmin();
-                }
-                else{
-                    perfilActual.setPrivilegiosUser();
-                }
-            }
+            BaseDatos.desconectar();
+            JOptionPane.showMessageDialog(null, "No hay perfiles creados en la BD");
+            return null;
         }
         
-        BaseDatos.desconectar();
-        return listaPerfiles;
+        
+        
     }
     
     public static void modUsuarioPerfil (Perfil perfil) throws Exception{

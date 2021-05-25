@@ -76,10 +76,10 @@
       <SubComponents>
         <Component class="org.edisoncor.gui.label.LabelRect" name="lTitulo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Formulario nuevo jefe"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Formulario nuevo jefe"/>
             <Property name="colorDeBorde" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="99" red="ff" type="rgb"/>
             </Property>

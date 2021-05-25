@@ -189,7 +189,7 @@ public class vAllTorneo extends javax.swing.JFrame {
             torneos = BD.tablaTorneos.allTorneos();
             String datosTorneo = "";
             for(Torneo torneo : torneos){
-                datosTorneo+="Torneo ID: " + torneo.getIdTorneo() + torneo.getEstado();
+                datosTorneo+="Torneo ID: " + torneo.getIdTorneo() + " " + torneo.getEstado();
                 datosTorneo+="\n";
             }
             taDatosTorneo.setText(datosTorneo);

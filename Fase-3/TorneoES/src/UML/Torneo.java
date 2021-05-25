@@ -43,6 +43,11 @@ public class Torneo {
         this.jornadas.add(jornada);
     }
 
+    @Override
+    public String toString() {
+        return "Torneo: " + idTorneo + " Estado:" + estado;
+    }
+
     
         
 }

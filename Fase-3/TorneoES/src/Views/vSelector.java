@@ -59,6 +59,19 @@ public class vSelector extends javax.swing.JDialog {
                     break;
                 case "borrartorneo":
                     torneoes.TorneoES.llenarComboBoxTorneos(cbSeleccion);
+                    break;
+                case "borrarperfil":
+                    torneoes.TorneoES.llenarComboBoxPerfiles(cbSeleccion);
+                    break;
+                case "modperfil":
+                    torneoes.TorneoES.llenarComboBoxPerfiles(cbSeleccion);
+                    break;
+                case "borrarequipo":
+                    torneoes.TorneoES.llenarComboBoxEquipos(cbSeleccion);
+                    break;
+                case "modequipo":
+                    torneoes.TorneoES.llenarComboBoxEquipos(cbSeleccion);
+                    break;
                     
             }
         }catch(java.lang.NullPointerException ex){
@@ -200,6 +213,8 @@ public class vSelector extends javax.swing.JDialog {
                     BD.tablaPerfiles.eliminarPerfil(String.valueOf(id));
                     JOptionPane.showMessageDialog(null, "Se ha borrado el perfil seleccionado");
                     break;
+
+               
             }
             this.dispose();
         } catch (Exception ex) {

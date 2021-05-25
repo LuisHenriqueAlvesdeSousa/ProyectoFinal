@@ -56,7 +56,6 @@ public class vModTorneo extends javax.swing.JFrame {
         lTitulo.setColorDeBorde(new java.awt.Color(255, 153, 51));
 
         lSelector.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lSelector.setForeground(new java.awt.Color(0, 0, 0));
         lSelector.setText("Torneo:");
 
         bAplicar.setText("Aplicar");
@@ -66,8 +65,9 @@ public class vModTorneo extends javax.swing.JFrame {
             }
         });
 
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABIERTO", "CERRADO" }));
+
         lSelector1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lSelector1.setForeground(new java.awt.Color(0, 0, 0));
         lSelector1.setText("Estado:");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);

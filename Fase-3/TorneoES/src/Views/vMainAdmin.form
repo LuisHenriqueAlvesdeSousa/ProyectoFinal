@@ -65,6 +65,9 @@
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir Usuario"/>
                 <Property name="description" type="java.lang.String" value=" "/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAnadirUsuarioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarUsuario">
               <Properties>
@@ -75,6 +78,9 @@
                 <Property name="defaultCapable" type="boolean" value="false"/>
                 <Property name="description" type="java.lang.String" value=" "/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEliminarUsuarioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonTask" name="bEditarUsuario">
               <Properties>
@@ -96,6 +102,9 @@
                 <Property name="text" type="java.lang.String" value="Ver Lista Usarios"/>
                 <Property name="description" type="java.lang.String" value=" "/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bVerListaUsuariosActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -155,6 +164,9 @@
                         <Property name="text" type="java.lang.String" value="A&#xf1;adir Equipo"/>
                         <Property name="description" type="java.lang.String" value=" "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAnadirEquipoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="org.edisoncor.gui.button.ButtonTask" name="bEliminarEquipo">
                       <Properties>
@@ -171,6 +183,9 @@
                           <Insets value="[30, 50, 2, 14]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEliminarEquipoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="org.edisoncor.gui.button.ButtonTask" name="bEditarEquipo">
                       <Properties>
@@ -192,6 +207,9 @@
                         <Property name="text" type="java.lang.String" value="Ver Datos Equipo"/>
                         <Property name="description" type="java.lang.String" value=" "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bVerDatosEquipoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="org.edisoncor.gui.button.ButtonTask" name="bMostrarTrabajadores">
                       <Properties>

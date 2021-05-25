@@ -5,6 +5,8 @@
  */
 package Views;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -73,12 +75,22 @@ public class vMainAdmin extends javax.swing.JFrame {
         bAnadirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoAñadir.png"))); // NOI18N
         bAnadirUsuario.setText("Añadir Usuario");
         bAnadirUsuario.setDescription(" ");
+        bAnadirUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnadirUsuarioActionPerformed(evt);
+            }
+        });
         panelPerfiles.add(bAnadirUsuario);
 
         bEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
         bEliminarUsuario.setText("Eliminar Usuario");
         bEliminarUsuario.setDefaultCapable(false);
         bEliminarUsuario.setDescription(" ");
+        bEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarUsuarioActionPerformed(evt);
+            }
+        });
         panelPerfiles.add(bEliminarUsuario);
 
         bEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
@@ -94,6 +106,11 @@ public class vMainAdmin extends javax.swing.JFrame {
         bVerListaUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
         bVerListaUsuarios.setText("Ver Lista Usarios");
         bVerListaUsuarios.setDescription(" ");
+        bVerListaUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerListaUsuariosActionPerformed(evt);
+            }
+        });
         panelPerfiles.add(bVerListaUsuarios);
 
         tabGeneral.addTab("          PERFILES          ", panelPerfiles);
@@ -105,6 +122,11 @@ public class vMainAdmin extends javax.swing.JFrame {
         bAnadirEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoAñadir.png"))); // NOI18N
         bAnadirEquipo.setText("Añadir Equipo");
         bAnadirEquipo.setDescription(" ");
+        bAnadirEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnadirEquipoActionPerformed(evt);
+            }
+        });
         panelGestionEquipos.add(bAnadirEquipo);
 
         bEliminarEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEliminar.png"))); // NOI18N
@@ -115,6 +137,11 @@ public class vMainAdmin extends javax.swing.JFrame {
         bEliminarEquipo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         bEliminarEquipo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bEliminarEquipo.setMargin(new java.awt.Insets(30, 50, 2, 14));
+        bEliminarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarEquipoActionPerformed(evt);
+            }
+        });
         panelGestionEquipos.add(bEliminarEquipo);
 
         bEditarEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEditar.png"))); // NOI18N
@@ -130,6 +157,11 @@ public class vMainAdmin extends javax.swing.JFrame {
         bVerDatosEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoBuscar.png"))); // NOI18N
         bVerDatosEquipo.setText("Ver Datos Equipo");
         bVerDatosEquipo.setDescription(" ");
+        bVerDatosEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerDatosEquipoActionPerformed(evt);
+            }
+        });
         panelGestionEquipos.add(bVerDatosEquipo);
 
         bMostrarTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/iconoEquipo.png"))); // NOI18N
@@ -312,6 +344,7 @@ public class vMainAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_bMostrarTrabajadoresActionPerformed
 
     private void bEditarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarEquipoActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Selleciona equipo a modificar", "Equipo: ", "modequipo");
     }//GEN-LAST:event_bEditarEquipoActionPerformed
 
     private void bAnadirJefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirJefeActionPerformed
@@ -323,7 +356,7 @@ public class vMainAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_bEditarJefeActionPerformed
 
     private void bEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarUsuarioActionPerformed
-        // TODO add your handling code here:
+        torneoes.TorneoES.abrirVentanaSeleccion("Selleccione perfil a editar", "Perfil:", "modperfil");
     }//GEN-LAST:event_bEditarUsuarioActionPerformed
 
     private void bEliminarJefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarJefeActionPerformed
@@ -345,6 +378,34 @@ public class vMainAdmin extends javax.swing.JFrame {
     private void bEliminarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarTorneoActionPerformed
         torneoes.TorneoES.abrirVentanaSeleccion("Seleccione torneo a eliminar", "Torneo:", "borrartorneo");
     }//GEN-LAST:event_bEliminarTorneoActionPerformed
+
+    private void bAnadirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirUsuarioActionPerformed
+        torneoes.TorneoES.abrirVCrearPerfil();
+    }//GEN-LAST:event_bAnadirUsuarioActionPerformed
+
+    private void bEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarUsuarioActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Sellecione usuario a eliminar", "Usuario:", "borrarperfil");
+    }//GEN-LAST:event_bEliminarUsuarioActionPerformed
+
+    private void bVerListaUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerListaUsuariosActionPerformed
+        try {
+            torneoes.TorneoES.abrirVAllPerfil();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bVerListaUsuariosActionPerformed
+
+    private void bAnadirEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirEquipoActionPerformed
+        torneoes.TorneoES.abrirVCrearEquipo();
+    }//GEN-LAST:event_bAnadirEquipoActionPerformed
+
+    private void bEliminarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarEquipoActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Selecciona equipo a eliminar", "Equipo: ", "borrarequipo");
+    }//GEN-LAST:event_bEliminarEquipoActionPerformed
+
+    private void bVerDatosEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerDatosEquipoActionPerformed
+        torneoes.TorneoES.abrirVAllEquipo();
+    }//GEN-LAST:event_bVerDatosEquipoActionPerformed
     
    
 

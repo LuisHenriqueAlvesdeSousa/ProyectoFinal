@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class vModJefe extends javax.swing.JFrame {
 
+    int idPersona;
     String dni;
     String nombre;
     String apellido;
@@ -38,8 +39,7 @@ public class vModJefe extends javax.swing.JFrame {
     public vModJefe(int idPersona) {
         try {
             initComponents();
-            
-            
+            this.idPersona=idPersona;            
             this.setLocationRelativeTo(null);
             this.setAlwaysOnTop(true);
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -260,10 +260,10 @@ public class vModJefe extends javax.swing.JFrame {
         nacionalidad = tfNacionalidad.getText();
         if(validarDatos()){
             try {
-                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
-                System.out.println("Se ha insertado el jefe en la BD.");
+                torneoes.TorneoES.modJefe(idPersona, dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
+                JOptionPane.showMessageDialog(this, "Se ha actualizado el jefe correctamente");
             } catch (Exception ex) {
-                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
+                JOptionPane.showMessageDialog(this, "Ha habido un problema al modificar el jefe en la BD.");
                 System.out.println(ex.getMessage() +ex.getClass());
             }
         }
@@ -275,7 +275,7 @@ public class vModJefe extends javax.swing.JFrame {
                 if(nombre.matches("[a-zA-Z]{3,}")){
                     if(apellido.matches("[a-zA-Z]{3,}")){
                         if(sueldo.matches("\\d{3,6}")){
-                            if(telefono.matches("\\d{9}")){
+                            if(telefono.matches("\\d{9}") || telefono.matches("\\d\\d\\d \\d\\d \\d\\d \\d\\d")){
                                 if(fechaFinContrato.isAfter(fechaContrato)){
                                     if(!nacionalidad.isEmpty()){
                                         return true;
