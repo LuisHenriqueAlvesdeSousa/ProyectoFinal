@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class vModJefe extends javax.swing.JFrame {
 
+    int idPersona;
     String dni;
     String nombre;
     String apellido;
@@ -38,7 +39,7 @@ public class vModJefe extends javax.swing.JFrame {
     public vModJefe(int idPersona) {
         try {
             initComponents();
-            
+            this.idPersona=idPersona;
             
             this.setLocationRelativeTo(null);
             this.setAlwaysOnTop(true);
@@ -55,6 +56,7 @@ public class vModJefe extends javax.swing.JFrame {
             panelGeneral.setColorSecundario(Color.orange);
             panelGeneral.setLayout(null);
             panelContenedor.setLocation(((d1.width-100)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
+            
             
             colocarDatos(BD.tablaJefes.JefeByIdJefe(idPersona));
             
@@ -260,10 +262,10 @@ public class vModJefe extends javax.swing.JFrame {
         nacionalidad = tfNacionalidad.getText();
         if(validarDatos()){
             try {
-                torneoes.TorneoES.insertarJefe(dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
-                System.out.println("Se ha insertado el jefe en la BD.");
+                torneoes.TorneoES.modJefe(idPersona, dni, nombre, apellido, fechaNacimiento, Double.parseDouble(sueldo), telefono, fechaContrato, fechaFinContrato, nacionalidad);
+                JOptionPane.showMessageDialog(this, "Se ha modificado el jefe en la BD.");
             } catch (Exception ex) {
-                System.out.println("Ha habido un problema al insertar el jefe en la BD.");
+                JOptionPane.showMessageDialog(this,"Ha habido un problema al modificar el jefe en la BD.");
                 System.out.println(ex.getMessage() +ex.getClass());
             }
         }
