@@ -20,6 +20,13 @@ public class Jugador extends Persona{
         this.rol = rol;
         this.equipo = equipo;
     }
+    
+    public Jugador(String nickname, String rol, Equipo equipo, String dni, String nombre, String apellido, LocalDate fechaNacimiento, double sueldo, String telefono, LocalDate fechaContrato, LocalDate fechaFinContrato, String nacionalidad) {
+        super(dni, nombre, apellido, fechaNacimiento, sueldo, telefono, fechaContrato, fechaFinContrato, nacionalidad);
+        this.nickname = nickname;
+        this.rol = rol;
+        this.equipo = equipo;
+    }
 
     public String getNickname() {
         return nickname;

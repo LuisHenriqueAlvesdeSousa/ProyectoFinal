@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Views.Perfil;
+package Views.Jugador;
 
 import Views.Jefe.*;
 import UML.Jefe;
-import UML.Perfil;
+import UML.Jugador;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -21,11 +21,11 @@ import javax.swing.JOptionPane;
  *
  * @author 1GDAW04
  */
-public class vAllPerfil extends javax.swing.JFrame {
+public class vAllJugadores extends javax.swing.JFrame {
 
-    private static ArrayList<Perfil> perfiles;
+    private static ArrayList<Jugador> jugadores;
     
-    public vAllPerfil() {
+    public vAllJugadores() {
         initComponents();
         llenarTextArea();
         this.setLocationRelativeTo(null);
@@ -71,7 +71,7 @@ public class vAllPerfil extends javax.swing.JFrame {
         setResizable(false);
 
         labelRect2.setBackground(new java.awt.Color(255, 153, 0));
-        labelRect2.setText("Ventana informacion perfiles");
+        labelRect2.setText("Ventana informacion jugadores");
         labelRect2.setColorDeBorde(new java.awt.Color(255, 153, 51));
 
         panelGeneral.setColorPrimario(new java.awt.Color(255, 255, 255));
@@ -190,13 +190,13 @@ public class vAllPerfil extends javax.swing.JFrame {
     
     private void llenarTextArea(){
         try {
-            perfiles = BD.tablaPerfiles.allPerfil();
-            String datosJefes = "";
-            for(Perfil perfil : perfiles){
-                datosJefes+=perfil.toString();
-                datosJefes+="\n";
+            jugadores = BD.tablaJugadores.allJugador();
+            String datos = "";
+            for(Jugador jugador : jugadores){
+                datos+=jugador.toString();
+                datos+="\n";
             }
-            taDatosJefes.setText(datosJefes);
+            taDatosJefes.setText(datos);
         }catch(java.lang.NullPointerException ex){
             JOptionPane.showMessageDialog(this, "Ha ocurido un error relacionado con la base de datos");           
             this.dispose();
@@ -207,8 +207,8 @@ public class vAllPerfil extends javax.swing.JFrame {
     
     private String filtarDatos(String cadena){
         String totalLineas = "";
-            for(Perfil perfil : perfiles){
-                String linea=perfil.toString();
+            for(Jugador jugador : jugadores){
+                String linea=jugador.toString();
                 if(linea.matches(".*" + cadena + ".*") || linea.matches(".*" + cadena.toUpperCase() + ".*")){
                     totalLineas += linea + "\n";
                 }
@@ -237,13 +237,13 @@ public class vAllPerfil extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vAllJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vAllJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vAllJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vAllPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vAllJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -251,7 +251,7 @@ public class vAllPerfil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vAllPerfil().setVisible(true);
+                new vAllJugadores().setVisible(true);
             }
         });
     }

@@ -198,7 +198,6 @@ public class vSelector extends javax.swing.JDialog {
                 switch(ventana){
                     case "modjefe":
                         torneoes.TorneoES.abrirVentanaModJefe(id);
-                        this.dispose();
                         break;
                     case "borrarjefe":
                         BD.tablaJefes.eliminarJefe(id);
@@ -206,36 +205,28 @@ public class vSelector extends javax.swing.JDialog {
                     case "borrartorneo":
                         BD.tablaTorneos.eliminarTorneo(id);
                         JOptionPane.showMessageDialog(null, "Se ha eliminado el torneo seleccionado");
-                        this.dispose();
                     case "modequipo":
                         Equipo equipoActual = torneoes.TorneoES.obtenerEquipo(String.valueOf(id));
                         torneoes.TorneoES.abrirVModEquipo(equipoActual);
-                        this.dispose();
                         break;
                     case "borrarequipo":
                         BD.tablaEquipos.eliminarEquipo(String.valueOf(id));
                         JOptionPane.showMessageDialog(null, "Se ha borrado el equipo seleccionado");
-                        this.dispose();
                     case "modperfil":
                         Perfil perfilActual = torneoes.TorneoES.obtenerPerfil(String.valueOf(id));
                         torneoes.TorneoES.abrirVModPerfil(perfilActual);
-                        this.dispose();
                         break;
                     case "borrarperfil":
                         BD.tablaPerfiles.eliminarPerfil(String.valueOf(id));
                         JOptionPane.showMessageDialog(null, "Se ha borrado el perfil seleccionado");
-                        this.dispose();
                         break;
                     case "borrarjugador":
                         BD.tablaJugadores.eliminarJugador(id);
                         JOptionPane.showMessageDialog(null, "Se ha borrado el jugador seleccionado");
-                        this.dispose();
                         break;
                     case "modjugador":
-                        Jugador jugadorActual = BD.tablaJugadores.consultaByIdPersona(id);
-                        torneoes.TorneoES.abrirVModJugador(jugadorActual);
+                        torneoes.TorneoES.abrirVModJugador(id);
                         JOptionPane.showMessageDialog(null, "Se ha modificado el jugador seleccionado");
-                        this.dispose();
                         break;
                 }
             }
