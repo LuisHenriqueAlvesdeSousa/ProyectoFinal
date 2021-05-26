@@ -78,6 +78,11 @@ public class vSelector extends javax.swing.JDialog {
                 case "modjugador":
                     torneoes.TorneoES.llenarComboBoxJugadores(cbSeleccion);
                     break;
+                case "torneorandom":
+                    torneoes.TorneoES.llenarComboBoxTorneos(cbSeleccion);
+                    break;
+                case "jornadarandom":
+                    torneoes.TorneoES.llenarComboBoxJornadas(cbSeleccion);
                     
             }
         }catch(java.lang.NullPointerException ex){
@@ -228,6 +233,15 @@ public class vSelector extends javax.swing.JDialog {
                         torneoes.TorneoES.abrirVModJugador(id);
                         JOptionPane.showMessageDialog(null, "Se ha modificado el jugador seleccionado");
                         break;
+                    case "torneorandom":
+                        torneoes.TorneoES.randomTorneo(String.valueOf(id));
+                        JOptionPane.showMessageDialog(null, "Se ha actualizado todos los partidos del torneo");
+                        break;
+                    case "jornadarandom":
+                        torneoes.TorneoES.randomJornada(String.valueOf(id));
+                        JOptionPane.showMessageDialog(null, "Se ha actualizado todas las partidos de la jornada");
+                        break;
+                    
                 }
             }
             else{

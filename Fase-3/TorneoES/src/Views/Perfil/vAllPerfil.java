@@ -193,7 +193,7 @@ public class vAllPerfil extends javax.swing.JFrame {
             perfiles = BD.tablaPerfiles.allPerfil();
             String datosJefes = "";
             for(Perfil perfil : perfiles){
-                datosJefes+=perfil.toString();
+                datosJefes+="ID: " + perfil.getIdPerfil() + " Usuario:" + perfil.getUsuario() + " Contraseña:" + perfil.getPasswd();
                 datosJefes+="\n";
             }
             taDatosJefes.setText(datosJefes);
@@ -208,7 +208,7 @@ public class vAllPerfil extends javax.swing.JFrame {
     private String filtarDatos(String cadena){
         String totalLineas = "";
             for(Perfil perfil : perfiles){
-                String linea=perfil.toString();
+                String linea="ID: " + perfil.getIdPerfil() + " Usuario:" + perfil.getUsuario() + " Contraseña:" + perfil.getPasswd();
                 if(linea.matches(".*" + cadena + ".*") || linea.matches(".*" + cadena.toUpperCase() + ".*")){
                     totalLineas += linea + "\n";
                 }

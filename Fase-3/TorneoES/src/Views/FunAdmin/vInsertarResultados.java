@@ -4,18 +4,45 @@
  * and open the template in the editor.
  */
 package Views.FunAdmin;
-
+import BD.tablaEquipos;
+import BD.tablaPartidos;
+import BD.tablaPartidosJugados;
+import javax.swing.JOptionPane;
+import Excepciones.Java.*;
+import UML.Equipo;
+import UML.Jornada;
+import UML.Partido;
+import UML.PartidoJugado;
+import UML.Torneo;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import torneoes.TorneoES;
 /**
  *
  * @author 1GDAW04
  */
 public class vInsertarResultados extends javax.swing.JFrame {
 
-    /**
-     * Creates new form vInsertarResultados
-     */
+    ArrayList<Jornada> listaJornadas;
+    ArrayList<Equipo> listaEquipos;
+    ArrayList<PartidoJugado> listaPuntuacion;
+    ArrayList<Partido> listaPartidos;
+    public static int y = 0;
+    public static int z = 0;
     public vInsertarResultados() {
-        initComponents();
+        try {
+            initComponents();
+            this.setLocationRelativeTo(null);
+            torneoes.TorneoES.llenarComboBoxJornadas(CBJornada);
+            
+            listaPartidos = BD.tablaPartidos.partidosByIdJornada(listaJornadas.get(CBJornada.getSelectedIndex()).getIdJornada());
+            listaPuntuacion = BD.tablaPartidosJugados.allPartidosJugadosByIdPartido(listaPartidos.get(y).getIdPartido());
+            Equipo e = tablaEquipos.equipoByIdEquipo(String.valueOf(listaPuntuacion.get(z).getEquipo().getIdEquipo()));
+            tfEquipo.setText(e.getNombre());
+        } catch (Exception ex) {
+            Logger.getLogger(vInsertarResultados.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -27,57 +54,146 @@ public class vInsertarResultados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        panel1 = new org.edisoncor.gui.panel.Panel();
+        bAceptar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        bSalir = new javax.swing.JButton();
+        tfEquipo = new org.edisoncor.gui.textField.TextFieldRound();
+        tfPuntuacion = new org.edisoncor.gui.textField.TextFieldRound();
+        CBJornada = new org.edisoncor.gui.comboBox.ComboBoxRect();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        panel1.setColorPrimario(new java.awt.Color(223, 113, 22));
+        panel1.setColorSecundario(new java.awt.Color(255, 255, 255));
+
+        bAceptar.setText("Aplicar cambios");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Equipo");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Puntuación");
+
+        bSalir.setText("Salir");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+
+        tfEquipo.setEditable(false);
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(bAceptar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bSalir)))
+                        .addGap(88, 88, 88))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(CBJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149))
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(183, Short.MAX_VALUE)
+                .addComponent(CBJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(tfEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(189, 189, 189))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(138, 138, 138)))
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bAceptar)
+                    .addComponent(bSalir))
+                .addGap(82, 82, 82))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bSalirActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        try{
+            TorneoES.modificarPJ(Integer.parseInt(tfPuntuacion.getText()), listaPuntuacion.get(y).getPartido().getIdPartido(), listaPuntuacion.get(y).getEquipo().getIdEquipo());
+            while(y < listaPartidos.size()){
+                while(z < listaPuntuacion.size()){
+                    z++;
+                    tfPuntuacion.setText("");
+                    Equipo e = BD.tablaEquipos.equipoByIdEquipo(String.valueOf(listaPuntuacion.get(z).getEquipo().getIdEquipo()));
+                    tfEquipo.setText(e.getNombre());
+                    
+                }
+            z = 0;
+            y++;
+            listaPuntuacion = tablaPartidosJugados.allPartidosJugadosByIdPartido(listaPartidos.get(y).getIdPartido());
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El dato introducido es incorrecto");
+        }
+        
+    }//GEN-LAST:event_bAceptarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vInsertarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vInsertarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vInsertarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vInsertarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vInsertarResultados().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.comboBox.ComboBoxRect CBJornada;
+    private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bSalir;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private org.edisoncor.gui.panel.Panel panel1;
+    private org.edisoncor.gui.textField.TextFieldRound tfEquipo;
+    private org.edisoncor.gui.textField.TextFieldRound tfPuntuacion;
     // End of variables declaration//GEN-END:variables
 }

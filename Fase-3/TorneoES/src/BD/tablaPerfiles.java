@@ -71,10 +71,7 @@ public class tablaPerfiles {
         
         Perfil perfilActual = new Perfil();
         
-        if(resultado == null){
-            perfilActual = null;
-        }
-        else{
+        if(resultado.next()){
             perfilActual.setIdPerfil(resultado.getInt("IDPERFIL"));
             perfilActual.setUsuario(resultado.getString("USUARIO"));
             perfilActual.setPasswd(resultado.getString("PASSWD"));
@@ -84,9 +81,14 @@ public class tablaPerfiles {
             else{
                 perfilActual.setPrivilegiosUser();
             }
+            BaseDatos.desconectar();
+            return perfilActual;
+        }else{
+            BaseDatos.desconectar();
+            return null;
         }
-        BaseDatos.desconectar();
-        return perfilActual;
+        
+        
     }
     
     public static Perfil PerfilByIdPerfil (String id) throws Exception{

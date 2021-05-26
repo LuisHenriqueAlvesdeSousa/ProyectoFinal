@@ -179,7 +179,7 @@ public class tablaJugadores {
         return jugadorActual;
     }
         
-    public static ArrayList<Jugador> allJugador () throws Exception{
+    public static ArrayList<Jugador> allJugador() throws Exception{
         BaseDatos.conectar();
         con = BaseDatos.getCon();
         
@@ -197,7 +197,7 @@ public class tablaJugadores {
                                 + " J.ROL,"
                                 + " J.IDEQUIPO"
                             + "FROM PERSONAS P, JUGADOR J"
-                            + "WHERE P.IDPERSONA = T.IDPERSONA";
+                            + "WHERE P.IDPERSONA = J.IDPERSONA";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet resultado = ps.executeQuery();
         

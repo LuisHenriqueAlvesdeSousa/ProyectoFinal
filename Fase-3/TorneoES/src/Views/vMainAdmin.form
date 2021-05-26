@@ -446,28 +446,43 @@
       <SubComponents>
         <Component class="org.edisoncor.gui.button.ButtonAction" name="bImprimirJornadas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="IMPRIMIR TODAS LAS JORNADAS"/>
+            <Property name="text" type="java.lang.String" value="ACTUALIZAR TODAS LAS JORNADAS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirJornadasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonAction" name="bImprimirClasificacion">
           <Properties>
             <Property name="text" type="java.lang.String" value="IMPRIMIR CLASIFICACION GENERAL"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirClasificacionActionPerformed"/>
+          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonAction" name="bInsertarResultados">
           <Properties>
             <Property name="text" type="java.lang.String" value="INSERTAR RESULTADOS JORNADA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bInsertarResultadosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonAction" name="bJornadasRandom">
           <Properties>
             <Property name="text" type="java.lang.String" value="JORNADAS RANDOM"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bJornadasRandomActionPerformed"/>
+          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonAction" name="bTorneoRandom">
           <Properties>
             <Property name="text" type="java.lang.String" value="FINALIZAR TORNEO RANDOM"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bTorneoRandomActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

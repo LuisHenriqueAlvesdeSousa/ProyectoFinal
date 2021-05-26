@@ -55,7 +55,7 @@ public class vCrearJugador extends javax.swing.JFrame {
             panelGeneral.setColorSecundario(Color.orange);
             panelGeneral.setLayout(null);
             panelContenedor.setLocation(((d1.width-100)/2)-(panelContenedor.getWidth()/2), (d1.height/2)-(panelContenedor.getHeight()/2));
-            //torneoes.TorneoES.llenarComboBoxEquipos(cbEquipos);
+            torneoes.TorneoES.llenarComboBoxEquipos(cbEquipos);
         } catch (Exception ex) {
             Logger.getLogger(vCrearJugador.class.getName()).log(Level.SEVERE, null, ex);
         }

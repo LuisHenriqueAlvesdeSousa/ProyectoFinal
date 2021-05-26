@@ -8,6 +8,7 @@ package Views;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -325,19 +326,44 @@ public class vMainAdmin extends javax.swing.JFrame {
         panelGeneral.setForeground(new java.awt.Color(0, 0, 51));
         panelGeneral.setLayout(new java.awt.GridLayout(3, 2, 40, 50));
 
-        bImprimirJornadas.setText("IMPRIMIR TODAS LAS JORNADAS");
+        bImprimirJornadas.setText("ACTUALIZAR TODAS LAS JORNADAS");
+        bImprimirJornadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimirJornadasActionPerformed(evt);
+            }
+        });
         panelGeneral.add(bImprimirJornadas);
 
         bImprimirClasificacion.setText("IMPRIMIR CLASIFICACION GENERAL");
+        bImprimirClasificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimirClasificacionActionPerformed(evt);
+            }
+        });
         panelGeneral.add(bImprimirClasificacion);
 
         bInsertarResultados.setText("INSERTAR RESULTADOS JORNADA");
+        bInsertarResultados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInsertarResultadosActionPerformed(evt);
+            }
+        });
         panelGeneral.add(bInsertarResultados);
 
         bJornadasRandom.setText("JORNADAS RANDOM");
+        bJornadasRandom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bJornadasRandomActionPerformed(evt);
+            }
+        });
         panelGeneral.add(bJornadasRandom);
 
         bTorneoRandom.setText("FINALIZAR TORNEO RANDOM");
+        bTorneoRandom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTorneoRandomActionPerformed(evt);
+            }
+        });
         panelGeneral.add(bTorneoRandom);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -360,7 +386,11 @@ public class vMainAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bMostrarTrabajadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrarTrabajadoresActionPerformed
-        // TODO add your handling code here:
+        try {
+            torneoes.TorneoES.abrirVAllTrabajadoresEquipo();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bMostrarTrabajadoresActionPerformed
 
     private void bEditarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarEquipoActionPerformed
@@ -455,6 +485,40 @@ public class vMainAdmin extends javax.swing.JFrame {
         }
       
     }//GEN-LAST:event_bVerJugadorActionPerformed
+
+    private void bInsertarResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarResultadosActionPerformed
+        try {
+            torneoes.TorneoES.abrirVInsertarResultados();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bInsertarResultadosActionPerformed
+
+    private void bImprimirJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirJornadasActionPerformed
+        try {
+            BD.procesosXML.actualizarTodasJornadas();
+            JOptionPane.showMessageDialog(this, "Se han actualizado las jornadas en la base de datos.");
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bImprimirJornadasActionPerformed
+
+    private void bTorneoRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTorneoRandomActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Selecciona torneo", "Torneo:", "torneorandom");
+    }//GEN-LAST:event_bTorneoRandomActionPerformed
+
+    private void bImprimirClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirClasificacionActionPerformed
+        try {
+            BD.procesosXML.actualizarClasificacionGeneral();
+            JOptionPane.showMessageDialog(this, "Se han actualizado los partidos en la base de datos.");
+        } catch (Exception ex) {
+            Logger.getLogger(vMainAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bImprimirClasificacionActionPerformed
+
+    private void bJornadasRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadasRandomActionPerformed
+        torneoes.TorneoES.abrirVentanaSeleccion("Seleccione jornada", "Jornada:", "jornadarandom");
+    }//GEN-LAST:event_bJornadasRandomActionPerformed
     
    
 

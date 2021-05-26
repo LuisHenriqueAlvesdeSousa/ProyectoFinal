@@ -5,6 +5,13 @@
  */
 package Views;
 
+import javax.swing.JFrame;
+import torneoes.TorneoES;
+import BD.procesosXML.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1GDAW04
@@ -16,6 +23,7 @@ public class vMainUser extends javax.swing.JFrame {
      */
     public vMainUser() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -27,21 +35,150 @@ public class vMainUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel1 = new org.edisoncor.gui.panel.Panel();
+        panel2 = new org.edisoncor.gui.panel.Panel();
+        jLabel1 = new javax.swing.JLabel();
+        bSalir = new org.edisoncor.gui.button.ButtonAction();
+        bTop3 = new org.edisoncor.gui.button.ButtonAction();
+        bClasificacionGen = new org.edisoncor.gui.button.ButtonAction();
+        bUltimaJor = new org.edisoncor.gui.button.ButtonAction();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panel1.setColorPrimario(new java.awt.Color(223, 113, 22));
+        panel1.setColorSecundario(new java.awt.Color(255, 255, 255));
+
+        panel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+        panel2.setColorPrimario(new java.awt.Color(255, 255, 255));
+        panel2.setColorSecundario(new java.awt.Color(223, 113, 22));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/Imagenes/mainuser.png"))); // NOI18N
+
+        bSalir.setText("SALIR");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+
+        bTop3.setText("TOP 3");
+        bTop3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTop3ActionPerformed(evt);
+            }
+        });
+
+        bClasificacionGen.setText("CLASIFICACIÓN GENERAL");
+        bClasificacionGen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bClasificacionGenActionPerformed(evt);
+            }
+        });
+
+        bUltimaJor.setText("ÚLTIMA JORNADA");
+        bUltimaJor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bUltimaJorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(bTop3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bClasificacionGen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bUltimaJor, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(bClasificacionGen, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(bUltimaJor, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(bTop3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(578, 578, 578)
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1162, Short.MAX_VALUE))
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(843, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1001, 1001, 1001))
         );
+
+        panel1.setSize(torneoes.TorneoES.screenWidth, torneoes.TorneoES.screenHeight);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bClasificacionGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClasificacionGenActionPerformed
+        try {
+            BD.procesosXML.actualizarClasificacionGeneral();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bClasificacionGenActionPerformed
+
+    private void bUltimaJorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUltimaJorActionPerformed
+        try {
+            BD.procesosXML.actualizarUltimaJornada();
+        } catch (Exception ex) {
+            Logger.getLogger(vMainUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bUltimaJorActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bSalirActionPerformed
+
+    private void bTop3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTop3ActionPerformed
+        try {
+            JOptionPane.showMessageDialog(null, BD.tablaPartidosJugados.top3());
+        } catch (Exception ex) {
+            Logger.getLogger(vMainUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bTop3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +216,12 @@ public class vMainUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.button.ButtonAction bClasificacionGen;
+    private org.edisoncor.gui.button.ButtonAction bSalir;
+    private org.edisoncor.gui.button.ButtonAction bTop3;
+    private org.edisoncor.gui.button.ButtonAction bUltimaJor;
+    private javax.swing.JLabel jLabel1;
+    private org.edisoncor.gui.panel.Panel panel1;
+    private org.edisoncor.gui.panel.Panel panel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -254,12 +254,7 @@ public class tablaPersonas {
         
         Persona personaActual = new Persona();
         
-        if(resultado == null){
-            personaActual = null;
-            System.out.println("Persona no encontrada.");
-        }
-        else{
-            resultado.next();
+        if(resultado.next()){
             personaActual.setIdPersona(resultado.getInt("IDPERSONA"));
             personaActual.setDni(resultado.getString("DNI"));
             personaActual.setNombre(resultado.getString("NOMBRE"));
@@ -270,15 +265,21 @@ public class tablaPersonas {
             personaActual.setTelefono(resultado.getString("TELEFONO"));
             personaActual.setFechaContrato(
                         resultado.getDate("FECHA_CONTRATO").toLocalDate());
-            personaActual.setFechaFinContrato(
-                        resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
+            if(resultado.getDate("FECHA_FIN_CONTRATO")!=null){
+                personaActual.setFechaFinContrato(
+                            resultado.getDate("FECHA_FIN_CONTRATO").toLocalDate());
+            }
             personaActual.setNacionalidad(
                         resultado.getString("NACIONALIDAD"));
             
             System.out.println("Persona encontrada con exito.");
+            BaseDatos.desconectar();
+            return personaActual;
         }
-        
-        BaseDatos.desconectar();
-        return personaActual;
+        else{
+            BaseDatos.desconectar();
+            return null;
+        }
+  
     }
 }

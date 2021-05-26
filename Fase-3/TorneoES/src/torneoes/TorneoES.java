@@ -8,7 +8,6 @@ import BD.tablaPartidos;
 import BD.tablaPartidosJugados;
 import BD.tablaPerfiles;
 import static BD.tablaPerfiles.*;
-import BD.tablaTorneos;
 import UML.Entrenador;
 import UML.Equipo;
 import UML.Jefe;
@@ -22,6 +21,8 @@ import UML.Torneo;
 import Views.Equipo.vAllEquipo;
 import Views.Equipo.vCrearEquipo;
 import Views.Equipo.vModEquipo;
+import Views.FunAdmin.vAllEquiposTrab;
+import Views.FunAdmin.vInsertarResultados;
 import Views.Jefe.*;
 import Views.Jugador.vAllJugadores;
 import Views.Jugador.vCrearJugador;
@@ -30,20 +31,16 @@ import Views.Perfil.vAllPerfil;
 import Views.Perfil.vCrearPerfil;
 import Views.Perfil.vModPerfil;
 import Views.Torneo.*;
-import Views.vLogin;
 import Views.vMainAdmin;
 import Views.vMainUser;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.util.ArrayList;
-
-
 import Views.vLogin;
 import Views.vSelector;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -66,14 +63,8 @@ public class TorneoES {
             equipoActual.setIdEquipo(1);
             
             getDimension();
-            //abrirVLogin();
-            //abrirVAllEquipo();
-            //abrirVCrearEquipo();
-            //abrirVModEquipo(equipoActual);
-            //abrirVAllPerfil();
-            //abrirVCrearPerfil();
-            //abrirVModPerfil(perfilActual);
-            torneoes.TorneoES.abrirVMainAdmin();
+            abrirVLogin();
+          
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage() + e.getClass());
@@ -118,6 +109,16 @@ public class TorneoES {
     
     public static void abrirVModEquipo(Equipo e) throws Exception{
         vModEquipo me = new vModEquipo(e);
+        me.setVisible(true);
+    }
+    
+    public static void abrirVAllTrabajadoresEquipo() throws Exception{
+        vAllEquiposTrab me = new vAllEquiposTrab();
+        me.setVisible(true);
+    }
+    
+    public static void abrirVInsertarResultados() throws Exception{
+        vInsertarResultados me = new vInsertarResultados();
         me.setVisible(true);
     }
     
@@ -249,6 +250,13 @@ public class TorneoES {
         }
     }
     
+    public static void llenarComboBoxJornadas(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
+        ArrayList<Jornada> jornadas = BD.tablaJornadas.allJornadas();
+        for(Jornada jornada : jornadas){
+            comboBox.addItem(jornada.getIdJornada() + ": " + jornada.getFecha());
+        }
+    }
+    
     public static void llenarComboBoxTorneos(org.edisoncor.gui.comboBox.ComboBoxRect comboBox ) throws Exception{
         ArrayList<Torneo> torneos = BD.tablaTorneos.allTorneos();
         for(Torneo torneo : torneos){
@@ -344,6 +352,19 @@ public class TorneoES {
         }
     }
     
+    
+    public static void modificarPJ(int puntuacion, int idPartido, int idEq){
+        try {
+            Partido p = new Partido();
+            p.setIdPartido(idPartido);
+            Equipo e = new Equipo();
+            e.setIdEquipo(idEq);
+            PartidoJugado UltimoPartido = new PartidoJugado(p, e, puntuacion);
+            tablaPartidosJugados.modPartidoJugado(UltimoPartido);
+        } catch (Exception ex) {
+            Logger.getLogger(TorneoES.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
     

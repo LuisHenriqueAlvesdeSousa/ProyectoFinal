@@ -188,7 +188,7 @@ public class vAllEquipo extends javax.swing.JFrame {
             listaEquipos = BD.tablaEquipos.allEquipos();
             String datos = "";
             for(Equipo equipo : listaEquipos){
-                datos+=equipo.toString();
+                datos+=equipo.getIdEquipo() + " " + equipo.getNombre() + equipo.getPais();
                 datos+="\n";
             }
             taDatosJefes.setText(datos);
